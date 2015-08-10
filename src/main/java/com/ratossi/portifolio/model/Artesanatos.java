@@ -5,19 +5,27 @@
  */
 package com.ratossi.portifolio.model;
 
+
+import java.io.Serializable;
 import java.util.Objects;
+import javax.inject.Named;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
+
+
 
 /**
  *
  * @author Darlan
  */
-public class Artesanatos {
+@Entity
+@Named
+public class Artesanatos implements Serializable {
    
    @Id
    @GeneratedValue(strategy = GenerationType.AUTO)
@@ -31,9 +39,9 @@ public class Artesanatos {
    private String tipo;
    
    @Column
-   @OneToOne
-   @JoinColumn( name = "idArtesao")
-   private Artesao artesao;
+   @ManyToOne
+   @JoinColumn
+   private Integer artesao;
    
    @Column
    private String comentario;
@@ -62,11 +70,11 @@ public class Artesanatos {
         this.tipo = tipo;
     }
 
-    public Artesao getArtesao() {
+    public Integer getArtesao() {
         return artesao;
     }
 
-    public void setArtesao(Artesao artesao) {
+    public void setArtesao(Integer artesao) {
         this.artesao = artesao;
     }
 
@@ -80,12 +88,12 @@ public class Artesanatos {
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 23 * hash + Objects.hashCode(this.idAtesanato);
-        hash = 23 * hash + Objects.hashCode(this.nome);
-        hash = 23 * hash + Objects.hashCode(this.tipo);
-        hash = 23 * hash + Objects.hashCode(this.artesao);
-        hash = 23 * hash + Objects.hashCode(this.comentario);
+        int hash = 7;
+        hash = 97 * hash + Objects.hashCode(this.idAtesanato);
+        hash = 97 * hash + Objects.hashCode(this.nome);
+        hash = 97 * hash + Objects.hashCode(this.tipo);
+        hash = 97 * hash + Objects.hashCode(this.artesao);
+        hash = 97 * hash + Objects.hashCode(this.comentario);
         return hash;
     }
 
@@ -115,6 +123,6 @@ public class Artesanatos {
         }
         return true;
     }
-   
+    
     
 }

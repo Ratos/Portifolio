@@ -3,6 +3,7 @@
   <persistence-unit name="com.ratossi_portifolio_war_1.0-SNAPSHOTPU" transaction-type="JTA">
     <jta-data-source>PostGres</jta-data-source>
     <class>com.ratossi.portifolio.model.Artesao</class>
+    <class>com.ratossi.portifolio.model.Artesanatos</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.schema-generation.database.action" value="create"/>
