@@ -26,7 +26,7 @@ public class Artesao implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column
-    private Integer id;
+    private Integer idArtesao;
     @Column
     private String nome;
     @Column
@@ -34,12 +34,12 @@ public class Artesao implements Serializable {
     @Column
     private String senha;
 
-    public Integer getId() {
-        return id;
+    public Integer getIdArtesao() {
+        return idArtesao;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdArtesao(Integer idArtesao) {
+        this.idArtesao = idArtesao;
     }
 
     public String getNome() {
@@ -69,7 +69,7 @@ public class Artesao implements Serializable {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 67 * hash + Objects.hashCode(this.id);
+        hash = 67 * hash + Objects.hashCode(this.idArtesao);
         hash = 67 * hash + Objects.hashCode(this.nome);
         hash = 67 * hash + Objects.hashCode(this.usuario);
         hash = 67 * hash + Objects.hashCode(this.senha);
@@ -85,7 +85,7 @@ public class Artesao implements Serializable {
             return false;
         }
         final Artesao other = (Artesao) obj;
-        if (!Objects.equals(this.id, other.id)) {
+        if (!Objects.equals(this.idArtesao, other.idArtesao)) {
             return false;
         }
         if (!Objects.equals(this.nome, other.nome)) {
