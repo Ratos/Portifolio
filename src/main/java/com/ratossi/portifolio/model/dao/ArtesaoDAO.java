@@ -15,4 +15,5 @@ public interface ArtesaoDAO {
  
     void salvar(Artesao artesao);
     void remover(Artesao artesao);
+   <list> Artesao busca();
 }

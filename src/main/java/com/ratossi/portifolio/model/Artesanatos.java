@@ -14,8 +14,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 
 
 
@@ -39,9 +37,7 @@ public class Artesanatos implements Serializable {
    private String tipo;
    
    @Column
-   @ManyToOne
-   @JoinColumn
-   private Integer artesao;
+   private String artesao;
    
    @Column
    private String comentario;
@@ -70,11 +66,11 @@ public class Artesanatos implements Serializable {
         this.tipo = tipo;
     }
 
-    public Integer getArtesao() {
+    public String getArtesao() {
         return artesao;
     }
 
-    public void setArtesao(Integer artesao) {
+    public void setArtesao(String artesao) {
         this.artesao = artesao;
     }
 
@@ -88,12 +84,12 @@ public class Artesanatos implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 97 * hash + Objects.hashCode(this.idAtesanato);
-        hash = 97 * hash + Objects.hashCode(this.nome);
-        hash = 97 * hash + Objects.hashCode(this.tipo);
-        hash = 97 * hash + Objects.hashCode(this.artesao);
-        hash = 97 * hash + Objects.hashCode(this.comentario);
+        int hash = 5;
+        hash = 37 * hash + Objects.hashCode(this.idAtesanato);
+        hash = 37 * hash + Objects.hashCode(this.nome);
+        hash = 37 * hash + Objects.hashCode(this.tipo);
+        hash = 37 * hash + Objects.hashCode(this.artesao);
+        hash = 37 * hash + Objects.hashCode(this.comentario);
         return hash;
     }
 
@@ -115,14 +111,11 @@ public class Artesanatos implements Serializable {
         if (!Objects.equals(this.tipo, other.tipo)) {
             return false;
         }
-        if (!Objects.equals(this.artesao, other.artesao)) {
-            return false;
-        }
         if (!Objects.equals(this.comentario, other.comentario)) {
             return false;
         }
         return true;
     }
-    
-    
+
+     
 }

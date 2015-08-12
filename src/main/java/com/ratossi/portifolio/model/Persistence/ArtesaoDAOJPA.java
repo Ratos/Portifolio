@@ -9,6 +9,8 @@ import com.ratossi.portifolio.model.Artesao;
 import com.ratossi.portifolio.model.dao.Facabrica;
 import javax.persistence.EntityManager;
 
+
+
 public class ArtesaoDAOJPA {
     
  public void salvar(Artesao artesao) {
@@ -19,5 +21,7 @@ public class ArtesaoDAOJPA {
         em.close();
     }
     
-    
+  public Artesao buscar(String id){
+      return null;
+  }  
 }

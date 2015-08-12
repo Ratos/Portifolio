@@ -14,6 +14,7 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.serialization.gson.WithoutRoot;
 import com.ratossi.portifolio.model.Artesanatos;
+import com.ratossi.portifolio.model.Artesao;
 import com.ratossi.portifolio.model.Persistence.ArtesanatosDAOJPA;
 
 import javax.inject.Inject;
@@ -34,6 +35,7 @@ public class ArtesaoController {
     @Consumes(value = "application/json", options = WithoutRoot.class)
     @Post("salvar")
     public void salvar(Artesanatos artesanatos){
+      
         if (artesanatos != null) {
         ArtesanatosDAOJPA artesanatosDAOJPA = new ArtesanatosDAOJPA();
         artesanatosDAOJPA.salvar(artesanatos);
