@@ -14,6 +14,7 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.serialization.gson.WithoutRoot;
 import com.ratossi.portifolio.model.Artesao;
 import com.ratossi.portifolio.model.Persistence.ArtesaoDAOJPA;
+import com.sun.xml.internal.messaging.saaj.packaging.mime.util.OutputUtil;
 
 import javax.inject.Inject;
 
@@ -32,13 +33,13 @@ public class CadastroController {
     @Consumes(value = "application/json", options = WithoutRoot.class)
     @Post
     public void save(Artesao artesao) throws Exception{
+       if(artesao != null){ 
         ArtesaoDAOJPA artesaoDAOJPA = new ArtesaoDAOJPA();
         artesaoDAOJPA.salvar(artesao);
-       
-        result.include(artesao);
-        System.out.println("Nome: "+artesao.getNome());
-        System.out.print("Usuario: "+artesao.getUsuario());
-        System.out.print("Senha: "+artesao.getSenha()+" OK");
+        System.out.print("OK!");
+       }else{
+           System.out.print("Erro! O Objeto Artesao: "+artesao+" é nulo.");
+       }
     }
 
 }
