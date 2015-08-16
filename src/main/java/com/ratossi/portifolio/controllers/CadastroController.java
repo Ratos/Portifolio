@@ -14,7 +14,7 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.serialization.gson.WithoutRoot;
 import com.ratossi.portifolio.model.Artesao;
 import com.ratossi.portifolio.model.Persistence.ArtesaoDAOJPA;
-import com.sun.xml.internal.messaging.saaj.packaging.mime.util.OutputUtil;
+
 
 import javax.inject.Inject;
 
