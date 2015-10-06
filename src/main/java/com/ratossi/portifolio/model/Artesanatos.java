@@ -8,12 +8,15 @@ package com.ratossi.portifolio.model;
 
 import java.io.Serializable;
 import java.util.Objects;
-import javax.inject.Named;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+
 
 
 
@@ -22,13 +25,18 @@ import javax.persistence.Id;
  * @author Darlan
  */
 @Entity
-@Named
+@NamedQueries({
+    @NamedQuery(name = "Artesanatos.findAll",query = "SELECT s FROM Artesanatos s"),
+    @NamedQuery(name = "Artesanatos.findByName",query = "SELECT s FROM Artesanatos s WHERE s.nome = :nome"),
+    @NamedQuery(name = "Artesanatos.findRemover",query = "DELETE FROM Artesanatos s WHERE s.idartesanato = :idartesanato" )    
+})
+
 public class Artesanatos implements Serializable {
    
    @Id
    @GeneratedValue(strategy = GenerationType.AUTO)
    @Column
-   private Integer idAtesanato;
+   private Integer idartesanato;
    
    @Column
    private String nome;
@@ -42,12 +50,12 @@ public class Artesanatos implements Serializable {
    @Column
    private String comentario;
 
-    public Integer getIdAtesanato() {
-        return idAtesanato;
+    public Integer getIdartesanato() {
+        return idartesanato;
     }
 
-    public void setIdAtesanato(Integer idAtesanato) {
-        this.idAtesanato = idAtesanato;
+    public void setIdartesanato(Integer idartesanato) {
+        this.idartesanato = idartesanato;
     }
 
     public String getNome() {
@@ -85,7 +93,7 @@ public class Artesanatos implements Serializable {
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 37 * hash + Objects.hashCode(this.idAtesanato);
+        hash = 37 * hash + Objects.hashCode(this.idartesanato);
         hash = 37 * hash + Objects.hashCode(this.nome);
         hash = 37 * hash + Objects.hashCode(this.tipo);
         hash = 37 * hash + Objects.hashCode(this.artesao);
@@ -102,7 +110,7 @@ public class Artesanatos implements Serializable {
             return false;
         }
         final Artesanatos other = (Artesanatos) obj;
-        if (!Objects.equals(this.idAtesanato, other.idAtesanato)) {
+        if (!Objects.equals(this.idartesanato, other.idartesanato)) {
             return false;
         }
         if (!Objects.equals(this.nome, other.nome)) {

@@ -7,7 +7,9 @@ package com.ratossi.portifolio.model.Persistence;
 
 import com.ratossi.portifolio.model.Artesao;
 import com.ratossi.portifolio.model.dao.Facabrica;
+import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 
 
@@ -20,8 +22,36 @@ public class ArtesaoDAOJPA {
         em.getTransaction().commit();
         em.close();
     }
+   
+  public List<Artesao> buscar(String nome){
+       
+       EntityManager em = Facabrica.getGerenciador();
+       em.getTransaction().begin();
+       Query query;
+       query = em.createNamedQuery("Artesao.findByName").setParameter("nome", nome);
+       return  query.getResultList();
+     
+  } 
+  
+    public List<Artesao> buscarTodos(){
+       
+       EntityManager em = Facabrica.getGerenciador();
+       em.getTransaction().begin();
+       Query query;
+       query = em.createNamedQuery("Artesao.findAll");
+       return  query.getResultList();
+     
+  } 
+  
+  public Artesao login(String usuario, String senha){
     
-  public Artesao buscar(String id){
-      return null;
-  }  
+      EntityManager em = Facabrica.getGerenciador();
+       em.getTransaction().begin();
+       Query query = em.createNamedQuery("Artesao.findByUsuario").setParameter("usuario", usuario );
+       return (Artesao) query.getSingleResult();
+       
+  }
+  
+  
+  
 }

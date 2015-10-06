@@ -7,13 +7,15 @@ package com.ratossi.portifolio.model;
 
 import java.io.Serializable;
 import java.util.Objects;
-import javax.inject.Named;
+
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 
 /**
@@ -21,7 +23,12 @@ import javax.persistence.Id;
  * @author Darlan
  */
 @Entity
-@Named
+@NamedQueries({
+   @NamedQuery(name = "Artesao.findByUsuario", query = "SELECT s FROM Artesao s WHERE s.usuario = :usuario"),
+   @NamedQuery(name = "Artesao.findByName", query = "SELECT s FROM Artesao s WHERE s.nome = :nome"),
+   @NamedQuery(name = "Artesao.findAll", query = "SELECT s FROM Artesao s")
+        
+})
 public class Artesao implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

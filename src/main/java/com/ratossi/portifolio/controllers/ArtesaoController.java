@@ -7,16 +7,14 @@ package com.ratossi.portifolio.controllers;
 
 import br.com.caelum.vraptor.Consumes;
 import br.com.caelum.vraptor.Controller;
+import br.com.caelum.vraptor.Get;
 
 import br.com.caelum.vraptor.Path;
-import br.com.caelum.vraptor.Post;
-
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.serialization.gson.WithoutRoot;
-import com.ratossi.portifolio.model.Artesanatos;
 import com.ratossi.portifolio.model.Artesao;
-import com.ratossi.portifolio.model.Persistence.ArtesanatosDAOJPA;
-
+import com.ratossi.portifolio.model.Persistence.ArtesaoDAOJPA;
+import java.util.List;
 import javax.inject.Inject;
 
 
@@ -31,17 +29,26 @@ public class ArtesaoController {
     @Inject
     private Result result;
     
+    ArtesaoDAOJPA artesaoDAOJPA = new ArtesaoDAOJPA();
+    Artesao artesaoResult;
     
+    /*
+      *Busca todos artesões com o mesmo nome
+    */
     @Consumes(value = "application/json", options = WithoutRoot.class)
-    @Post("salvar")
-    public void salvar(Artesanatos artesanatos){
-      
-        if (artesanatos != null) {
-        ArtesanatosDAOJPA artesanatosDAOJPA = new ArtesanatosDAOJPA();
-        artesanatosDAOJPA.salvar(artesanatos);
-        }
-       
-        
+    @Get()
+    public void buscar(String nome){
+        List<Artesao> artesoes = artesaoDAOJPA.buscar(nome);
+        result.include("busca",artesoes);
     }
+    
+    /*
+      *Lista todos os artesões
+    */
+    @Get()
+    public void artesoes(){
+      List<Artesao> artesoes = artesaoDAOJPA.buscarTodos();
+      result.include("todos",artesoes);
+    } 
     
 }
