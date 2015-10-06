@@ -1,0 +1,27 @@
+- falta de ferramenta de apoio
+- Dificuldade de busca e seleção eficiente de software reutilizável;
+- É difícil encontrar componentes que se adéquam exatamente a uma determinada necessidade;
+- Modificações são necessárias para adaptá-los à realidade.
+
+
+
+- “Ajustes dos “bugs” são acumulados cada vez que um componente é reusado”: pelo fato do componente ser reutilizado
+- “Ganho em produtividade pode ser alcançando devido ao fato de que menos código fonte deve ser desenvolvido
+- Reuso de documentação: apenas o que for desenvolvido do zero precisará de nova
+Documentação;
+
+
+Componentes construidos pela fabrica:
+
+- Comunicação Restfull;
+- Controle de cadastro;
+- Persistencia;
+- busca;
+
+Componentes que serão adquiridos de terceiros:
+
+-Frameworks(Vraptor,eclipselink,foundation)
+
+Situaçoes onde esses componentes podem ser reutilizados:
+
+- Persistencia 
