@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title>Login</title>
+    <title></title>
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
@@ -24,14 +24,14 @@
   <body ng-app="starter">
 
     <ion-pane>
-      <ion-header-bar class="bar-positive">
+       <ion-header-bar class="bar-positive">
         <h1 class="title">Portfólio</h1>
-		<a class="button icon-right ion-person-add " href="../www/templates/cadastro.html">Cadastro</a>
-		</ion-header-bar>
-      <ion-content>
+		
+		</ion-header-bar> 
+      <ion-content class="has-header" padding="true">
 		<div class="list">
 		  <label class="item item-input">
-			<span class="input-label">CPF</span>
+			<span class="input-label">Email</span>
 			<input type="text">
 		  </label>
 		  <label class="item item-input">
@@ -39,11 +39,13 @@
 			<input type="password">
 		  </label>
 		</div>
-		<a href="../www/templates/initialpage.html"
-		<button class="button button-full button-calm">
-			Log In
-		</button></a>
-		
+		<!-- Trocar por um Button aqui em baixo -->
+		<a style="" href="initialpage.html" class="button button-full button-calm">
+			Entrar
+		</a>
+		<button style="" class="button button-positive button-clear button-block button-small">Esqueci minha senha</button>
+		<div style="width: 300px; height: 70px;" class="spacer"></div>
+		<a style="" class="button button-balanced button-clear button-block icon ion-person-add" href="cadastro.html">Cadastre-se</a>
       </ion-content>
 	   <ion-footer-bar class="bar-dark">
 		<div class="title">©Desenvolvido por Ratos SI</div>
