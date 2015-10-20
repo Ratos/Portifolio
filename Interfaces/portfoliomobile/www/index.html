@@ -53,19 +53,19 @@
 <script id="page2.html" type="text/ng-template">
 <ion-view title="Login">
     <ion-content padding="true" class="has-header">
-        <form>
+        <form name="loginForm" ng-submit="logar(login)">
             <ion-list>
                 <label class="item item-input" name="email">
                     <span class="input-label">Email</span>
-                    <input type="email" placeholder="Insira seu email" ng-model="login.email">
+                    <input type="email" placeholder="Insira seu email" ng-model="login.email" ng-required="true">
                 </label>
                 <label class="item item-input" name="senha">
                     <span class="input-label">Senha</span>
-                    <input type="password" placeholder="Insira sua senha" ng-model="login.senha">
+                    <input type="password" placeholder="Insira sua senha" ng-model="login.senha" ng-required="true">
                 </label>
             </ion-list>
             <div class="spacer" style="height: 40px;"></div>
-            <button class="button button-positive button-block " ng-click="logar(login)">Entrar</button>
+            <button type="submit" class="button button-positive button-block "  ng-disable="loginForm.$invalid">Entrar</button>
         </form>
         
 
