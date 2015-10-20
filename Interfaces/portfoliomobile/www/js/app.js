@@ -47,7 +47,20 @@ angular.module('app', ['ionic','LocalStorageModule']).run(function($ionicPlatfor
       controller: 'artesaoCtrl'
       
       
-    });
+    })
+	.state('page5', {
+      url: '/cadastrarartesanato',
+      templateUrl: 'page5.html',
+      controller: 'cadastroCtrl'
+      
+     })
+	
+	.state('page6', {
+      url: '/editarartesao',
+      templateUrl: 'page6.html',
+      controller: 'cadastroCtrl'
+      
+     });
 
   // configuração local storage module
   localStorageServiceProvider.setPrefix('Portfolio');

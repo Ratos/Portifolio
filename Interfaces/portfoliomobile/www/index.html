@@ -13,8 +13,9 @@
     </style>
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
     <script src="lib/ionic/js/ionic.bundle.js"></script>
-    <script type="text/javascript" src="js/app.js"></script>   
+    <script type="text/javascript" src="js/app.js"></script>    
     <script type="text/javascript" src="js/controllers/loginCtrl.js"></script>
     <script type="text/javascript" src="js/controllers/artesaoCtrl.js"></script>
     <script type="text/javascript" src="js/controllers/cadastroCtrl.js"></script>
@@ -48,65 +49,98 @@
     Pagina de login page2.html
     Pagina de Cadastro page3.html
     Pagina de inicial page4.html
+	Pagina de cadastrar artesanato page5.html
+	Pagina de editar artesao page4.html
 
 -->
 <script id="page2.html" type="text/ng-template">
-<ion-view title="Login">
-    <ion-content padding="true" class="has-header">
-        <form>
-            <ion-list>
-                <label class="item item-input" name="email">
-                    <span class="input-label">Email</span>
-                    <input type="email" placeholder="Insira seu email" ng-model="login.email">
-                </label>
-                <label class="item item-input" name="senha">
-                    <span class="input-label">Senha</span>
-                    <input type="password" placeholder="Insira sua senha" ng-model="login.senha">
-                </label>
-            </ion-list>
-            <div class="spacer" style="height: 40px;"></div>
-            <button class="button button-positive button-block " ng-click="logar(login)">Entrar</button>
-        </form>
-        
+	<ion-view title="Login">
+		<ion-content padding="true" class="has-header">
+			<form name="loginForm" ng-submit="logar(login)">
+				<ion-list>
+					<label class="item item-input" name="email">
+						<span class="input-label">Email</span>
+						<input type="email" placeholder="Insira seu email" ng-model="login.email" ng-required="true">
+					</label>
+					<label class="item item-input" name="senha">
+						<span class="input-label">Senha</span>
+						<input type="password" placeholder="Insira sua senha" ng-model="login.senha" ng-required="true">
+					</label>
+				</ion-list>
+				<div class="spacer" style="height: 40px;"></div>
+				<button type="submit" class="button button-positive button-block " ng-required="loginForm.$invalid">Entrar</button>
+			</form>
+			
 
-        <button class="button button-positive button-clear button-block button-small">Esqueci minha senha</button>
-        <div class="spacer" style="width: 300px; height: 95px;"></div>
-        <a href="#/cadastro" class="button button-balanced button-clear button-block  icon ion-android-add-contact">Cadastre-se</a>
-    </ion-content>
-</ion-view></script>
+			<button class="button button-positive button-clear button-block button-small">Esqueci minha senha</button>
+			<div class="spacer" style="width: 300px; height: 95px;"></div>
+			<a href="#/cadastro" class="button button-balanced button-clear button-block  icon ion-android-add-contact">Cadastre-se</a>
+			
+		</ion-content>
+	</ion-view>
+</script>
 <script id="page3.html" type="text/ng-template">
 <ion-view title="Cadastro">
     <ion-content padding="true" class="has-header">
-        <form>
-            <label class="item item-input" name="nome">
+        <form style="" ng-submit="artesao(addArtesao)" name="cadastroForm" novalidate>
+            <label class="item item-input item-stacked-label" name="nome">
                 <span class="input-label">Nome</span>
-                <input type="text" placeholder="Digite seu nome" ng-model="artesao.nome">
+                <input type="text" 
+					   placeholder="Digite seu nome" 
+					   ng-model="artesao.name"
+					   name="name"
+					   />
             </label>
-            <label class="item item-input" name="email">
+		<div class="form-group" ng-class="{ 'has-error' : cadastroForm.email.$invalid && !cadastroForm.email.$pristine }">
+            <label class="item item-input item-stacked-label" name="email">
                 <span class="input-label">Email</span>
-                <input type="email" placeholder="Digite seu email" ng-model="artesao.email">
+                <input type="email"
+					   placeholder="Digite seu email" 
+					   ng-model="artesao.email"
+					   name="email"
+					   class="form-control"
+					   ng-pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/"
+					   />
             </label>
-            <label class="item item-input" name="endereco">
+		</div>
+            <label class="item item-input item-stacked-label" name="endereco">
                 <span class="input-label">Endereço</span>
                 <input type="text" placeholder="Rua, cidade, bairro e número" ng-model="artesao.endereco">
             </label>
-            <label class="item item-input" name="tel">
+            <label class="item item-input item-stacked-label" name="tel">
                 <span class="input-label">Telefone</span>
                 <input type="tel" placeholder="Telefone/Celular" ng-model="artesao.tel">
             </label>
-            <label class="item item-input" name="senha">
+		<div class="form-group" ng-class="{ 'has-error' : cadastroForm.senha.$invalid && cadastroForm.senha.$pristine }">
+            <label class="item item-input item-stacked-label" name="senha">
                 <span class="input-label">Senha</span>
-                <input type="password" placeholder="Digite sua senha" ng-model="artesao.senha">
+                <input type="password" 
+					   placeholder="Digite sua senha" 
+					   ng-model="artesao.senha"
+					   name="senha" 
+					   class="form-control"
+					   ng-minlength="5"
+					   ng-maxlength="8"
+					   />
+				<p ng-show="cadastroForm.senha.$error.minlength"
+				   class="help-block">
+					  Senha muito Curta!
+				</p>
+				<p ng-show="cadastroForm.senha.$error.maxlength"
+				   class="help-block">
+				      Senha muito cumprida!
+				</p>
             </label>
-            <label class="item item-input" name="confsenha">
+            <label class="item item-input item-stacked-label" name="confsenha">
                 <span class="input-label">Confirmar</span>
                 <input type="password" placeholder="Confirme sua senha" ng-model="artesao.confsenha">
             </label>
-            <button class="button button-balanced button-block  icon-right ion-android-checkmark" ng-click="addArtesao(artesao)">Cadastrar</button>
-            <button class="button button-assertive button-block  icon-right ion-android-close">Cancelar</button>
+            <button type="submit" class="button button-balanced button-block  icon-right ion-android-checkmark" ng-disabled="!artesao.name || !artesao.senha || !artesao.email">Cadastrar</button>
+            <a href="#/login" class="button button-assertive button-block  icon-right ion-android-close">Cancelar</a>
             
         </form>
     </ion-content>
+	
 </ion-view></script>
 <script id="page4.html" type="text/ng-template">
 <ion-view title="Página Inicial">
@@ -139,5 +173,129 @@
         </div>
     </ion-content>
 </ion-view></script>
+
+<script id="page5.html" type="text/ng-template">
+	<ion-view title="Cadastrar Artesanato">
+		<ion-content padding="true" class="has-header">
+			<div class="list">
+			  <label class="item item-input item-stacked-label">
+				<span class="input-label">Nome</span>
+				<input type="text" placeholder="Caçarola de madeira">
+			  </label>
+			  <label class="item item-input item-stacked-label">
+				<span class="input-label">Artesão</span>
+				<input type="text" placeholder="Thércio Alencar">
+			  </label>
+			  <label class="item item-input item-stacked-label">
+				<span class="input-label">Email</span>
+				<input type="text" placeholder="fulano@hotmail.com">
+			  </label>
+			  <label class="item item-input item-stacked-label">
+				<span class="input-label">Endereço</span>
+				<input type="text" placeholder="Rua-numero, bairro, cidade">
+			  </label>
+			  <label class="item item-input item-stacked-label">
+				<span class="input-label">Telefone</span>
+				<input type="text" placeholder="Telefone/Celular">
+			  </label>
+			  <label class="item item-input item-stacked-label">
+				<span class="input-label">Loja(Opcional)</span>
+				<input type="text" placeholder="Artesões S.A.">
+			  </label>
+			  <label class="item item-input item-stacked-label">
+				<span class="input-label">Preço(Opcional)</span>
+				<input type="text" placeholder="R$ 40,00">
+			  </label>
+			  <label class="item item-input item-stacked-label">
+				<span class="input-label">Descrição</span>
+				<input type="text" placeholder="Artesões S.A.">
+			  </label>
+			  <div class="item item-body">
+				<img class="full-image img-size"src="img/ionic.png">
+			  </div>
+			  <div class="button-bar">
+				<button class="button button-medium icon ion-camera"></button>
+				<button class="button button-medium icon ion-images"></button>
+			  </div>
+			</div>
+			
+			<button class="button button-full button-balanced icon ion-checkmark-round">
+				Cadastrar
+			</button>
+		</ion-content>
+	</ion-view>
+</script>
+<script id="page6.html" type="text/ng-template">
+	<ion-view title="Editar artesão">
+		<ion-content padding="true" class="has-header">
+			<form style="" ng-submit="artesao(addArtesao)" name="cadastroForm" novalidate>
+            <label class="item item-input item-stacked-label" name="nome">
+                <span class="input-label">Nome</span>
+                <input type="text" 
+					   placeholder="Digite seu nome" 
+					   ng-model="artesao.name"
+					   name="name"
+					   />
+            </label>
+		<div class="form-group" ng-class="{ 'has-error' : cadastroForm.email.$invalid && !cadastroForm.email.$pristine }">
+            <label class="item item-input item-stacked-label" name="email">
+                <span class="input-label">Email</span>
+                <input type="email"
+					   placeholder="Digite seu email" 
+					   ng-model="artesao.email"
+					   name="email"
+					   class="form-control"
+					   ng-pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/"
+					   />
+            </label>
+		</div>
+            <label class="item item-input item-stacked-label" name="endereco">
+                <span class="input-label">Endereço</span>
+                <input type="text" placeholder="Rua, cidade, bairro e número" ng-model="artesao.endereco">
+            </label>
+            <label class="item item-input item-stacked-label" name="tel">
+                <span class="input-label">Telefone</span>
+                <input type="tel" placeholder="Telefone/Celular" ng-model="artesao.tel">
+            </label>
+		<div class="form-group" ng-class="{ 'has-error' : cadastroForm.senha.$invalid && cadastroForm.senha.$pristine }">
+            <label class="item item-input item-stacked-label" name="senha">
+                <span class="input-label">Senha</span>
+                <input type="password" 
+					   placeholder="Digite sua senha" 
+					   ng-model="artesao.senha"
+					   name="senha" 
+					   class="form-control"
+					   ng-minlength="5"
+					   ng-maxlength="8"
+					   />
+				<p ng-show="cadastroForm.senha.$error.minlength"
+				   class="help-block">
+					  Senha muito Curta!
+				</p>
+				<p ng-show="cadastroForm.senha.$error.maxlength"
+				   class="help-block">
+				      Senha muito cumprida!
+				</p>
+            </label>
+            <label class="item item-input item-stacked-label" name="confsenha">
+                <span class="input-label">Confirmar</span>
+                <input type="password" placeholder="Confirme sua senha" ng-model="artesao.confsenha">
+            </label>
+			<div class="item item-body">
+				<img class="full-image img-size"src="img/ionic.png" style="">
+			</div>
+			<div class="button-bar">
+				<button class="button button-medium icon ion-camera"></button>
+				<button class="button button-medium icon ion-images"></button>
+			</div>
+			<button class="button button-full button-balanced icon ion-checkmark-round">
+				Alterar
+			</button>
+		</ion-content>
+	</ion-view>
+</script>
+<ion-footer-bar class="bar-dark">
+		<div class="title">©Desenvolvido por Ratos SI</div>
+	  </ion-footer-bar>
   </body>
 </html>
