@@ -34,10 +34,7 @@
 	background: #007095;
 }
 #imagenz{
-	background-image: url('../img/art.jpg'); 
-	height: auto;
-	
-	width: 100%;
+	background-image: url('../img/art.jpg');
 }
 #texto{
 	text-align: center; 
@@ -64,9 +61,14 @@
 #borda{
 	border: 1px solid black;
 	height: auto;
-	
 	border-radius: 10px;
 	
+}
+
+#bordapeq{
+	border: 1px solid black;
+	height: auto;
+	border-radius: 10px;	
 }
 .colororo{
 	background-color: #008CBA;
@@ -78,5 +80,33 @@
 	margin-right: 20%;
 	font-family: sans serif;
 	font-size: 16px;
-	color: #000;
+	color: #FF0033;
+	
+}
+
+.nomeautor{
+	margin: 2%;
+	margin-left: 25%;
+	margin-right: 20%;
+	font-family: sans serif;
+	font-size: 16px;
+	color: #008CBA;
+}
+
+.nomeprodutopeq{
+	margin: 2%;
+	margin-left: 25%;
+	font-family: sans serif;
+	font-size: 12px;
+	color: #FF0033;
+	
+}
+
+.nomeautorpeq{
+	margin: 2%;
+	margin-left: 25%;
+	font-family: sans serif;
+	font-size: 12px;
+	color: #008CBA;
+	
 }
