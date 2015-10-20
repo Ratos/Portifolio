@@ -1,55 +1,143 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app" >
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <title></title>
 
+    <style>
+      .angular-google-map-container {
+          width: 100%;
+          height: 504px;
+      }
+    </style>
+
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>   
+    <script type="text/javascript" src="js/controllers/loginCtrl.js"></script>
+    <script type="text/javascript" src="js/controllers/artesaoCtrl.js"></script>
+    <script type="text/javascript" src="js/controllers/cadastroCtrl.js"></script>
+    <script type="text/javascript" src="js/module/angular-local-storage.min.js"></script>
+
+    <link href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" rel="stylesheet">
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
 
-    <!-- ionic/angularjs js -->
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
 
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
+    <script>
 
-    <!-- your app's js -->
-    <script src="js/app.js"></script>
+
+
+    </script>
   </head>
-  <body ng-app="starter">
+  <body  animation="slide-left-right-ios7">
+  <div>
+    <div>
+        <ion-nav-bar class="bar-stable">
+            <ion-nav-back-button class="button-icon icon ion-ios7-arrow-back">Back</ion-nav-back-button>
+        </ion-nav-bar>
+        <ion-nav-view></ion-nav-view>
+    </div>
+</div>
 
-    <ion-pane>
-       <ion-header-bar class="bar-positive">
-        <h1 class="title">Portfólio</h1>
-		
-		</ion-header-bar> 
-      <ion-content class="has-header" padding="true">
-		<div class="list">
-		  <label class="item item-input">
-			<span class="input-label">Email</span>
-			<input type="text">
-		  </label>
-		  <label class="item item-input">
-			<span class="input-label">Senha</span>
-			<input type="password">
-		  </label>
-		</div>
-		<!-- Trocar por um Button aqui em baixo -->
-		<a style="" href="initialpage.html" class="button button-full button-calm">
-			Entrar
-		</a>
-		<button style="" class="button button-positive button-clear button-block button-small">Esqueci minha senha</button>
-		<div style="width: 300px; height: 70px;" class="spacer"></div>
-		<a style="" class="button button-balanced button-clear button-block icon ion-person-add" href="cadastro.html">Cadastre-se</a>
-      </ion-content>
-	   <ion-footer-bar class="bar-dark">
-		<div class="title">©Desenvolvido por Ratos SI</div>
-	  </ion-footer-bar>
-    </ion-pane>
+<!-- Para: Thercio:
+
+    Pagina de login page2.html
+    Pagina de Cadastro page3.html
+    Pagina de inicial page4.html
+
+-->
+<script id="page2.html" type="text/ng-template">
+<ion-view title="Login">
+    <ion-content padding="true" class="has-header">
+        <form>
+            <ion-list>
+                <label class="item item-input" name="email">
+                    <span class="input-label">Email</span>
+                    <input type="email" placeholder="Insira seu email" ng-model="login.email">
+                </label>
+                <label class="item item-input" name="senha">
+                    <span class="input-label">Senha</span>
+                    <input type="password" placeholder="Insira sua senha" ng-model="login.senha">
+                </label>
+            </ion-list>
+            <div class="spacer" style="height: 40px;"></div>
+            <button class="button button-positive button-block " ng-click="logar(login)">Entrar</button>
+        </form>
+        
+
+        <button class="button button-positive button-clear button-block button-small">Esqueci minha senha</button>
+        <div class="spacer" style="width: 300px; height: 95px;"></div>
+        <a href="#/cadastro" class="button button-balanced button-clear button-block  icon ion-android-add-contact">Cadastre-se</a>
+    </ion-content>
+</ion-view></script>
+<script id="page3.html" type="text/ng-template">
+<ion-view title="Cadastro">
+    <ion-content padding="true" class="has-header">
+        <form>
+            <label class="item item-input" name="nome">
+                <span class="input-label">Nome</span>
+                <input type="text" placeholder="Digite seu nome" ng-model="artesao.nome">
+            </label>
+            <label class="item item-input" name="email">
+                <span class="input-label">Email</span>
+                <input type="email" placeholder="Digite seu email" ng-model="artesao.email">
+            </label>
+            <label class="item item-input" name="endereco">
+                <span class="input-label">Endereço</span>
+                <input type="text" placeholder="Rua, cidade, bairro e número" ng-model="artesao.endereco">
+            </label>
+            <label class="item item-input" name="tel">
+                <span class="input-label">Telefone</span>
+                <input type="tel" placeholder="Telefone/Celular" ng-model="artesao.tel">
+            </label>
+            <label class="item item-input" name="senha">
+                <span class="input-label">Senha</span>
+                <input type="password" placeholder="Digite sua senha" ng-model="artesao.senha">
+            </label>
+            <label class="item item-input" name="confsenha">
+                <span class="input-label">Confirmar</span>
+                <input type="password" placeholder="Confirme sua senha" ng-model="artesao.confsenha">
+            </label>
+            <button class="button button-balanced button-block  icon-right ion-android-checkmark" ng-click="addArtesao(artesao)">Cadastrar</button>
+            <button class="button button-assertive button-block  icon-right ion-android-close">Cancelar</button>
+            
+        </form>
+    </ion-content>
+</ion-view></script>
+<script id="page4.html" type="text/ng-template">
+<ion-view title="Página Inicial">
+    <span ng-init="carregardados()"></span>
+    <ion-content padding="true" class="has-header">
+        <div>
+            <div class="item item-avatar">
+                <img src="">
+                <button style="float: right;" class="button button-small icon ion-gear-a"></button>
+                <h2>{{artesao.nome}}</h2>
+            </div>
+            <div style="height: 20px;" class="spacer"></div>
+            <div class="item item-avatar">
+                <img src="">
+                <h3>Nome do Artesanato</h3>
+                <button style="float: right;" class="button button-small button-assertive icon ion-trash-a"></button>
+                <button style="float: right;" class="button button-small button-calm icon ion-edit"></button>
+
+            </div>
+            <div class="item item-avatar">
+                <img src="">
+                <button style="float: right;" class="button button-small button-assertive icon ion-trash-a"></button>
+                <button style="float: right;" class="button button-small button-calm icon ion-edit"></button>
+                <h3>Nome do Artesanato</h3>
+            </div>
+            <button class="button button-block button-balanced">
+                Cadastrar novo artesanato
+                <i class="icon ion-plus-round" style="float: right;"></i>
+            </button>
+        </div>
+    </ion-content>
+</ion-view></script>
   </body>
 </html>
