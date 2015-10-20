@@ -9,6 +9,7 @@ import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Result;
+import com.ratossi.portifolio.annotations.Public;
 
 
 import javax.inject.Inject;
@@ -18,6 +19,7 @@ import javax.inject.Inject;
  *
  * @author Darlan
  */
+@Public
 @Controller
 @Path("/home")
 public class SiteController {

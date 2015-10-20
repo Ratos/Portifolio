@@ -43,11 +43,11 @@ public class ArtesaoDAOJPA {
      
   } 
   
-  public Artesao login(String usuario, String senha){
+  public Artesao login(String email, String senha){
     
       EntityManager em = Facabrica.getGerenciador();
        em.getTransaction().begin();
-       Query query = em.createNamedQuery("Artesao.findByUsuario").setParameter("usuario", usuario );
+       Query query = em.createNamedQuery("Artesao.findByUsuario").setParameter("email", email );
        return (Artesao) query.getSingleResult();
        
   }

@@ -24,7 +24,7 @@ import javax.persistence.NamedQuery;
  */
 @Entity
 @NamedQueries({
-   @NamedQuery(name = "Artesao.findByUsuario", query = "SELECT s FROM Artesao s WHERE s.usuario = :usuario"),
+   @NamedQuery(name = "Artesao.findByUsuario", query = "SELECT s FROM Artesao s WHERE s.email = :email"),
    @NamedQuery(name = "Artesao.findByName", query = "SELECT s FROM Artesao s WHERE s.nome = :nome"),
    @NamedQuery(name = "Artesao.findAll", query = "SELECT s FROM Artesao s")
         
@@ -37,9 +37,15 @@ public class Artesao implements Serializable {
     @Column
     private String nome;
     @Column
-    private String usuario;
+    private String email;
+    @Column
+    private String endereco;
+    @Column
+    private String tel;
     @Column
     private String senha;
+    @Column
+    private String confsenha;
 
     public Integer getIdArtesao() {
         return idArtesao;
@@ -57,12 +63,28 @@ public class Artesao implements Serializable {
         this.nome = nome;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
     }
 
     public String getSenha() {
@@ -73,13 +95,24 @@ public class Artesao implements Serializable {
         this.senha = senha;
     }
 
+    public String getConfsenha() {
+        return confsenha;
+    }
+
+    public void setConfsenha(String confsenha) {
+        this.confsenha = confsenha;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 67 * hash + Objects.hashCode(this.idArtesao);
-        hash = 67 * hash + Objects.hashCode(this.nome);
-        hash = 67 * hash + Objects.hashCode(this.usuario);
-        hash = 67 * hash + Objects.hashCode(this.senha);
+        hash = 71 * hash + Objects.hashCode(this.idArtesao);
+        hash = 71 * hash + Objects.hashCode(this.nome);
+        hash = 71 * hash + Objects.hashCode(this.email);
+        hash = 71 * hash + Objects.hashCode(this.endereco);
+        hash = 71 * hash + Objects.hashCode(this.tel);
+        hash = 71 * hash + Objects.hashCode(this.senha);
+        hash = 71 * hash + Objects.hashCode(this.confsenha);
         return hash;
     }
 
@@ -98,14 +131,25 @@ public class Artesao implements Serializable {
         if (!Objects.equals(this.nome, other.nome)) {
             return false;
         }
-        if (!Objects.equals(this.usuario, other.usuario)) {
+        if (!Objects.equals(this.email, other.email)) {
+            return false;
+        }
+        if (!Objects.equals(this.endereco, other.endereco)) {
+            return false;
+        }
+        if (!Objects.equals(this.tel, other.tel)) {
             return false;
         }
         if (!Objects.equals(this.senha, other.senha)) {
             return false;
         }
+        if (!Objects.equals(this.confsenha, other.confsenha)) {
+            return false;
+        }
         return true;
     }
+
+
     
     
 }

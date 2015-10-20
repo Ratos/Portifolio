@@ -12,6 +12,7 @@ import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.serialization.gson.WithoutRoot;
+import static br.com.caelum.vraptor.view.Results.json;
 import com.ratossi.portifolio.model.Artesanatos;
 import com.ratossi.portifolio.model.Persistence.ArtesanatosDAOJPA;
 import java.util.List;
@@ -46,7 +47,7 @@ public class ArtesanatoController {
     @Get
     public void lista(){
       List<Artesanatos> artesanatos = artesanatosDAOJPA.buscarTodos();
-      result.include("lista",artesanatos);
+      result.use(json()).from(artesanatos).serialize();
     }
     
     /*
@@ -67,6 +68,6 @@ public class ArtesanatoController {
     @Get
     public void buscar(String nome){
        List<Artesanatos> artesanatos = artesanatosDAOJPA.buscar(nome);
-       result.include("busca",artesanatos);
+       result.use(json()).from(artesanatos).serialize();
     }
 }

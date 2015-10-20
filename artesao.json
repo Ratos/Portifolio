@@ -1,5 +1,8 @@
 {
-    "nome": "Gandalf",
-    "usuario": "gandalf123",
-    "senha": "12333"
+"nome": "Darlan",
+"email": "darlan@ratosi.com",
+"endereco": "Crato",
+"tel": "888",
+"senha": "1234",
+"confsenha": "1234"
 }
