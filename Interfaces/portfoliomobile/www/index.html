@@ -54,6 +54,7 @@
 
 -->
 <script id="page2.html" type="text/ng-template">
+<<<<<<< HEAD
 	<ion-view title="Login">
 		<ion-content padding="true" class="has-header">
 			<form name="loginForm" ng-submit="logar(login)">
@@ -71,6 +72,25 @@
 				<button type="submit" class="button button-positive button-block " ng-required="loginForm.$invalid">Entrar</button>
 			</form>
 			
+=======
+<ion-view title="Login">
+    <ion-content padding="true" class="has-header">
+        <form name="loginForm" ng-submit="logar(login)">
+            <ion-list>
+                <label class="item item-input" name="email">
+                    <span class="input-label">Email</span>
+                    <input type="email" placeholder="Insira seu email" ng-model="login.email" ng-required="true">
+                </label>
+                <label class="item item-input" name="senha">
+                    <span class="input-label">Senha</span>
+                    <input type="password" placeholder="Insira sua senha" ng-model="login.senha" ng-required="true">
+                </label>
+            </ion-list>
+            <div class="spacer" style="height: 40px;"></div>
+            <button type="submit" class="button button-positive button-block "  ng-disable="loginForm.$invalid">Entrar</button>
+        </form>
+        
+>>>>>>> origin/master
 
 			<button class="button button-positive button-clear button-block button-small">Esqueci minha senha</button>
 			<div class="spacer" style="width: 300px; height: 95px;"></div>
