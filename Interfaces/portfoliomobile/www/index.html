@@ -81,14 +81,14 @@
 <script id="page3.html" type="text/ng-template">
 <ion-view title="Cadastro">
     <ion-content padding="true" class="has-header">
-        <form style="" ng-submit="artesao(addArtesao)" name="cadastroForm" novalidate>
+        <form style="" ng-submit="addArtesao(artesao)" name="cadastroForm" novalidate>
             <label class="item item-input item-stacked-label" name="nome">
                 <span class="input-label">Nome</span>
                 <input type="text" 
 					   placeholder="Digite seu nome" 
 					   ng-model="artesao.name"
 					   name="name"
-					   />
+					   >
             </label>
 		<div class="form-group" ng-class="{ 'has-error' : cadastroForm.email.$invalid && !cadastroForm.email.$pristine }">
             <label class="item item-input item-stacked-label" name="email">
@@ -99,7 +99,7 @@
 					   name="email"
 					   class="form-control"
 					   ng-pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/"
-					   />
+					   >
             </label>
 		</div>
             <label class="item item-input item-stacked-label" name="endereco">
@@ -120,7 +120,7 @@
 					   class="form-control"
 					   ng-minlength="5"
 					   ng-maxlength="8"
-					   />
+					   >
 				<p ng-show="cadastroForm.senha.$error.minlength"
 				   class="help-block">
 					  Senha muito Curta!
@@ -234,7 +234,7 @@
 					   placeholder="Digite seu nome" 
 					   ng-model="artesao.name"
 					   name="name"
-					   />
+					   >
             </label>
 		<div class="form-group" ng-class="{ 'has-error' : cadastroForm.email.$invalid && !cadastroForm.email.$pristine }">
             <label class="item item-input item-stacked-label" name="email">
@@ -245,7 +245,7 @@
 					   name="email"
 					   class="form-control"
 					   ng-pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/"
-					   />
+					   >
             </label>
 		</div>
             <label class="item item-input item-stacked-label" name="endereco">
@@ -266,11 +266,8 @@
 					   class="form-control"
 					   ng-minlength="5"
 					   ng-maxlength="8"
-					   />
-				<p ng-show="cadastroForm.senha.$error.minlength"
-				   class="help-block">
-					  Senha muito Curta!
-				</p>
+					   >
+				<p ng-show="cadastroForm.senha.$error.minlength" class="help-block"> Senha muito Curta!</p>
 				<p ng-show="cadastroForm.senha.$error.maxlength"
 				   class="help-block">
 				      Senha muito cumprida!
