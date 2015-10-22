@@ -5,7 +5,7 @@
  */
 package com.ratossi.portifolio.model.dao;
 
-import com.ratossi.portifolio.model.Artesanatos;
+import com.ratossi.portifolio.model.Artesanato;
 import java.util.List;
 
 /**
@@ -14,9 +14,9 @@ import java.util.List;
  */
 public interface ArtesanatosDAO {
     
-    void salvar(Artesanatos artesanatos);
-    void remover(Artesanatos artesanatos);
+    void salvar(Artesanato artesanato);
+    void remover(Artesanato artesanato);
     void alterar(Object object);
-    List<Artesanatos> buscarTodos();
-    List<Artesanatos> buscar(String nome);
+    List<Artesanato> buscarTodos();
+    List<Artesanato> buscar(String nome);
 }

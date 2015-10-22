@@ -13,7 +13,7 @@ import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.serialization.gson.WithoutRoot;
 import static br.com.caelum.vraptor.view.Results.json;
-import com.ratossi.portifolio.model.Artesanatos;
+import com.ratossi.portifolio.model.Artesanato;
 import com.ratossi.portifolio.model.Persistence.ArtesanatosDAOJPA;
 import java.util.List;
 import javax.inject.Inject;
@@ -36,29 +36,29 @@ public class ArtesanatoController {
     */
     @Consumes(value = "application/json", options = WithoutRoot.class)
     @Post
-    public void salvar(Artesanatos artesanatos){
-        artesanatosDAOJPA.salvar(artesanatos);
+    public void salvar(Artesanato artesanato){
+        artesanatosDAOJPA.salvar(artesanato);
     }
     
     /*
-      *Lista todos os Artesanatos
+      *Lista todos os Artesanato
     */
    
     @Get
     public void lista(){
-      List<Artesanatos> artesanatos = artesanatosDAOJPA.buscarTodos();
-      result.use(json()).from(artesanatos).serialize();
+      List<Artesanato> artesanato = artesanatosDAOJPA.buscarTodos();
+      result.use(json()).from(artesanato).serialize();
     }
     
     /*
-        *remover Artesanatos
+        *remover Artesanato
     */
     @Consumes(value = "application/json", options = WithoutRoot.class)
     @Post
-    public void remover(Artesanatos artesanatos){
+    public void remover(Artesanato artesanato){
        
-      System.out.print(artesanatos.getIdartesanato());
-      artesanatosDAOJPA.remover(artesanatos);
+      
+      artesanatosDAOJPA.remover(artesanato);
       result.redirectTo(ArtesanatoController.class).lista();
     }
     
@@ -67,7 +67,7 @@ public class ArtesanatoController {
     */
     @Get
     public void buscar(String nome){
-       List<Artesanatos> artesanatos = artesanatosDAOJPA.buscar(nome);
-       result.use(json()).from(artesanatos).serialize();
+       List<Artesanato> artesanato = artesanatosDAOJPA.buscar(nome);
+       result.use(json()).from(artesanato).serialize();
     }
 }

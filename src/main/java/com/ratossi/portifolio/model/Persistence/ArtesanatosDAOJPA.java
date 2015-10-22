@@ -5,7 +5,7 @@
  */
 package com.ratossi.portifolio.model.Persistence;
 
-import com.ratossi.portifolio.model.Artesanatos;
+import com.ratossi.portifolio.model.Artesanato;
 import com.ratossi.portifolio.model.dao.ArtesanatosDAO;
 import com.ratossi.portifolio.model.dao.Facabrica;
 import java.util.List;
@@ -23,7 +23,7 @@ public class ArtesanatosDAOJPA implements ArtesanatosDAO{
   
 
     @Override
-    public List<Artesanatos> buscarTodos() {
+    public List<Artesanato> buscarTodos() {
        EntityManager em = Facabrica.getGerenciador();
        em.getTransaction().begin();
        Query query = em.createNamedQuery("Artesanatos.findAll");
@@ -33,19 +33,19 @@ public class ArtesanatosDAOJPA implements ArtesanatosDAO{
     }
 
     @Override
-    public void salvar(Artesanatos artesanatos) {
+    public void salvar(Artesanato artesanato) {
         EntityManager em = Facabrica.getGerenciador();
         em.getTransaction().begin();
-        em.persist(artesanatos);
+        em.persist(artesanato);
         em.getTransaction().commit();
         em.close();
     }
 
     @Override
-    public void remover(Artesanatos artesanatos) {
+    public void remover(Artesanato artesanato) {
         EntityManager em = Facabrica.getGerenciador();
         em.getTransaction().begin();
-        Query query = em.createNamedQuery("Artesanatos.findRemover").setParameter("idartesanato", artesanatos.getIdartesanato());
+        Query query = em.createNamedQuery("Artesanato.findRemover").setParameter("idartesanato", artesanato.getIdartesanato());
         query.executeUpdate();
         
     }
@@ -57,7 +57,7 @@ public class ArtesanatosDAOJPA implements ArtesanatosDAO{
 
    
     @Override
-    public List<Artesanatos> buscar(String nome) {
+    public List<Artesanato> buscar(String nome) {
        EntityManager em = Facabrica.getGerenciador();
        em.getTransaction().begin();
        Query query;
