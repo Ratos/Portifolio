@@ -10,10 +10,13 @@ angular.module("app").controller('artesaoCtrl', function($scope,$http,$rootScope
     */
     $scope.listaArtesanatos = function(){
 
-   		artesanatoApi.listArtesanatos().success(function(data,status){
-   			localStorageService.set('artesanatos',data.artesanatos);
+   		artesanatoApi.listArtesanatoIdArtesao($scope.artesao.idArtesao).success(function(data,status){
+   			localStorageService.set('artesanatos',data.list);
+        console.log($scope.artesao.idArtesao);
    		}).error(function(data,status){
 
    		});
    }
+
+    $scope.artesanatos = localStorageService.get('artesanatos');
 })

@@ -32,7 +32,7 @@ public class ArtesanatoController {
     ArtesanatosDAOJPA artesanatosDAOJPA = new ArtesanatosDAOJPA();
     
     /*
-      *Cadastra uma paça de Artesanato
+      *Cadastra uma peça de Artesanato
     */
     @Consumes(value = "application/json", options = WithoutRoot.class)
     @Post
@@ -69,5 +69,16 @@ public class ArtesanatoController {
     public void buscar(String nome){
        List<Artesanato> artesanato = artesanatosDAOJPA.buscar(nome);
        result.use(json()).from(artesanato).serialize();
+    }
+   
+    
+    /*
+        *Busca Artesanatos de um Unico Artesão
+    */    
+    @Get
+    public void listaArtesanatos(String idArtesao){
+        List<Artesanato> artesanatos = artesanatosDAOJPA.buscarId(idArtesao);
+        result.use(json()).from(artesanatos).serialize();
+    
     }
 }

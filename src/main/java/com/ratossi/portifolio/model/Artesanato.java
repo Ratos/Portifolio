@@ -29,7 +29,8 @@ import javax.persistence.NamedQuery;
 @NamedQueries({
     @NamedQuery(name = "Artesanato.findAll",query = "SELECT s FROM Artesanato s"),
     @NamedQuery(name = "Artesanato.findByName",query = "SELECT s FROM Artesanato s WHERE s.nome = :nome"),
-    @NamedQuery(name = "Artesanato.findRemover",query = "DELETE FROM Artesanato s WHERE s.idartesanato = :idartesanato" )    
+    @NamedQuery(name = "Artesanato.findRemover",query = "DELETE FROM Artesanato s WHERE s.idartesanato = :idartesanato" ),
+    @NamedQuery(name = "Artesanato.findIdArtesao",query = "SELECT s FROM Artesanato s WHERE s.idArtesao = :idArtesao")
 })
 
 public class Artesanato implements Serializable {

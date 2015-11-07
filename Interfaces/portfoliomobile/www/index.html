@@ -26,6 +26,7 @@
     <script type="text/javascript" src="js/service/ArtesanatoApiService.js"></script>
 
     <script type="text/javascript" src="js/module/angular-local-storage.min.js"></script>
+    <script type="text/javascript" src="js/ng-cordova.min.js"></script>
 
     <link href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" rel="stylesheet">
 
@@ -140,7 +141,7 @@
 <script id="page4.html" type="text/ng-template">
 <ion-view title="Página Inicial">
     <span ng-init="carregardados()"></span>
-    <span ng-init=""></span>
+    <span ng-init="listaArtesanatos()"></span>
     <ion-content padding="true" class="has-header">
         <div>
             <div class="item item-avatar">
@@ -148,20 +149,22 @@
                 <button style="float: right;" class="button button-small icon ion-gear-a"></button>
                 <h2>{{artesao.nome}}</h2>
             </div>
-            <div style="height: 20px;" class="spacer"></div>
-            <div class="item item-avatar">
-                <img src="">
-                <h3>Nome do Artesanato</h3>
-                <button style="float: right;" class="button button-small button-assertive icon ion-trash-a"></button>
-                <button style="float: right;" class="button button-small button-calm icon ion-edit"></button>
 
-            </div>
-            <div class="item item-avatar">
-                <img src="">
-                <button style="float: right;" class="button button-small button-assertive icon ion-trash-a"></button>
-                <button style="float: right;" class="button button-small button-calm icon ion-edit"></button>
-                <h3>Nome do Artesanato</h3>
-            </div>
+
+
+            <div style="height: 20px;" class="spacer"></div>
+
+             <ul class="example-animate-container">
+                <li class="animate-repeat" ng-repeat="artesanato in artesanatos">
+                    <div class="item item-avatar">
+                        <img src="">
+                        <h3>{{artesanato.nome}}</h3>
+                        <button style="float: right;" class="button button-small button-assertive icon ion-trash-a"></button>
+                        <button style="float: right;" class="button button-small button-calm icon ion-edit"></button>
+                    </div>
+                </li>
+            </ul>
+                  
             <a href="#/cadastrarartesanato"  class="button button-block button-balanced">
 
                 Cadastrar novo artesanato

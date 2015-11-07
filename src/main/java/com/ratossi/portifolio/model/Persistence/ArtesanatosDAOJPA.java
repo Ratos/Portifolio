@@ -26,7 +26,7 @@ public class ArtesanatosDAOJPA implements ArtesanatosDAO{
     public List<Artesanato> buscarTodos() {
        EntityManager em = Facabrica.getGerenciador();
        em.getTransaction().begin();
-       Query query = em.createNamedQuery("Artesanatos.findAll");
+       Query query = em.createNamedQuery("Artesanato.findAll");
        return query.getResultList();
        
        
@@ -52,7 +52,7 @@ public class ArtesanatosDAOJPA implements ArtesanatosDAO{
 
     @Override
     public void alterar(Object object) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
    
@@ -61,8 +61,17 @@ public class ArtesanatosDAOJPA implements ArtesanatosDAO{
        EntityManager em = Facabrica.getGerenciador();
        em.getTransaction().begin();
        Query query;
-       query = em.createNamedQuery("Artesanatos.findByName").setParameter("nome", nome);
+       query = em.createNamedQuery("Artesanato.findByName").setParameter("nome", nome);
        return  query.getResultList();
+    }
+
+    @Override
+    public List<Artesanato> buscarId(String idArtesao) {
+        EntityManager em = Facabrica.getGerenciador();
+        em.getTransaction().begin();
+        Query query;
+        query = em.createNamedQuery("Artesanato.findIdArtesao").setParameter("idArtesao", idArtesao);
+        return query.getResultList();
     }
 
    

@@ -19,4 +19,5 @@ public interface ArtesanatosDAO {
     void alterar(Object object);
     List<Artesanato> buscarTodos();
     List<Artesanato> buscar(String nome);
+    List<Artesanato> buscarId(String idArtesao);
 }
