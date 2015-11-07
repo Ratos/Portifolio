@@ -1,4 +1,4 @@
-angular.module("app").controller('artesanatoCtrl', function($scope,$http,$rootScope,localStorageService,$location){ 
+angular.module("app").controller('artesanatoCtrl', function($scope,$rootScope,localStorageService,$location,artesanatoApi){ 
     
 	$scope.artesao = localStorageService.get('artesao');
 	$scope.artesanato = {};
@@ -8,7 +8,7 @@ angular.module("app").controller('artesanatoCtrl', function($scope,$http,$rootSc
     $scope.artesanato = artesanato;
    	$scope.artesanato.idArtesao = $scope.artesao.idArtesao;
 
-	   	$http.post("http://192.168.1.5:8080/Portifolio/artesanato/salvar", $scope.artesanato).success(function(data,status){
+	   	artesanatoApi.saveArtesanato($scope.artesanato).success(function(data,status){
 	            console.log("Artesanato adicionado com sucesso")            
 	            $location.path('/initialpage');
 	    }).error(function(data,status){
@@ -17,4 +17,13 @@ angular.module("app").controller('artesanatoCtrl', function($scope,$http,$rootSc
 	    }); 
 	   
    }
+
+   /*$scope.listaArtesanatos = function(){
+
+   		artesanatoApi.listArtesanatos().success(function(data,status){
+   			localStorageService.set('artesanatos',data.artesanatos);
+   		}).error(function(data,status){
+
+   		});
+   }*/
 });

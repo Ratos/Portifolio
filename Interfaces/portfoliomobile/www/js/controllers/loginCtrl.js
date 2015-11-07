@@ -1,10 +1,10 @@
-angular.module("app").controller('loginCtrl', function($scope,$http,$location,$rootScope, localStorageService){
+angular.module("app").controller('loginCtrl', function($scope,$location,$rootScope, localStorageService,configUrl,loginApi){
 
    
 
     $scope.logar = function(login){
          
-          	$http.post("http://192.168.1.5:8080/Portifolio/artesao/logar", login).success(function(data){
+          loginApi.logar(login).success(function(data){
                         
             localStorageService.set('artesao',data.artesao);
             $rootScope.artesao =  localStorageService.get('artesao');

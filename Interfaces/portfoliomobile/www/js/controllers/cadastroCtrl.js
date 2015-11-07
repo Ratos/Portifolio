@@ -1,18 +1,20 @@
-angular.module("app").controller('cadastroCtrl', function($scope,$http,$rootScope){ 
+angular.module("app").controller('cadastroCtrl', function($scope,$rootScope,$location,configUrl,cadastroApi){ 
     
+    
+
+
     $scope.addArtesao = function(artesao){
+    	
+    	cadastroApi.saveArtesao(artesao).success(function(data, status){
+       	$location.path('/login');
+       	console.log("Cadastro Realizado com Sucesso ",data, status);
       
-      $http.post("http://192.168.1.5:8080/Portifolio/cadastro/save", artesao).success(function(data, status){
-      		console.log("Cadastro Realizado com Sucesso ",data, status)
-      		$location.path('/login');
       }).error(function(data, status){
-
+      		
+      		alert("erro ",status);
       		console.error("erro ao realizar o Cadastro ",status,data)	
-      });
- 
-    }
-
-
-
-	
+      });;
+    	
+    };
+    	
 });

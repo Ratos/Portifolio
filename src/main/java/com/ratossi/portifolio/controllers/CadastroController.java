@@ -24,15 +24,15 @@ import com.ratossi.portifolio.model.Persistence.ArtesaoDAOJPA;
 @Controller
 @Path("/cadastro")
 public class CadastroController {
+    
+    ArtesaoDAOJPA artesaoDAOJPA = new ArtesaoDAOJPA();
    
     @Consumes(value = "application/json", options = WithoutRoot.class)
     @Post
     public void save(Artesao artesao) throws Exception{
-       if(artesao != null){ 
-        ArtesaoDAOJPA artesaoDAOJPA = new ArtesaoDAOJPA();
-        artesaoDAOJPA.salvar(artesao);
-       
-       }else{
+        if(artesao != null){ 
+          artesaoDAOJPA.salvar(artesao);
+        }else{
            System.out.print("Erro! O Objeto Artesao: "+artesao+" é nulo.");
        }
     }

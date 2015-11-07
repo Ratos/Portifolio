@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic','LocalStorageModule']).run(function($ionicPlatform) {
+angular.module('app', ['ionic','LocalStorageModule']).run(function($ionicPlatform,cadastroApi,loginApi,artesanatoApi) {
   
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -19,7 +19,7 @@ angular.module('app', ['ionic','LocalStorageModule']).run(function($ionicPlatfor
     }
   });
 
-}).config(function($stateProvider, $urlRouterProvider, localStorageServiceProvider) {
+}).config(function($stateProvider, $urlRouterProvider, localStorageServiceProvider,configUrl) {
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -64,7 +64,7 @@ angular.module('app', ['ionic','LocalStorageModule']).run(function($ionicPlatfor
 
   // configuração local storage module
   localStorageServiceProvider.setPrefix('Portfolio');
-  localStorageServiceProvider.setStorageType('sessionStorage');
+  localStorageServiceProvider.setStorageType('localStorage');
   localStorageServiceProvider.setStorageCookie(0, '/');
 
   // if none of the above states are matched, use this as the fallback
