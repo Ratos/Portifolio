@@ -6,7 +6,7 @@ angular.module("app").controller('artesaoCtrl', function($scope,$http,$rootScope
     }
 
     /*
-	Função ListaArtesanatos: requer injeção da Factory ArtesanatoApi.
+	     *Função ListaArtesanatos: requer injeção da Factory ArtesanatoApi.
     */
     $scope.listaArtesanatos = function(){
 
@@ -17,6 +17,8 @@ angular.module("app").controller('artesaoCtrl', function($scope,$http,$rootScope
 
    		});
    }
-
+    /*
+      *Preparando Lista de Artesanatos 
+    */
     $scope.artesanatos = localStorageService.get('artesanatos');
 })

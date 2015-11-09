@@ -51,7 +51,20 @@ public class ArtesaoDAOJPA {
        return (Artesao) query.getSingleResult();
        
   }
+
+  public String validarEmail(String string){
+     
+      try {
+        EntityManager em = Facabrica.getGerenciador();
+        em.getTransaction().begin();
+        Query query = em.createNamedQuery("Artesao.validarEmail").setParameter("email",string);
+
+        return (String) query.getSingleResult();
+      } catch (Exception e) {
+          return  null;
+      }
+      
+  }
   
-  
-  
+
 }

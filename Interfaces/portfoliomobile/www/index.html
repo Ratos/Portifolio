@@ -98,7 +98,12 @@
 		<div class="form-group" ng-class="{ 'has-error' : cadastroForm.email.$invalid && !cadastroForm.email.$pristine }">
             <label class="item item-input item-stacked-label" name="email">
                 <span class="input-label">Email</span>
-                <input type="email" placeholder="Digite seu email" ng-model="artesao.email" name="email" class="form-control" ng-pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/">
+                <input type="email" placeholder="Digite seu email" ng-model="artesao.email"  ng-change="validarEmail(artesao)" name="email" class="form-control" ng-pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/">
+                <p ng-show="emailValide() == false"
+                   class="help-block">
+                     Este Email já esta cadastrado!
+                </p>
+
             </label>
 		</div>
             <label class="item item-input item-stacked-label" name="endereco">
@@ -133,7 +138,7 @@
                 <span class="input-label">Confirmar</span>
                 <input type="password" placeholder="Confirme sua senha" ng-model="artesao.confsenha">
             </label>
-            <button type="submit" class="button button-balanced button-block  icon-right ion-android-checkmark" ng-disabled="!artesao.nome || !artesao.senha || !artesao.email">Cadastrar</button>
+            <button type="submit" class="button button-balanced button-block  icon-right ion-android-checkmark" ng-disabled="!artesao.nome || !artesao.senha || !artesao.email || !emailValide()">Cadastrar</button>
             <a href="#/login" class="button button-assertive button-block  icon-right ion-android-close">Cancelar</a>
             
         </form>

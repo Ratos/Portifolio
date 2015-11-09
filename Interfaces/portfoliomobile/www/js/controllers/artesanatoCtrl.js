@@ -25,7 +25,7 @@ angular.module("app").controller('artesanatoCtrl', function($scope,$rootScope,lo
    	$scope.artesanato.idArtesao = $scope.artesao.idArtesao;
 
 	   	artesanatoApi.saveArtesanato($scope.artesanato).success(function(data,status){
-	            listaArtesanatos();           
+	            $scope.listaArtesanatos();           
 	            $location.path('/initialpage');
 	    }).error(function(data,status){
 

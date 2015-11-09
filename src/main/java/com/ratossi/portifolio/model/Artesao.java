@@ -26,7 +26,8 @@ import javax.persistence.NamedQuery;
 @NamedQueries({
    @NamedQuery(name = "Artesao.findByUsuario", query = "SELECT s FROM Artesao s WHERE s.email = :email"),
    @NamedQuery(name = "Artesao.findByName", query = "SELECT s FROM Artesao s WHERE s.nome = :nome"),
-   @NamedQuery(name = "Artesao.findAll", query = "SELECT s FROM Artesao s")
+   @NamedQuery(name = "Artesao.findAll", query = "SELECT s FROM Artesao s"),
+   @NamedQuery(name = "Artesao.validarEmail", query = "SELECT s.email FROM Artesao s WHERE s.email = :email ")
         
 })
 public class Artesao implements Serializable {

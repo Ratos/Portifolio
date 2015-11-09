@@ -20,5 +20,6 @@ public interface ArtesaoDAO {
     void Alterar(Artesao artesao);
     List <Artesao> buscarTodos();
     List <Artesao> buscar();
+    String validarEmail(String string);
     Artesao login();
 }
