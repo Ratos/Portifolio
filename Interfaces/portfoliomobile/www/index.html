@@ -51,15 +51,16 @@
     </div>
 </div>
 
-<!-- Para: Thercio:
+<!-- Para: CONTROLE DOS DESENVOLVEDORES:
 
     Pagina de login page2.html
     Pagina de Cadastro page3.html
     Pagina de inicial page4.html
 	Pagina de cadastrar artesanato page5.html
-	Pagina de editar artesao page4.html
-
+	Pagina de editar artesao page6.html
+	Pagina de editar artesanato page7.html
 -->
+<!-----------------------------AQUI FICARÁ A PÁGINA DE CADASTRO DO ARTESÃO -------------------------->
 <script id="page2.html" type="text/ng-template">
 <ion-view title="Login">
     <ion-content padding="true" class="has-header">
@@ -85,6 +86,7 @@
 		</ion-content>
 	</ion-view>
 </script>
+<!-----------------------------AQUI FICARÁ A PÁGINA DE CADASTRAR O ARTESÃO -------------------------->
 <script id="page3.html" type="text/ng-template">
 <ion-view title="Cadastro">
     <ion-content padding="true" class="has-header">
@@ -138,6 +140,7 @@
     </ion-content>
 	
 </ion-view></script>
+<!-----------------------------AQUI FICARÁ A PÁGINA INICIAL DO ARTESAO -------------------------->
 <script id="page4.html" type="text/ng-template">
 <ion-view title="Página Inicial">
     <span ng-init="carregardados()"></span>
@@ -173,7 +176,7 @@
         </div>
     </ion-content>
 </ion-view></script>
-
+<!-----------------------------AQUI FICARÁ A PÁGINA DE CADASTRAR O ARTESANATO -------------------------->
 <script id="page5.html" type="text/ng-template">
 	<ion-view title="Cadastrar Artesanato">
 		<ion-content padding="true" class="has-header">
@@ -226,6 +229,7 @@
 		</ion-content>
 	</ion-view>
 </script>
+<!-----------------------------AQUI FICARÁ A PÁGINA DE EDITAR O ARTESAO -------------------------->
 <script id="page6.html" type="text/ng-template">
 	<ion-view title="Editar artesão">
 		<ion-content padding="true" class="has-header">
@@ -292,7 +296,61 @@
 		</ion-content>
 	</ion-view>
 </script>
-<ion-footer-bar class="bar-dark">
+<!-----------------------------AQUI FICARÁ A PÁGINA DE EDITAR O ARTESANATO -------------------------->
+<script id="page7.html" type="text/ng-template">
+	<ion-view title="Editar Artesanato">
+		<ion-content padding="true" class="has-header">
+    		<form name="formArtesnato" ng-submit="addArtesanato(artesanato)">
+                 <label class="item item-input item-stacked-label" name="nome">
+                    <span class="input-label">Nome</span>
+                    <input type="text"  placeholder="Caçarola de madeira" ng-model="artesanato.nome">
+                </label>
+
+                <div class="item-stacked-label">
+
+                  <label class="item item-input item-select" name="categoria">
+                    <div  class="input-label">
+                      Categoria
+                    </div>
+                    <select ng-model="artesanato.categoria">
+                      <option value="Madeira">Madeira</option>
+                      <option value="Porcelana">Porcelana</option>
+                      <option value="Metal">Metal</option>
+                    </select>
+                  </label>
+
+                </div>
+                                                  
+                <label class="item item-input item-stacked-label" name="loja">
+                    <span class="input-label">Loja(Opcional)</span>
+                    <input type="text" placeholder="Artesões S.A." ng-model="artesanato.loja">
+                </label>
+                <label class="item item-input item-stacked-label" name="preco">
+                     <span class="input-label">Preço(Opcional)</span>
+                    <input type="text" placeholder="R$ 40,00" ng-model="artesanato.preco">
+                </label>
+                <label class="item item-input item-stacked-label" name="descricao">
+                    <span class="input-label">Descrição</span>
+                    <input type="text" placeholder="Artesões S.A." ng-model="artesanato.descricao">
+                </label>
+                <div class="item item-body">
+                    <img class="full-image img-size"src="img/ionic.png">
+                  </div>
+                <div class="button-bar">
+                    <button class="button button-medium icon ion-camera"></button>
+                    <button class="button button-medium icon ion-images"></button>
+                </div>
+                </div>
+        		
+               
+    			
+    			<button type="submit" class="button button-full button-balanced icon ion-checkmark-round">Cadastrar</button>
+            </form>
+		</ion-content>
+	</ion-view>
+</script>
+
+	<ion-footer-bar class="bar-dark">
 		<div class="title">©Desenvolvido por Ratos SI</div>
 	  </ion-footer-bar>
   </body>
