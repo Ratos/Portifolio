@@ -4,6 +4,8 @@ angular.module("app").factory("artesanatoApi", function ($http, configUrl) {
 	urlSalvar = "/Portifolio/artesanato/salvar";
 	urlListar = "/Portifolio/artesanato/listar";
 	urlListArtesanatoIdArtesao = "/Portifolio/artesanato/listaArtesanatos?idArtesao=";
+	urlRemoveArtesanato = "/Portifolio/artesanato/remover";
+	urlAlterarArtesanato = "/Portifolio/artesanato/alteraArtesanato";
 
 	var _saveArtesanato = function (artesanato) {
 		return $http.post(configUrl.baseUrl+urlSalvar, artesanato);
@@ -17,9 +19,21 @@ angular.module("app").factory("artesanatoApi", function ($http, configUrl) {
 		return $http.get(configUrl.baseUrl+urlListArtesanatoIdArtesao+idArtesao);
 	};
 
+	var _removeArtesanato = function(artesanato){
+
+		return $http.post(configUrl.baseUrl+urlRemoveArtesanato,artesanato);
+	};
+
+	var _alteraArtesanato = function(artesanato){
+
+		return $http.post(configUrl.baseUrl+urlAlterarArtesanato,artesanato);
+	};
+
 	return {
 		saveArtesanato: _saveArtesanato,
 		listArtesanatos: _listArtesanatos,
-		listArtesanatoIdArtesao: _listArtesanatoIdArtesao
+		listArtesanatoIdArtesao: _listArtesanatoIdArtesao,
+		alteraArtesanato: _alteraArtesanato,
+		removeArtesanato: _removeArtesanato
 	};
 });

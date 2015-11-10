@@ -145,42 +145,52 @@
     </ion-content>
 	
 </ion-view></script>
+
+
 <!-----------------------------AQUI FICARÁ A PÁGINA INICIAL DO ARTESAO -------------------------->
 <script id="page4.html" type="text/ng-template">
-<ion-view title="Página Inicial">
-    <span ng-init="carregardados()"></span>
-    <span ng-init="listaArtesanatos()"></span>
-    <ion-content padding="true" class="has-header">
-        <div>
+<ion-view title="Página Inicial" >
+   
+     <ion-content padding="true" class="has-header">
+      
+
+      <div>
             <div class="item item-avatar">
                 <img src="">
                 <button style="float: right;" class="button button-small icon ion-gear-a"></button>
                 <h2>{{artesao.nome}}</h2>
             </div>
-
-
+            <div style="height: 20px;" class="spacer"></div>
+            <button ng-click="listaArtesanatos()" class="button button-full button-balanced icon ion-checkmark-round">Artesanatos</button>
 
             <div style="height: 20px;" class="spacer"></div>
-
              <ul class="example-animate-container">
                 <li class="animate-repeat" ng-repeat="artesanato in artesanatos">
                     <div class="item item-avatar">
                         <img src="">
                         <h3>{{artesanato.nome}}</h3>
-                        <button style="float: right;" class="button button-small button-assertive icon ion-trash-a"></button>
-                        <button style="float: right;" class="button button-small button-calm icon ion-edit"></button>
+                        <button ng-click="removerArtesanto(artesanato)" style="float: right;" class="button button-small button-assertive icon ion-trash-a"></button>
+                        <button ng-click="alteraArtesanato(artesanato)" style="float: right;" class="button button-small button-calm icon ion-edit"></button>
                     </div>
                 </li>
             </ul>
+            
                   
-            <a href="#/cadastrarartesanato"  class="button button-block button-balanced">
+            <a href="" ng-click="cadastroArtesanato()"  class="button button-block button-balanced">
 
                 Cadastrar novo artesanato
                 <i class="icon ion-plus-round" style="float: right;"></i>
             </a>
         </div>
+
+
+
+        
     </ion-content>
+   
 </ion-view></script>
+
+
 <!-----------------------------AQUI FICARÁ A PÁGINA DE CADASTRAR O ARTESANATO -------------------------->
 <script id="page5.html" type="text/ng-template">
 	<ion-view title="Cadastrar Artesanato">
@@ -229,7 +239,7 @@
         		
                
     			
-    			<button type="submit" class="button button-full button-balanced icon ion-checkmark-round">Cadastrar</button>
+    			<button type="submit"  class="button button-full button-balanced icon ion-checkmark-round">Cadastrar</button>
             </form>
 		</ion-content>
 	</ion-view>
@@ -305,7 +315,7 @@
 <script id="page7.html" type="text/ng-template">
 	<ion-view title="Editar Artesanato">
 		<ion-content padding="true" class="has-header">
-    		<form name="formArtesnato" ng-submit="addArtesanato(artesanato)">
+    		<form name="formArtesnato" ng-submit="alterarArtesanato(artesanato)">
                  <label class="item item-input item-stacked-label" name="nome">
                     <span class="input-label">Nome</span>
                     <input type="text"  placeholder="Caçarola de madeira" ng-model="artesanato.nome">
@@ -349,8 +359,9 @@
         		
                
     			
-    			<button type="submit" class="button button-full button-balanced icon ion-checkmark-round">Cadastrar</button>
+    			<button type="submit" class="button button-full button-balanced icon ion-checkmark-round">Salvar</button>
             </form>
+                <button type="submit" ng-click="cancelarEdicao() "class="button button-full button-balanced icon ion-checkmark-round">Cancelar Edição</button>
 		</ion-content>
 	</ion-view>
 </script>

@@ -1,24 +1,53 @@
-angular.module("app").controller('artesaoCtrl', function($scope,$http,$rootScope,localStorageService,artesanatoApi){ 
+angular.module("app").controller('artesaoCtrl', function($scope,$location,$rootScope,localStorageService,artesanatoApi){ 
     
-     $scope.carregardados = function(){
+   
     	$scope.artesao =  localStorageService.get('artesao');
-    	console.log($scope.artesao.nome);
-    }
-
-    /*
-	     *Função ListaArtesanatos: requer injeção da Factory ArtesanatoApi.
-    */
-    $scope.listaArtesanatos = function(){
+     
+    	     
+ 
+   //Função para Lsita Artesantos 
+  $scope.listaArtesanatos = function(){
 
    		artesanatoApi.listArtesanatoIdArtesao($scope.artesao.idArtesao).success(function(data,status){
    			localStorageService.set('artesanatos',data.list);
-        console.log($scope.artesao.idArtesao);
-   		}).error(function(data,status){
+        $scope.artesanatos = localStorageService.get('artesanatos');
+
+        
+      }).error(function(data,status){
 
    		});
-   }
-    /*
-      *Preparando Lista de Artesanatos 
-    */
-    $scope.artesanatos = localStorageService.get('artesanatos');
-})
+
+      
+   };
+
+
+
+   //função de remoção de artesanto
+   $scope.removerArtesanto = function(artesanto){
+
+    artesanatoApi.removeArtesanato(artesanto).success(function(data,status){
+
+      $scope.listaArtesanatos();
+
+    }).error(function(data,status){
+
+    });
+
+   };
+    
+   $scope.alteraArtesanato = function(artesanato){
+      $rootScope.artesanato = artesanato;
+      $location.url("/editarartesanato");
+      
+
+   }; 
+    
+   $scope.cadastroArtesanato = function(){
+       $scope.artesanato = null; 
+       $rootScope.artesanato = null;
+       $location.url('/cadastrarartesanato');
+    };
+ 
+    
+    
+});

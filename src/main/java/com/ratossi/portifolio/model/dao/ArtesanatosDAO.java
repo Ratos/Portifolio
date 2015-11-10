@@ -16,7 +16,7 @@ public interface ArtesanatosDAO {
     
     void salvar(Artesanato artesanato);
     void remover(Artesanato artesanato);
-    void alterar(Object object);
+    void alterar(Artesanato artesanato);
     List<Artesanato> buscarTodos();
     List<Artesanato> buscar(String nome);
     List<Artesanato> buscarId(String idArtesao);

@@ -1,40 +1,69 @@
-angular.module("app").controller('artesanatoCtrl', function($scope,$rootScope,localStorageService,$location,artesanatoApi){ 
+angular.module("app").controller('artesanatoCtrl', function($scope,$rootScope,localStorageService,$location,artesanatoApi,$cordovaCamera){ 
     
 	$scope.artesao = localStorageService.get('artesao');
-	$scope.artesanato = {};
-
+ 
 
    /*
         *Função ListaArtesanatos: requer injeção da Factory ArtesanatoApi.
     */
-    $scope.listaArtesanatos = function(){
+
+    /*$scope.listaArtesanatos = function(){
 
          artesanatoApi.listArtesanatoIdArtesao($scope.artesao.idArtesao).success(function(data,status){
             localStorageService.set('artesanatos',data.list);
-            console.log($scope.artesao.idArtesao);
+            console.log("Listagem completa");
          }).error(function(data,status){
 
          });
    }
+    */
+
+     $scope.listaArtesanatos = function(){
+
+      artesanatoApi.listArtesanatoIdArtesao($scope.artesao.idArtesao).success(function(data,status){
+        localStorageService.set('artesanatos',data.list);
+        
+      }).error(function(data,status){
+
+      });
+
+      $scope.artesanatos = localStorageService.get('artesanatos');
+
+   };
     
-
-
    $scope.addArtesanato = function(artesanato){
-   	
-    $scope.artesanato = artesanato;
-   	$scope.artesanato.idArtesao = $scope.artesao.idArtesao;
+   	$scope.artesanatoPersite = {};
+    $scope.artesanatoPersite = artesanato;
+   	$scope.artesanatoPersite.idArtesao = $scope.artesao.idArtesao;
 
-	   	artesanatoApi.saveArtesanato($scope.artesanato).success(function(data,status){
-	            $scope.listaArtesanatos();           
-	            $location.path('/initialpage');
+	   	artesanatoApi.saveArtesanato($scope.artesanatoPersite).success(function(data,status){
+         
+         $location.url('/initialpage');    
 	    }).error(function(data,status){
 
 	    	console.error("Erro ao Cadastra Artesanato",data,status);
 	    }); 
-	   
    }
 
-   
-    
+   $scope.alterarArtesanato = function(artesanato){
+
+    $scope.artesanato = artesanato;
+
+    artesanatoApi.alteraArtesanato($scope.artesanato).success(function(data,status){
+         $location.url('/initialpage');    
+    }).error(function(data,status){
+
+        console.error("Erro ao Cadastra Artesanato",data,status);
+      }); 
+
+
+   };
+
+   $scope.cancelarEdicao = function(){
+      $rootScope.artesanato = null;
+      $location.url('/initialpage');
+
+   }
+  
     
 });

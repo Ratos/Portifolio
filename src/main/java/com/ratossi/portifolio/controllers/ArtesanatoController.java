@@ -56,10 +56,7 @@ public class ArtesanatoController {
     @Consumes(value = "application/json", options = WithoutRoot.class)
     @Post
     public void remover(Artesanato artesanato){
-       
-      
       artesanatosDAOJPA.remover(artesanato);
-      result.redirectTo(ArtesanatoController.class).lista();
     }
     
     /*
@@ -71,6 +68,11 @@ public class ArtesanatoController {
        result.use(json()).from(artesanato).serialize();
     }
    
+    @Consumes(value = "application/json", options = WithoutRoot.class)
+    @Post
+    public void alteraArtesanato(Artesanato artesanato){
+        artesanatosDAOJPA.alterar(artesanato);
+    }
     
     /*
         *Busca Artesanatos de um Unico Artesão

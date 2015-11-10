@@ -51,8 +51,15 @@ public class ArtesanatosDAOJPA implements ArtesanatosDAO{
     }
 
     @Override
-    public void alterar(Object object) {
-        
+    public void alterar(Artesanato artesanato) {
+        EntityManager em = Facabrica.getGerenciador();
+        em.getTransaction().begin();
+       
+        em.merge(artesanato);
+        em.getTransaction().commit();
+        em.close();
+             
+      
     }
 
    
