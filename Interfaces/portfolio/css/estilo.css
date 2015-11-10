@@ -1,4 +1,8 @@
 /*Aqui ficará o meu CSS*/
+#corpo{
+	background-image: url('../img/fundo.jpg');
+}
+
 #posicaomenu{
 	width: 100%;
 	top: 0px;
@@ -59,14 +63,14 @@
 }
 
 #borda{
-	border: 1px solid black;
+	border: 2px solid black;
 	height: auto;
 	border-radius: 10px;
 	
 }
 
 #bordapeq{
-	border: 1px solid black;
+	border: 2px solid black;
 	height: auto;
 	border-radius: 10px;	
 }
