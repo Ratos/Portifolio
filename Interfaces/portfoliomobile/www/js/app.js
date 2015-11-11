@@ -68,7 +68,7 @@ angular.module('app', ['ionic','LocalStorageModule','ngCordova']).run(function($
       controller: 'artesanatoCtrl'
       
    });
-
+   
   // configuração local storage module
   localStorageServiceProvider.setPrefix('Portfolio');
   localStorageServiceProvider.setStorageType('localStorage');
@@ -81,7 +81,30 @@ angular.module('app', ['ionic','LocalStorageModule','ngCordova']).run(function($
 
 }).controller('indexController', function($scope,$http,$location){
 
-
-
-
+	$scope.tab = 1;
+	
+	$scope.setTab = function(newTab){
+		$scope.tab = newTab;
+	};
+	
+	$scope.isSet = function(tabNum){
+		return $scope.tab === tabNum;
+	};
+	
+	/* $scop.showPopup = function() {
+		$scope.data = {}
+		$scope.showConfirm = function() {
+		   var confirmPopup = $ionicPopup.confirm({
+			 title: 'Consume Ice Cream',
+			 template: 'Are you sure you want to eat this ice cream?'
+		   });
+		   confirmPopup.then(function(res) {
+			 if(res) {
+			   console.log('You are sure');
+			 } else {
+			   console.log('You are not sure');
+			 }
+		   });
+		};
+	}; */
 });
