@@ -3,3 +3,15 @@
 .img-size{
 	height: 150px;
 }
+
+#coisaartesao{
+	background-color: #0d733b;
+	border: none;
+}
+
+#bordacima{
+	border: none;
+	padding: 0;
+	background-color: #0d733b;
+	color: #fff;
+}

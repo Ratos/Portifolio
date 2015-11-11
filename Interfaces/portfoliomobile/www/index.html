@@ -150,42 +150,50 @@
 <!-----------------------------AQUI FICARÁ A PÁGINA INICIAL DO ARTESAO -------------------------->
 <script id="page4.html" type="text/ng-template">
 <ion-view title="Página Inicial" >
-   
-     <ion-content padding="true" class="has-header">
+    <ion-content padding="true" class="has-header">
       
-
-      <div>
-            <div class="item item-avatar">
+		<div class="list-card">
+            <div class="item item-avatar" id="coisaartesao">
                 <img src="">
-                <button style="float: right;" class="button button-small icon ion-gear-a"></button>
-                <h2>{{artesao.nome}}</h2>
+                <h2 style="color:#fff;">{{artesao.nome}} nome artesao</h2>
             </div>
-            <div style="height: 20px;" class="spacer"></div>
-            <button ng-click="listaArtesanatos()" class="button button-full button-balanced icon ion-checkmark-round">Artesanatos</button>
+			
+			<div class="item" id="bordacima">
+				<div class="item tabs tabs-icon-top tabs-striped" id="bordacima">
+				<a class="tab-item active" href="#">
+				  <i class="icon ion-home"></i>
+				  Início
+				</a>
+				<a class="tab-item" href="#">
+				  <i class="icon ion-star"></i>
+				  Artesanatos
+				</a>
+				<a class="tab-item" href="#">
+				  <i class="icon ion-gear-a"></i>
+				  Configurações
+				</a>
+				</div>
+			</div>
+		</div>
+        <div style="height: 25px;" class="spacer"></div>
 
-            <div style="height: 20px;" class="spacer"></div>
-             <ul class="example-animate-container">
-                <li class="animate-repeat" ng-repeat="artesanato in artesanatos">
-                    <div class="item item-avatar">
-                        <img src="">
-                        <h3>{{artesanato.nome}}</h3>
-                        <button ng-click="removerArtesanto(artesanato)" style="float: right;" class="button button-small button-assertive icon ion-trash-a"></button>
-                        <button ng-click="alteraArtesanato(artesanato)" style="float: right;" class="button button-small button-calm icon ion-edit"></button>
-                    </div>
-                </li>
-            </ul>
-            
-                  
-            <a href="" ng-click="cadastroArtesanato()"  class="button button-block button-balanced">
+        <button ng-click="listaArtesanatos()" class="button button-full button-balanced icon ion-checkmark-round">Artesanatos</button>
 
-                Cadastrar novo artesanato
-                <i class="icon ion-plus-round" style="float: right;"></i>
-            </a>
-        </div>
-
-
-
-        
+        <div style="height: 20px;" class="spacer"></div>
+        <ul class="example-animate-container">
+			<li class="animate-repeat" ng-repeat="artesanato in artesanatos">
+				<div class="item item-avatar">
+					<img src="">
+					<h3>{{artesanato.nome}}</h3>
+					<button ng-click="removerArtesanto(artesanato)" style="float: right;" class="button button-small button-assertive icon ion-trash-a"></button>
+					<button ng-click="alteraArtesanato(artesanato)" style="float: right;" class="button button-small button-calm icon ion-edit"></button>
+				</div>
+			</li>
+		</ul>
+		<a href="" ng-click="cadastroArtesanato()"  class="button button-block button-balanced">
+			Cadastrar novo artesanato
+			<i class="icon ion-plus-round" style="float: right;"></i>
+		</a>
     </ion-content>
    
 </ion-view></script>
