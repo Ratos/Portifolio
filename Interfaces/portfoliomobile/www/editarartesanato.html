@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html ng-app="app" >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <style>
+      .angular-google-map-container {
+          width: 100%;
+          height: 504px;
+      }
+    </style>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>    
+    <script type="text/javascript" src="js/controllers/loginCtrl.js"></script>
+    <script type="text/javascript" src="js/controllers/artesaoCtrl.js"></script>
+    <script type="text/javascript" src="js/controllers/cadastroCtrl.js"></script>
+    <script type="text/javascript" src="js/controllers/artesanatoCtrl.js"></script>
+    <script type="text/javascript" src="js/value/ConfigValue.js"></script>
+    <script type="text/javascript" src="js/service/CadastroApiService.js"></script>
+    <script type="text/javascript" src="js/service/LoginApiService.js"></script>
+    <script type="text/javascript" src="js/service/ArtesanatoApiService.js"></script>
+
+    <script type="text/javascript" src="js/module/angular-local-storage.min.js"></script>
+    <script type="text/javascript" src="js/ng-cordova.min.js"></script>
+
+    <link href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+
+    <script>
+
+
+
+    </script>
+  </head>
+<body  animation="slide-left-right-ios7">
+	<div>
+		<div>
+			<ion-nav-bar class="bar-stable">
+				<ion-nav-back-button class="button-icon icon ion-ios7-arrow-back">Back</ion-nav-back-button>
+			</ion-nav-bar>
+			<ion-nav-view></ion-nav-view>
+		</div>
+	</div>
+
+	<script id="editarartesanato.html" type="text/ng-template">
+		<ion-view title="Editar Artesanato">
+			<ion-content padding="true" class="has-header">
+				<form name="formArtesnato" ng-submit="alterarArtesanato(artesanato)">
+					 <label class="item item-input item-stacked-label" name="nome">
+						<span class="input-label">Nome</span>
+						<input type="text"  placeholder="Caçarola de madeira" ng-model="artesanato.nome">
+					</label>
+
+					<div class="item-stacked-label">
+
+					  <label class="item item-input item-select" name="categoria">
+						<div  class="input-label">
+						  Categoria
+						</div>
+						<select ng-model="artesanato.categoria">
+						  <option value="Madeira">Madeira</option>
+						  <option value="Porcelana">Porcelana</option>
+						  <option value="Metal">Metal</option>
+						</select>
+					  </label>
+
+					</div>
+													  
+					<label class="item item-input item-stacked-label" name="loja">
+						<span class="input-label">Loja(Opcional)</span>
+						<input type="text" placeholder="Artesões S.A." ng-model="artesanato.loja">
+					</label>
+					<label class="item item-input item-stacked-label" name="preco">
+						 <span class="input-label">Preço(Opcional)</span>
+						<input type="text" placeholder="R$ 40,00" ng-model="artesanato.preco">
+					</label>
+					<label class="item item-input item-stacked-label" name="descricao">
+						<span class="input-label">Descrição</span>
+						<input type="text" placeholder="Artesões S.A." ng-model="artesanato.descricao">
+					</label>
+					<div class="item item-body">
+						<img class="full-image img-size"src="img/ionic.png">
+					  </div>
+					<div class="button-bar">
+						<button class="button button-medium icon ion-camera"></button>
+						<button class="button button-medium icon ion-images"></button>
+					</div>
+					</div>
+					
+				   
+					
+					<button type="submit" class="button button-full button-balanced icon ion-checkmark-round">Salvar</button>
+				</form>
+					<button type="submit" ng-click="cancelarEdicao() "class="button button-full button-balanced icon ion-checkmark-round">Cancelar Edição</button>
+			</ion-content>
+		</ion-view>
+	</script>
+	
+	<ion-footer-bar class="bar-dark">
+		<div class="title">©Desenvolvido por Ratos SI</div>
+	</ion-footer-bar>
+</body>
+</html>

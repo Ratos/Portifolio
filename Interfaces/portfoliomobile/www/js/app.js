@@ -29,42 +29,42 @@ angular.module('app', ['ionic','LocalStorageModule','ngCordova']).run(function($
     
     .state('page2', {
       url: '/login',
-      templateUrl: 'page2.html',
+      templateUrl: 'index.html',
       controller: 'loginCtrl'
       
     })
     
     .state('page3', {
       url: '/cadastro',
-      templateUrl: 'page3.html',
+      templateUrl: 'cadastro.html',
       controller: 'cadastroCtrl'
       
      })
     
     .state('page4', {
       url: '/initialpage',
-      templateUrl: 'page4.html',
+      templateUrl: 'initialpage.html',
       controller: 'artesaoCtrl'
       
       
     })
 	.state('page5', {
       url: '/cadastrarartesanato',
-      templateUrl: 'page5.html',
+      templateUrl: 'cadastrarartesanato.html',
       controller: 'artesanatoCtrl'
       
      })
 	
 	.state('page6', {
       url: '/editarartesao',
-      templateUrl: 'page6.html',
+      templateUrl: 'editarartesao.html',
       controller: 'cadastroCtrl'
       
    })
    
    .state('page7', {
       url: '/editarartesanato',
-      templateUrl: 'page7.html',
+      templateUrl: 'editarartesanato.html',
       controller: 'artesanatoCtrl'
       
    });
