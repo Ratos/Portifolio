@@ -175,16 +175,37 @@
 				</div>
 			</div>
 		</div>
-        <div style="height: 25px;" class="spacer"></div>
 
         <!-- por hora não funfa <button ng-click="listaArtesanatos()" class="button button-full button-balanced icon ion-checkmark-round">Artesanatos</button> -->
 
         <div style="height: 20px;" class="spacer"></div>
 		<div class="conteudo">
 			<div ng-show="isSet(1)">
-				<h2>Olá {{artesao.nome}} esta é sua página inicial!</h2>
+				<div class="list card">
+
+				  <div class="item item-body">
+					<h2>Olá {{artesao.nome}}, seja bem vindo à página inicial!
+					<p>
+						Email: {{artesao.email}}<br><br>
+						Telefone: {{artesao.telefone}}<br><br>
+						Endereço: {{artesao.endereco}}
+					</p>
+					<div class="item tabs tabs-secondary tabs-icon-left">
+						<a class="tab-item" href="#/editarartesao">
+						  <i class="icon ion-edit"></i>
+						  Editar Perfil
+						</a>
+						<a class="tab-item" href="#">
+						  <i class="icon ion-android-add-circle"></i>
+						  Cadastrar artesanato
+						</a>
+					</div>
+				  </div>
+
+				</div>
 			</div>
 			<div ng-show="isSet(2)">
+			<div class="list card">
 				<ul class="example-animate-container">
 					<li class="animate-repeat" ng-repeat="artesanato in artesanatos">
 						<div class="item item-avatar">
@@ -197,10 +218,12 @@
 				</ul>
 				<a href="" ng-click="cadastroArtesanato()"  class="button button-block button-balanced">
 					Cadastrar novo artesanato
-					<i class="icon ion-plus-round" style="float: right;"></i>
+					<i class="icon ion-android-add-circle" style="float: right;"></i>
 				</a>
 			</div>
+			</div>
 			<div ng-show="isSet(3)">
+			<div class="list card">
 				<a href="#/editarartesao" class="button button-block button-positive">
 					Editar Perfil
 				</a>
@@ -208,6 +231,7 @@
 				<button class="button button-block button-assertive">
 				  Sair
 				</button>
+			</div>
 			</div>
 			
 		</div>
