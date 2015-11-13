@@ -165,8 +165,8 @@
       <div>
 		<div class="list-card">
             <div class="item item-avatar" id="coisaartesao">
-                <img src="">
-                <h2 style="color:#fff;">{{artesao.nome}} </h2>
+                <img src="img/1.jpg">
+                <h2 style="color:#fff;">{{artesao.nome}}Thércio Alencar </h2>
             </div>
 			
 			<div class="item" id="bordacima">
@@ -193,18 +193,18 @@
 				<div class="list card">
 
                   <div class="item item-body">
-                  <h2>Olá {{artesao.nome}}, seja bem vindo à página inicial!
+                  <h2>Olá <span class="cornome">{{artesao.nome}}Thércio Alencar</span>, seja bem vindo! Esta é a sua página inicial!
                   <p>
-                    Email: {{artesao.email}}<br><br>
-                    Telefone: {{artesao.tel}}<br><br>
-                    Endereço: {{artesao.endereco}}
+                    <strong>Email:</strong> {{artesao.email}}thercio-coutinho@yahoo.com<br><br>
+                    <strong>Telefone:</strong> {{artesao.tel}}(88)99714-0855<br><br>
+                    <strong>Endereço:</strong> {{artesao.endereco}}Rua Chiquinho Pereira-Coruja, S/N, Assaré-CE
                   </p>
                   <div class="item tabs tabs-secondary tabs-icon-left">
                     <a class="tab-item" href="#/editarartesao">
                       <i class="icon ion-edit"></i>
                       Editar Perfil
                     </a>
-                    <a class="tab-item" href="#">
+                    <a class="tab-item" href="" ng-click="cadastroArtesanato()" >
                       <i class="icon ion-android-add-circle"></i>
                       Cadastrar artesanato
                     </a>
@@ -242,7 +242,7 @@
                       Editar Perfil
                     </a>
                     <a class="tab-item" href="#">
-                      <i class="icon ion-android-add-circle"></i>
+                      <i class="icon ion-log-out"></i>
                       Sair
                     </a>
                   </div>
@@ -273,9 +273,14 @@
                       Categoria
                     </div>
                     <select ng-model="artesanato.categoria">
+                      <option value="Barro">Barro</option>
+                      <option value="Biscuit">Biscuit</option>
+                      <option value="Bordado">Bordado</option>
+					  <option value="Gesso">Gesso</option>
                       <option value="Madeira">Madeira</option>
-                      <option value="Porcelana">Porcelana</option>
                       <option value="Metal">Metal</option>
+					  <option value="Porcelana">Porcelana</option>
+                      <option value="Outros">Outros</option>
                     </select>
                   </label>
 

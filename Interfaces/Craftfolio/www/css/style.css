@@ -5,17 +5,22 @@
 }
 
 #coisaartesao{
-	background-color: #0d733b;
+	background-color: /*#0d733b   #8d0000*/ #bc5100;
 	border: none;
 }
 
 #bordacima{
 	border: none;
 	padding: 0;
-	background-color: #0d733b;
+	background-color: /*#0d733b*/#bc5100;
 	color: #fff;
 }
 
 #conteudo{
 	background-color: #eee;
+}
+
+.cornome{
+	color: #0d733b;
+	font-size: 20px;
 }
