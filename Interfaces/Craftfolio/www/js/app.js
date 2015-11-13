@@ -67,6 +67,13 @@ angular.module('app', ['ionic','LocalStorageModule','ngCordova']).run(function($
       templateUrl: 'page7.html',
       controller: 'artesanatoCtrl'
       
+   })
+  
+  .state('page8', {
+      url: '/erro',
+      templateUrl: 'page8.html',
+      controller: 'artesanatoCtrl'
+      
    });
    
   // configuração local storage module
