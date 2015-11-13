@@ -1,4 +1,4 @@
-angular.module("app").controller('cadastroCtrl', function($scope,$rootScope,$location,configUrl,cadastroApi){ 
+angular.module("app").controller('cadastroCtrl', function($scope,$rootScope,$location,$cordovaCamera,configUrl,cadastroApi){ 
     
     
 
@@ -44,6 +44,5 @@ angular.module("app").controller('cadastroCtrl', function($scope,$rootScope,$loc
       };
 
     };
-
-    
+       
 });

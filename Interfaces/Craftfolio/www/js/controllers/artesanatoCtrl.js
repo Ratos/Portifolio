@@ -1,22 +1,13 @@
 angular.module("app").controller('artesanatoCtrl', function($scope,$rootScope,localStorageService,$location,artesanatoApi,$cordovaCamera){ 
     
-	$scope.artesao = localStorageService.get('artesao');
- 
+	 $scope.artesao = localStorageService.get('artesao');
+    
 
    /*
         *Função ListaArtesanatos: requer injeção da Factory ArtesanatoApi.
     */
 
-    /*$scope.listaArtesanatos = function(){
-
-         artesanatoApi.listArtesanatoIdArtesao($scope.artesao.idArtesao).success(function(data,status){
-            localStorageService.set('artesanatos',data.list);
-            console.log("Listagem completa");
-         }).error(function(data,status){
-
-         });
-   }
-    */
+   
 
      $scope.listaArtesanatos = function(){
 
@@ -38,7 +29,8 @@ angular.module("app").controller('artesanatoCtrl', function($scope,$rootScope,lo
 
 	   	artesanatoApi.saveArtesanato($scope.artesanatoPersite).success(function(data,status){
          
-         $location.url('/initialpage');    
+         $location.url('/initialpage'); 
+          $rootScope.setTab(2);
 	    }).error(function(data,status){
 
 	    	console.error("Erro ao Cadastra Artesanato",data,status);
@@ -64,6 +56,30 @@ angular.module("app").controller('artesanatoCtrl', function($scope,$rootScope,lo
       $location.url('/initialpage');
 
    }
+
+   $scope.takePicture = function () {
+      
+    
+    var options = {
+      quality: 50,
+      destinationType: Camera.DestinationType.DATA_URL,
+      sourceType: Camera.PictureSourceType.CAMERA,
+      allowEdit: true,
+      encodingType: Camera.EncodingType.JPEG,
+      targetWidth: 100,
+      targetHeight: 100,
+      popoverOptions: CameraPopoverOptions,
+      saveToPhotoAlbum: false,
+      correctOrientation:true
+    };
+
+      $cordovaCamera.getPicture(options).then(function(imageData) {
+       
+      $scope.imgURI = "data:image/jpeg;base64," + imageData;
+      }, function(err) {
+        // error
+      });
+    };
   
     
 });

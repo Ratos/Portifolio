@@ -47,7 +47,20 @@ angular.module("app").controller('artesaoCtrl', function($scope,$location,$rootS
        $rootScope.artesanato = null;
        $location.url('/cadastrarartesanato');
     };
+
+  $scope.tab = 1;
+  
+  $rootScope.setTab = function(newTab){
+    $scope.tab = newTab;
+    $scope.listaArtesanatos();
+  };
+  
+  $scope.isSet = function(tabNum){
+    return $scope.tab === tabNum;
+  };
+  
+  
+   
  
-    
-    
+ 
 });

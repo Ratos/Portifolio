@@ -29,42 +29,42 @@ angular.module('app', ['ionic','LocalStorageModule','ngCordova']).run(function($
     
     .state('page2', {
       url: '/login',
-      templateUrl: 'index.html',
+      templateUrl: 'page2.html',
       controller: 'loginCtrl'
       
     })
     
     .state('page3', {
       url: '/cadastro',
-      templateUrl: 'cadastro.html',
+      templateUrl: 'page3.html',
       controller: 'cadastroCtrl'
       
      })
     
     .state('page4', {
       url: '/initialpage',
-      templateUrl: 'initialpage.html',
+      templateUrl: 'page4.html',
       controller: 'artesaoCtrl'
       
       
     })
 	.state('page5', {
       url: '/cadastrarartesanato',
-      templateUrl: 'cadastrarartesanato.html',
+      templateUrl: 'page5.html',
       controller: 'artesanatoCtrl'
       
      })
 	
 	.state('page6', {
       url: '/editarartesao',
-      templateUrl: 'editarartesao.html',
+      templateUrl: 'page6.html',
       controller: 'cadastroCtrl'
       
    })
    
    .state('page7', {
       url: '/editarartesanato',
-      templateUrl: 'editarartesanato.html',
+      templateUrl: 'page7.html',
       controller: 'artesanatoCtrl'
       
    });
@@ -81,30 +81,5 @@ angular.module('app', ['ionic','LocalStorageModule','ngCordova']).run(function($
 
 }).controller('indexController', function($scope,$http,$location){
 
-	$scope.tab = 1;
 	
-	$scope.setTab = function(newTab){
-		$scope.tab = newTab;
-	};
-	
-	$scope.isSet = function(tabNum){
-		return $scope.tab === tabNum;
-	};
-	
-	/* $scop.showPopup = function() {
-		$scope.data = {}
-		$scope.showConfirm = function() {
-		   var confirmPopup = $ionicPopup.confirm({
-			 title: 'Consume Ice Cream',
-			 template: 'Are you sure you want to eat this ice cream?'
-		   });
-		   confirmPopup.then(function(res) {
-			 if(res) {
-			   console.log('You are sure');
-			 } else {
-			   console.log('You are not sure');
-			 }
-		   });
-		};
-	}; */
 });
