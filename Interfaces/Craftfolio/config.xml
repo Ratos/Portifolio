@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.portfolioapp418414" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>PortfolioApp</name>
+  <name>Craftfolio</name>
   <description>
         An Ionic Framework and Cordova project.
     </description>
@@ -8,7 +8,13 @@
       Ionic Framework Team
     </author>
   <content src="index.html"/>
+  <access origin="content:///*" />
   <access origin="*"/>
+
+  <allow-navigation href="http://*/*" />
+  <allow-navigation href="https://*/*" />
+  <allow-navigation href="data:*" />
+
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>

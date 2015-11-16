@@ -48,6 +48,13 @@ angular.module("app").controller('artesaoCtrl', function($scope,$location,$rootS
        $location.url('/cadastrarartesanato');
     };
 
+    $scope.logout = function(){
+      localStorageService.clearAll();
+     
+      $location.url('/login');
+
+    }
+
   $scope.tab = 1;
   
   $rootScope.setTab = function(newTab){

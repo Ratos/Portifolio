@@ -72,7 +72,7 @@ angular.module('app', ['ionic','LocalStorageModule','ngCordova']).run(function($
   .state('page8', {
       url: '/erro',
       templateUrl: 'page8.html',
-      controller: 'artesanatoCtrl'
+      controller: 'artesaoCtrl'
       
    });
    
