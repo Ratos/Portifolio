@@ -28,6 +28,7 @@
     <script type="text/javascript" src="js/service/CadastroApiService.js"></script>
     <script type="text/javascript" src="js/service/LoginApiService.js"></script>
     <script type="text/javascript" src="js/service/ArtesanatoApiService.js"></script>
+    <script type="text/javascript" src="js/service/ArtesaoApiService.js"></script>
 
 
     
@@ -70,16 +71,15 @@
 <script id="page2.html" type="text/ng-template">
 <ion-view title="Login">
     <ion-content padding="true" class="has-header">
+
+        <span ng-show="erro == true ">Email ou senha pode esta incorretos!</span>
         <form name="loginForm" ng-submit="logar(login)">
             <ion-list>
                 <label class="item item-input" name="email">
                     <span class="input-label">Email</span>
                     <input type="email" placeholder="Insira seu email" ng-model="login.email" ng-required="true">
                 </label>
-                <p ng-show="result == true"
-                   class="help-block">
-                     Não a usuarios cadastrado com este Email!
-                </p>
+             
 
                 <label class="item item-input" name="senha">
                     <span class="input-label">Senha</span>
@@ -165,7 +165,9 @@
       <div>
 		<div class="list-card">
             <div class="item item-avatar" id="coisaartesao">
-                <img src="img/1.jpg">
+                <img ng-show="imgAvatar !== undefined"  ng-src="{{imgAvatar}}">
+                <img ng-show="imgAvatar === undefined" ng-src="img/avatar.png">
+
                 <h2 style="color:#fff;">{{artesao.nome}}</h2>
             </div>
 			
@@ -303,7 +305,7 @@
             </form>
 
             
-                        <img class="full-image img-size" ng-show"imgURI !== undefined" ng-src="{{imgURI}}">
+            <img class="full-image img-size" ng-show"imgURI !== undefined" ng-src="{{imgURI}}">
             
             
             <div class="button-bar">
@@ -316,55 +318,91 @@
 <!-----------------------------AQUI FICARÁ A PÁGINA DE EDITAR O ARTESAO -------------------------->
 <script id="page6.html" type="text/ng-template">
 	<ion-view title="Editar artesão">
-		<ion-content padding="true" class="has-header">
-			<form style="" ng-submit="addArtesao(artesao)" name="cadastroForm" novalidate>
-            <label class="item item-input item-stacked-label" name="nome">
-                <span class="input-label">Nome</span>
-                <input type="text" 
-					   placeholder="Digite seu nome" 
-					   ng-model="artesao.nome"
-					   name="name"
-					   >
-            </label>
-		<div class="form-group" ng-class="{ 'has-error' : cadastroForm.email.$invalid && !cadastroForm.email.$pristine }">
-            <label class="item item-input item-stacked-label" name="email">
-                <span class="input-label">Email</span>
-                <input type="email"
-					   placeholder="Digite seu email" 
-					   ng-model="artesao.email"
-					   name="email"
-					   class="form-control"
-					   ng-pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/"
-					   >
-            </label>
-		</div>
-            <label class="item item-input item-stacked-label" name="endereco">
-                <span class="input-label">Endereço</span>
-                <input type="text" placeholder="Rua, cidade, bairro e número" ng-model="artesao.endereco">
-            </label>
-            <label class="item item-input item-stacked-label" name="tel">
-                <span class="input-label">Telefone</span>
-                <input type="tel" placeholder="Telefone/Celular" ng-model="artesao.tel">
-            </label>
-		
-			<div class="item item-body">
-				<img class="full-image img-size"src="img/ionic.png" style="">
-			</div>
-			<div class="item tabs tabs-secondary tabs-icon-left">
-				<a class="tab-item">
-                    <i class="icon ion-android-camera"></i>
-                </a>
-				<a class="tab-item">
-                    <i class="icon ion-images"></i>
-                </a>
-			</div>
-            
+		<ion-content padding="true" class="has-header"  id="conteudo">
+
+             <div class="list card">
+
+               
+                
+                    <div class="item item-avatar" id="coisaartesao">
+                            <img ng-show="imgAvatar !== undefined"  ng-src="{{imgAvatar}}">
+                            <img ng-show="imgAvatar === undefined" ng-src="img/avatar.png">
+                    <span ng-show="imgAvatar === undefined">
+                        Escola uma Imagens para seu Perfil
+                    </span >
+                    
+                     <a class="tab-item" ng-show="imgAvatar !== undefined" ng-click="upload()">
+                        Salvar Imagens Perfil
+                      <i class="icon ion-camera"></i>
+                     </a>
+                </div>
+                
+                <div class="item tabs tabs-secondary tabs-icon-left">
+                    <a class="tab-item" ng-click="takePicture()">
+                      <i class="icon ion-camera"></i>
+                      
+                    </a>
+                    <a class="tab-item" >
+                      <i class="icon ion-images"></i>
+                     
+                    </a>
+                </div>
+            </div>      
+                
+
+
+			<form style="" ng-submit="alteraArtesao(artesao)" name="alterarForm" novalidate>
+                <label class="item item-input item-stacked-label" name="nome">
+                    <span class="input-label">Nome</span>
+                    <input type="text" 
+    					   placeholder="Digite seu nome" 
+    					   ng-model="artesao.nome"
+    					   name="name"
+    					   >
+                </label>
+        		<div class="form-group" ng-class="{ 'has-error' : cadastroForm.email.$invalid && !cadastroForm.email.$pristine }">
+                    <label class="item item-input item-stacked-label" name="email">
+                        <span class="input-label">Email</span>
+                        <input type="email"
+        					   placeholder="Digite seu email" 
+        					   ng-model="artesao.email"
+        					   name="email"
+        					   class="form-control"
+        					   ng-pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/"
+        					   >
+                    </label>
+        		</div>
+                <label class="item item-input item-stacked-label" name="endereco">
+                    <span class="input-label">Endereço</span>
+                    <input type="text" placeholder="Rua, cidade, bairro e número" ng-model="artesao.endereco">
+                </label>
+                <label class="item item-input item-stacked-label" name="tel">
+                    <span class="input-label">Telefone</span>
+                    <input type="tel" placeholder="Telefone/Celular" ng-model="artesao.tel">
+                </label>
+		         
+                
+        			<button type="submit" class="item tabs tabs-secondary tabs-icon-left" >
+                       
+                		
+                            <span class="tab-item">
+                                <i class="icon ion-android-add-circle"></i>
+                                Salvar alteraçoes 
+                            </span>
+                      
+        			</button>
+             
+            </div>   
+
+            </form> 
             <div class="item tabs tabs-secondary tabs-icon-left">
-    			<a class="tab-item">
-                    Alterar dados cadastrados
-    				<i class="icon ion-checkmark"></i>
-    			</a>
+                    <a href="" ng-click="editArtesaoCan()"  class="tab-item">
+                        <i class="icon ion-android-add-circle"></i>
+                        Cancelar Edição 
+                    </a>
             </div>
+            
+              
 		</ion-content>
 	</ion-view>
 </script>
@@ -405,13 +443,7 @@
                     <span class="input-label">Descrição</span>
                     <input type="text" placeholder="Artesões S.A." ng-model="artesanato.descricao">
                 </label>
-                <div class="item item-body">
-                    <img class="full-image img-size"src="img/ionic.png">
-                  </div>
-                <div class="button-bar">
-                    <button class="button button-medium icon ion-camera"></button>
-                    <button class="button button-medium icon ion-images"></button>
-                </div>
+                
                 </div>
         		
                

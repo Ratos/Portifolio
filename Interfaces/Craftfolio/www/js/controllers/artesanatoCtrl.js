@@ -30,7 +30,7 @@ angular.module("app").controller('artesanatoCtrl', function($scope,$rootScope,lo
 	   	artesanatoApi.saveArtesanato($scope.artesanatoPersite).success(function(data,status){
          
          $location.url('/initialpage'); 
-          $rootScope.setTab(2);
+         $rootScope.setTab(2);
 	    }).error(function(data,status){
 
 	    	console.error("Erro ao Cadastra Artesanato",data,status);
@@ -41,7 +41,8 @@ angular.module("app").controller('artesanatoCtrl', function($scope,$rootScope,lo
 
     $scope.artesanato = artesanato;
 
-    artesanatoApi.alteraArtesanato($scope.artesanato).success(function(data,status){
+    artesanatoApi.alteraArtesanato($scope.artesanato).success(function(){
+
          $location.url('/initialpage');    
     }).error(function(data,status){
 
@@ -64,12 +65,12 @@ angular.module("app").controller('artesanatoCtrl', function($scope,$rootScope,lo
       quality: 50,
       destinationType: Camera.DestinationType.DATA_URL,
       sourceType: Camera.PictureSourceType.CAMERA,
-      allowEdit: true,
+      allowEdit:false,
       encodingType: Camera.EncodingType.JPEG,
       targetWidth: 100,
       targetHeight: 100,
       popoverOptions: CameraPopoverOptions,
-      saveToPhotoAlbum: false,
+      saveToPhotoAlbum: true,
       correctOrientation:true
     };
 

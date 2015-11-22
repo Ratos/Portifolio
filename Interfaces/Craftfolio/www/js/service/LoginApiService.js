@@ -5,6 +5,8 @@ angular.module("app").factory("loginApi", function ($http, configUrl) {
 	var _logar = function(login){
 			return $http.post(configUrl.baseUrl+urlLogin, login);
 	};
+
+	
 	
 	return{
 
