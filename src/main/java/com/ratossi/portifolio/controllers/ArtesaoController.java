@@ -11,6 +11,7 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.observer.upload.UploadSizeLimit;
 import br.com.caelum.vraptor.observer.upload.UploadedFile;
 
 import br.com.caelum.vraptor.serialization.gson.WithoutRoot;
@@ -58,8 +59,9 @@ public class ArtesaoController{
         artesaoDAOJPA.alterar(artesao);
         
     }
-   
+    @Consumes(value = "application/json", options = WithoutRoot.class)
     @Post
+    @UploadSizeLimit(sizeLimit=50 * 1024 * 1024, fileSizeLimit=10 * 1024 * 1024)
     public void upload(UploadedFile avatar ) throws FileNotFoundException, IOException{
         System.out.print("Fazendo Upload da Imagem...");
         ServletContext context = this.getServletContext();
