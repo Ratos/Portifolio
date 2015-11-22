@@ -5,4 +5,13 @@
         <param-name>com.sun.faces.writeStateAtFormEnd</param-name>   
         <param-value>false</param-value>   
     </context-param>
+    
+    <context-param>  
+    <param-name>br.com.caelum.vraptor.packages</param-name>  
+    <param-value>  
+        br.com.caelum.vraptor.util.extjs,  
+         br.com.caelum.vraptor.deserialization.gson,  
+         br.com.caelum.vraptor.serialization.gson         
+    </param-value>  
+    </context-param>
 </jboss-web>

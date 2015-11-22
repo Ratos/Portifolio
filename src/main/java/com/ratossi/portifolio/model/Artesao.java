@@ -27,7 +27,8 @@ import javax.persistence.NamedQuery;
    @NamedQuery(name = "Artesao.findByUsuario", query = "SELECT s FROM Artesao s WHERE s.email = :email"),
    @NamedQuery(name = "Artesao.findByName", query = "SELECT s FROM Artesao s WHERE s.nome = :nome"),
    @NamedQuery(name = "Artesao.findAll", query = "SELECT s FROM Artesao s"),
-   @NamedQuery(name = "Artesao.validarEmail", query = "SELECT s.email FROM Artesao s WHERE s.email = :email ")
+   @NamedQuery(name = "Artesao.validarEmail", query = "SELECT s.email FROM Artesao s WHERE s.email = :email "),
+   @NamedQuery(name = "Artesao.findGetId", query = "SELECT s FROM Artesao s WHERE s.idArtesao = :idartesao ")
         
 })
 public class Artesao implements Serializable {
@@ -47,7 +48,7 @@ public class Artesao implements Serializable {
     private String senha;
     @Column
     private String confsenha;
-
+        
     public Integer getIdArtesao() {
         return idArtesao;
     }

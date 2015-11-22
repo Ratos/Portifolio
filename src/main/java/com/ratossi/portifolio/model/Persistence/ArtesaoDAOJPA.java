@@ -9,7 +9,10 @@ import com.ratossi.portifolio.model.Artesao;
 import com.ratossi.portifolio.model.dao.Facabrica;
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
+import javax.persistence.NonUniqueResultException;
 import javax.persistence.Query;
+
 
 
 
@@ -22,6 +25,23 @@ public class ArtesaoDAOJPA {
         em.getTransaction().commit();
         em.close();
     }
+ 
+    public void alterar(Artesao artesao){
+        EntityManager em = Facabrica.getGerenciador();
+        em.getTransaction().begin();
+        Artesao merge = em.merge(artesao);
+        em.getTransaction().commit();
+        em.close();
+
+    }
+    
+    public Artesao getArtesao(String idartesao){
+       EntityManager em = Facabrica.getGerenciador();
+       em.getTransaction().begin();
+       Query query = em.createNamedQuery("Artesao.findGetId").setParameter("idartesao", idartesao );
+       return (Artesao) query.getSingleResult();
+    }
+    
    
   public List<Artesao> buscar(String nome){
        
@@ -29,6 +49,7 @@ public class ArtesaoDAOJPA {
        em.getTransaction().begin();
        Query query;
        query = em.createNamedQuery("Artesao.findByName").setParameter("nome", nome);
+       
        return  query.getResultList();
      
   } 
@@ -39,31 +60,38 @@ public class ArtesaoDAOJPA {
        em.getTransaction().begin();
        Query query;
        query = em.createNamedQuery("Artesao.findAll");
+      
        return  query.getResultList();
      
   } 
   
   public Artesao login(String email, String senha){
-    
-      EntityManager em = Facabrica.getGerenciador();
+     
+      try{
+       EntityManager em = Facabrica.getGerenciador();
        em.getTransaction().begin();
        Query query = em.createNamedQuery("Artesao.findByUsuario").setParameter("email", email );
        return (Artesao) query.getSingleResult();
+      }catch (NoResultException | NonUniqueResultException exception) {
+          return null;
+      }
        
-  }
+    
+   }
 
   public String validarEmail(String string){
-     
+       
       try {
         EntityManager em = Facabrica.getGerenciador();
         em.getTransaction().begin();
         Query query = em.createNamedQuery("Artesao.validarEmail").setParameter("email",string);
-
-        return (String) query.getSingleResult();
-      } catch (Exception e) {
-          return  null;
+       
+        return  (String) query.getSingleResult();
+          
+      } catch (NoResultException | NonUniqueResultException exception) {
+          return null;
       }
-      
+        
   }
   
 

@@ -17,7 +17,7 @@ public class EmailValidation {
     String email; 
     public  Boolean emailValidation(String string){
              
-            email = adaojpa.validarEmail(string);
+        email = adaojpa.validarEmail(string);
             
         if ( email != null) {
             

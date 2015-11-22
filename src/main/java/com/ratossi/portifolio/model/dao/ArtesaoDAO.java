@@ -18,6 +18,7 @@ public interface ArtesaoDAO {
     void salvar(Artesao artesao);
     void remover(Artesao artesao);
     void Alterar(Artesao artesao);
+    Artesao getArtesao(String idartesao);
     List <Artesao> buscarTodos();
     List <Artesao> buscar();
     String validarEmail(String string);
