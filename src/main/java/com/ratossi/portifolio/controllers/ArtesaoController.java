@@ -22,6 +22,7 @@ import com.ratossi.portifolio.model.Persistence.ArtesaoDAOJPA;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.ServletContext;
@@ -64,11 +65,9 @@ public class ArtesaoController{
     @UploadSizeLimit(sizeLimit=50 * 1024 * 1024, fileSizeLimit=10 * 1024 * 1024)
     public void upload(UploadedFile avatar ) throws FileNotFoundException, IOException{
         System.out.print("Fazendo Upload da Imagem...");
-        ServletContext context = this.getServletContext();
-        String caminho  =  context.getRealPath("/WEB-INF/upload");
-        File fotoSalva = new File(caminho, "Teste");
+        File fotoSalva = new File("C:\\Users\\Darlan\\Portifolio\\src\\main\\webapp\\WEB-INF\\upload", avatar.getFileName());
         avatar.writeTo(fotoSalva);
-    
+       
     }
     
     @Consumes(value = "application/json", options = WithoutRoot.class)
@@ -106,9 +105,5 @@ public class ArtesaoController{
                    
                 }              
       }
-
-    private ServletContext getServletContext() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
  
 }
