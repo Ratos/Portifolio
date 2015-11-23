@@ -165,10 +165,9 @@
       <div>
 		<div class="list-card">
             <div class="item item-avatar" id="coisaartesao">
-                <img ng-show="imgAvatar !== undefined"  ng-src="{{imgAvatar}}">
-                <img ng-show="imgAvatar === undefined" ng-src="img/avatar.png">
-
-                <h2 style="color:#fff;">{{artesao.nome}}</h2>
+                <img ng-show="imgAvatar !== undefined" ng-src="{{imgAvatar}}" style="width: 60px; float:left; margin: 0 0 0 -40px;">
+                <img ng-show="imgAvatar === undefined" ng-src="img/avatar.png" style="width: 60px; float:left; margin: 0 0 0 -40px;">
+                <h2 style="color:#fff; margin: 20px 0 0 30px;">{{artesao.nome}}</h2>
             </div>
 			
 			<div class="item" id="bordacima">
@@ -300,8 +299,12 @@
                     <span class="input-label">Descrição</span>
                     <input type="text" placeholder="Artesões S.A." ng-model="artesanato.descricao">
                 </label>
-               
-    			<button type="submit"  class="button button-full button-balanced icon ion-checkmark-round">Cadastrar</button>
+				
+					<button type="submit" class="button button-block button-stable">
+						<i class="icon ion-android-checkmark-circle"></i>
+						Cadastrar novo Artesanato
+					</button>
+				
             </form>
 
             
@@ -324,11 +327,11 @@
 
                
                 
-                    <div class="item item-avatar" id="coisaartesao">
-                            <img ng-show="imgAvatar !== undefined"  ng-src="{{imgAvatar}}">
-                            <img ng-show="imgAvatar === undefined" ng-src="img/avatar.png">
+                <div class="item item-body">
+					<img ng-show="imgAvatar !== undefined" ng-src="{{imgAvatar}}" class="img-size">
+                    <img ng-show="imgAvatar === undefined" ng-src="img/avatar.png" class="img-size"><br>
                     <span ng-show="imgAvatar === undefined">
-                        Escola uma Imagens para seu Perfil
+                        Escolha uma Imagem para seu Perfil
                     </span >
                     
                      <a class="tab-item" ng-show="imgAvatar !== undefined" ng-click="upload()">
@@ -381,23 +384,20 @@
                     <input type="tel" placeholder="Telefone/Celular" ng-model="artesao.tel">
                 </label>
 		         
-                
-        			<button type="submit" class="item tabs tabs-secondary tabs-icon-left" >
-                       
-                		
-                            <span class="tab-item">
-                                <i class="icon ion-android-add-circle"></i>
-                                Salvar alteraçoes 
-                            </span>
-                      
-        			</button>
+					<!-- AQUI TEM Q COLOCAR UMA FUNÇÃO NG CLICK OU MUDAR PARA BUTTON -->
+        			<a type="submit" class="item tabs tabs-secondary tabs-icon-left" >
+                        <span class="tab-item" style="">
+                            <i class="icon ion-android-checkmark-circle"></i>
+                            Salvar alteraçoes 
+                        </span>
+        			</a>
              
             </div>   
 
             </form> 
             <div class="item tabs tabs-secondary tabs-icon-left">
                     <a href="" ng-click="editArtesaoCan()"  class="tab-item">
-                        <i class="icon ion-android-add-circle"></i>
+                        <i class="icon ion-android-cancel"></i>
                         Cancelar Edição 
                     </a>
             </div>
