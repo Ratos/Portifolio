@@ -6,12 +6,13 @@
 package com.ratossi.portifolio.controllers.util;
 
 import com.ratossi.portifolio.model.Persistence.ArtesaoDAOJPA;
+import java.io.Serializable;
 
 /**
  *
  * @author Darlan
  */
-public class EmailValidation {
+public class EmailValidation implements Serializable {
    
     ArtesaoDAOJPA adaojpa = new ArtesaoDAOJPA();
     String email; 

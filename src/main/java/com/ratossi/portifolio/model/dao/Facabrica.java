@@ -13,9 +13,9 @@ import org.eclipse.persistence.sessions.Session;
 
 /**
  *
- * @author Cicim
+ * @author Darlan
  */
-public class Facabrica {
+public class Facabrica{
     
     private static final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("com.ratossi_portifolio_war_1.0-SNAPSHOTPU");
    

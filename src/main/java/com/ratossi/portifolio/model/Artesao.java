@@ -44,11 +44,13 @@ public class Artesao implements Serializable {
     private String endereco;
     @Column
     private String tel;
+    @Column 
+    private String imgPerfil;
     @Column
     private String senha;
     @Column
     private String confsenha;
-        
+
     public Integer getIdArtesao() {
         return idArtesao;
     }
@@ -89,6 +91,14 @@ public class Artesao implements Serializable {
         this.tel = tel;
     }
 
+    public String getImgPerfil() {
+        return imgPerfil;
+    }
+
+    public void setImgPerfil(String imgPerfil) {
+        this.imgPerfil = imgPerfil;
+    }
+
     public String getSenha() {
         return senha;
     }
@@ -108,13 +118,14 @@ public class Artesao implements Serializable {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 71 * hash + Objects.hashCode(this.idArtesao);
-        hash = 71 * hash + Objects.hashCode(this.nome);
-        hash = 71 * hash + Objects.hashCode(this.email);
-        hash = 71 * hash + Objects.hashCode(this.endereco);
-        hash = 71 * hash + Objects.hashCode(this.tel);
-        hash = 71 * hash + Objects.hashCode(this.senha);
-        hash = 71 * hash + Objects.hashCode(this.confsenha);
+        hash = 83 * hash + Objects.hashCode(this.idArtesao);
+        hash = 83 * hash + Objects.hashCode(this.nome);
+        hash = 83 * hash + Objects.hashCode(this.email);
+        hash = 83 * hash + Objects.hashCode(this.endereco);
+        hash = 83 * hash + Objects.hashCode(this.tel);
+        hash = 83 * hash + Objects.hashCode(this.imgPerfil);
+        hash = 83 * hash + Objects.hashCode(this.senha);
+        hash = 83 * hash + Objects.hashCode(this.confsenha);
         return hash;
     }
 
@@ -142,6 +153,9 @@ public class Artesao implements Serializable {
         if (!Objects.equals(this.tel, other.tel)) {
             return false;
         }
+        if (!Objects.equals(this.imgPerfil, other.imgPerfil)) {
+            return false;
+        }
         if (!Objects.equals(this.senha, other.senha)) {
             return false;
         }
@@ -150,6 +164,8 @@ public class Artesao implements Serializable {
         }
         return true;
     }
+        
+    
 
 
     
