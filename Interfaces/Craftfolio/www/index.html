@@ -354,7 +354,7 @@
                 
 
 
-			<form style="" ng-submit="alteraArtesao(artesao)" name="alterarForm" novalidate>
+			<form style=""  name="alterarForm" novalidate>
                 <label class="item item-input item-stacked-label" name="nome">
                     <span class="input-label">Nome</span>
                     <input type="text" 
@@ -383,14 +383,25 @@
                     <span class="input-label">Telefone</span>
                     <input type="tel" placeholder="Telefone/Celular" ng-model="artesao.tel">
                 </label>
+
+                 <label class="item item-input item-stacked-label" name="Foto">
+                    <span class="input-label">Foto</span>
+                    <input type="file" 
+                           placeholder="Escolha uma foto " 
+                           ng-model="artesao.foto"
+                           name="foto"
+                           >
+                </label>
 		         
 					<!-- AQUI TEM Q COLOCAR UMA FUNÇÃO NG CLICK OU MUDAR PARA BUTTON -->
-        			<a type="submit" class="item tabs tabs-secondary tabs-icon-left" >
+        			<a ng-click="alteraArtesao(artesao)" class="item tabs tabs-secondary tabs-icon-left" >
                         <span class="tab-item" style="">
                             <i class="icon ion-android-checkmark-circle"></i>
                             Salvar alteraçoes 
                         </span>
         			</a>
+
+
              
             </div>   
 

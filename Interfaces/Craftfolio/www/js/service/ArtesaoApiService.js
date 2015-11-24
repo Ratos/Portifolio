@@ -5,9 +5,9 @@ angular.module("app").factory("artesaoApi", function ($http, configUrl) {
 	urlGetArtesao= "/Portifolio/artesao/getArtesao?idArtesao=";
 	urlUploadAvatar= "/Portifolio/artesao/avatarUpload";
 
-	var _alteraArtesao = function(artesao,imgPerfil){
+	var _alteraArtesao = function(artesao,foto){
 
-		return $http.post(configUrl.baseUrl+urlAlterar,artesao,imgPerfil);
+		return $http.post(configUrl.baseUrl+urlAlterar,artesao,foto);
 	};
 
 	var _getArtesao = function(idartesao){

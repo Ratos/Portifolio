@@ -1,4 +1,4 @@
-angular.module("app").controller('artesaoCtrl', function($scope,$location,$rootScope,localStorageService,artesanatoApi,artesaoApi,$cordovaCamera,$cordovaFileTransfer){ 
+angular.module("app").controller('artesaoCtrl', function($scope,$location,$rootScope,localStorageService,artesanatoApi,artesaoApi,configUrl,$cordovaCamera,$cordovaFileTransfer){ 
     
   $scope.artesao =  localStorageService.get('artesao');
   // $scope.getArtesao = function(){
@@ -60,8 +60,8 @@ angular.module("app").controller('artesaoCtrl', function($scope,$location,$rootS
         
 
         $scope.artesao = artesao;
-        artesaoApi.alteraArtesao($scope.artesao).success(function(data,status){
-          
+        artesaoApi.alteraArtesao($scope.artesao,$scope.artesao.foto).success(function(data,status){
+          console.log($scope.artesao.tel);
           $location.url('/initialpage');
 
         }).error(function(data,status){
@@ -117,12 +117,13 @@ $scope.takePicture = function () {
 //Função tranferencia de img para API (Webservice)
     $scope.upload = function() {
         var options = {
-            fileKey: "avatar",
-            fileName: $scope.imgAvatar.substr($scope.imgAvatar.lastIndexOf('/')+1),
+            fileKey: "foto",
+            fileName: $scope.artesao.idArtesao+"PerfilImg",
             chunkedMode: false,
             mimeType: "image/JPEG"
         };
-        $cordovaFileTransfer.upload("http://192.168.1.3:8080/Portifolio/artesao/avatarUpload", $scope.imgAvatar, options).then(function(result) {
+        
+        $cordovaFileTransfer.upload(configUrl.baseUrl+"/Portifolio/artesao/atualizaFoto", $scope.imgAvatar, options).then(function(result) {
             console.log("SUCCESS: " + JSON.stringify(result.response));
         }, function(err) {
             console.log("ERROR: " + JSON.stringify(err));
