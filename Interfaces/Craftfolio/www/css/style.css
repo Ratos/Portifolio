@@ -26,3 +26,11 @@
 	color: #0d733b;
 	font-size: 20px;
 }
+
+.erroajuste{
+    color: #000;
+    text-shadow: 1px 1px 1px #ff0066;
+    text-align: center;
+    background-color: #FF9999;
+    
+}

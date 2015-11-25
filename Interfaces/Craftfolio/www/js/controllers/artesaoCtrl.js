@@ -87,7 +87,8 @@ angular.module("app").controller('artesaoCtrl', function($scope,$location,$rootS
       localStorageService.clearAll();
 
       $location.url('/login');
-
+      $rootScope.artesao = null;
+      
     }
 //Função para Camera 
 $scope.takePicture = function () {
@@ -136,7 +137,7 @@ $scope.takePicture = function () {
 //Função de selção de tabela de exibição
   $scope.tab = 1;
   
-  $scope.setTab = function(newTab){
+  $rootScope.setTab = function(newTab){
       $scope.tab = newTab;
       
       $scope.listaArtesanatos();

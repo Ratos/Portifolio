@@ -72,7 +72,9 @@
 <ion-view title="Login">
     <ion-content padding="true" class="has-header">
 
-        <span ng-show="erro == true ">Email ou senha pode esta incorretos!</span>
+        <div class="erroajuste">
+            <span ng-show="erro == true ">Email ou senha podem estar incorreto(s)!</span>
+        </div>
         <form name="loginForm" ng-submit="logar(login)">
             <ion-list>
                 <label class="item item-input" name="email">
@@ -111,7 +113,7 @@
                 <span class="input-label">Email</span>
                 <input type="email" placeholder="Digite seu email" ng-model="artesao.email"  ng-change="validarEmail(artesao)" name="email" class="form-control" ng-pattern="/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/">
                 <p ng-show="emailValide() == false"
-                   class="help-block">
+                   class="erroajuste">
                      Este Email já esta cadastrado!
                 </p>
 
@@ -137,7 +139,7 @@
 					   ng-maxlength="8"
 					   >
 				<p ng-show="cadastroForm.senha.$error.minlength"
-				   class="help-block">
+				   class="erroajuste">
 					  Senha muito Curta!
 				</p>
 				<p ng-show="cadastroForm.senha.$error.maxlength"
@@ -221,11 +223,24 @@
 						<div class="item item-avatar">
 							<img src="">
 							<h3>{{artesanato.nome}}</h3>
-							<button ng-click="removerArtesanto(artesanato)" style="float: right;" class="button button-small button-assertive icon ion-trash-a"></button>
-							<button ng-click="alteraArtesanato(artesanato)" style="float: right;" class="button button-small button-calm icon ion-edit"></button>
+							
 						</div>
+                        <div class="item tabs tabs-secondary tabs-icon-left">
+                                <a class="tab-item" ng-click="alteraArtesanato(artesanato)">
+                                  <i class="icon ion-edit"></i>
+                                  Editar Artesanato
+                                </a>
+                                <a class="tab-item" href="" ng-click="removerArtesanto(artesanato)" >
+                                  <i class="icon ion-android-close"></i>
+                                  Excluir
+                                </a>
+                              </div>
+                        <hr>
 					</li>
+                    
 				</ul>
+                
+                <div style="height: 20px;" class="spacer"></div>
                 <div class="item tabs tabs-secondary tabs-icon-left">
     				<a href="" ng-click="cadastroArtesanato()"  class="tab-item">
     					<i class="icon ion-android-add-circle"></i>
@@ -394,18 +409,18 @@
                 </label>
 		         
 					<!-- AQUI TEM Q COLOCAR UMA FUNÇÃO NG CLICK OU MUDAR PARA BUTTON -->
-        			<a ng-click="alteraArtesao(artesao)" class="item tabs tabs-secondary tabs-icon-left" >
+        			<a  ng-disable="!artesao.nome || !artesao.senha || !artesao.email" ng-click="alteraArtesao(artesao)" class="item tabs tabs-secondary tabs-icon-left" >
                         <span class="tab-item" style="">
                             <i class="icon ion-android-checkmark-circle"></i>
                             Salvar alteraçoes 
                         </span>
         			</a>
 
-
-             
+           
             </div>   
 
             </form> 
+
             <div class="item tabs tabs-secondary tabs-icon-left">
                     <a href="" ng-click="editArtesaoCan()"  class="tab-item">
                         <i class="icon ion-android-cancel"></i>
@@ -434,9 +449,14 @@
                       Categoria
                     </div>
                     <select ng-model="artesanato.categoria">
+                      <option value="Barro">Barro</option>
+                      <option value="Biscuit">Biscuit</option>
+                      <option value="Bordado">Bordado</option>
+					  <option value="Gesso">Gesso</option>
                       <option value="Madeira">Madeira</option>
-                      <option value="Porcelana">Porcelana</option>
                       <option value="Metal">Metal</option>
+					  <option value="Porcelana">Porcelana</option>
+                      <option value="Outros">Outros</option>
                     </select>
                   </label>
 
@@ -454,14 +474,22 @@
                     <span class="input-label">Descrição</span>
                     <input type="text" placeholder="Artesões S.A." ng-model="artesanato.descricao">
                 </label>
-                
-                </div>
-        		
-               
-    			
-    			<button type="submit" class="button button-full button-balanced icon ion-checkmark-round">Salvar</button>
+				
+					<button type="submit" class="button button-block button-stable">
+						<i class="icon ion-android-checkmark-circle"></i>
+						Cadastrar novo Artesanato
+					</button>
+				
             </form>
-                <button type="submit" ng-click="cancelarEdicao() "class="button button-full button-balanced icon ion-checkmark-round">Cancelar Edição</button>
+
+            
+            <img class="full-image img-size" ng-show"imgURI !== undefined" ng-src="{{imgURI}}">
+            
+            
+            <div class="button-bar">
+                        <button ng-click="takePicture()" class="button button-medium icon ion-camera"></button>
+                        <button class="button button-medium icon ion-images"></button>
+            </div>
 		</ion-content>
 	</ion-view>
 </script>
