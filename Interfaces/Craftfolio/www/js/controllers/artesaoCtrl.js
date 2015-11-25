@@ -114,7 +114,7 @@ $scope.takePicture = function () {
     $scope.upload = function() {
         var options = {
             fileKey: "foto",
-            fileName: $scope.artesao.idArtesao+"PerfilImg"+1,
+            fileName: $scope.artesao.idArtesao+"PerfilImg",
             chunkedMode: false,
             mimeType: "image/JPEG"
         };
