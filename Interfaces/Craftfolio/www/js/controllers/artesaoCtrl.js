@@ -13,11 +13,6 @@ angular.module("app").controller('artesaoCtrl', function($scope,$location,$rootS
 
   // }
 
-
-  
-     
-    	     
- 
    //Função para Lista Artesantos 
   $scope.listaArtesanatos = function(){
 
@@ -119,7 +114,7 @@ $scope.takePicture = function () {
     $scope.upload = function() {
         var options = {
             fileKey: "foto",
-            fileName: $scope.artesao.idArtesao+"PerfilImg",
+            fileName: $scope.artesao.idArtesao+"PerfilImg"+1,
             chunkedMode: false,
             mimeType: "image/JPEG"
         };
