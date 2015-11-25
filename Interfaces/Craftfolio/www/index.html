@@ -142,6 +142,10 @@
 				   class="erroajuste">
 					  Senha muito Curta!
 				</p>
+				<p ng-show="!cadastroForm.senha.$error.minlength && !cadastroForm.senha.$error.maxlength && !cadastroForm.senha.$pristine"
+				   class="senhaforte">
+					  Senha boa e forte!
+				</p>
 				<p ng-show="cadastroForm.senha.$error.maxlength"
 				   class="help-block">
 				      Senha muito cumprida!
@@ -151,7 +155,7 @@
                 <span class="input-label">Confirmar</span>
                 <input type="password" placeholder="Confirme sua senha" ng-model="artesao.confsenha">
             </label>
-            <button type="submit" class="button button-balanced button-block  icon-right ion-android-checkmark" ng-disabled="!artesao.nome || !artesao.senha || !artesao.email || !emailValide()">Cadastrar</button>
+            <button type="submit" class="button button-balanced button-block  icon-right ion-android-checkmark" ng-disabled="!artesao.nome || !artesao.senha || !artesao.email || artesao.senha != artesao.confsenha || !emailValide()">Cadastrar</button>
             <a href="#/login" class="button button-assertive button-block  icon-right ion-android-close">Cancelar</a>
             
         </form>
@@ -378,7 +382,7 @@
     					   name="name"
     					   >
                 </label>
-        		<div class="form-group" ng-class="{ 'has-error' : cadastroForm.email.$invalid && !cadastroForm.email.$pristine }">
+        		<div class="form-group" ng-class="{ 'has-error' : alterarForm.email.$invalid && !alterarForm.email.$pristine }">
                     <label class="item item-input item-stacked-label" name="email">
                         <span class="input-label">Email</span>
                         <input type="email"
@@ -409,7 +413,7 @@
                 </label>
 		         
 					<!-- AQUI TEM Q COLOCAR UMA FUNÇÃO NG CLICK OU MUDAR PARA BUTTON -->
-        			<a  ng-disable="!artesao.nome || !artesao.senha || !artesao.email" ng-click="alteraArtesao(artesao)" class="item tabs tabs-secondary tabs-icon-left" >
+        			<a  ng-disable="!artesao.nome || !artesao.email" ng-click="alteraArtesao(artesao)" class="item tabs tabs-secondary tabs-icon-left" >
                         <span class="tab-item" style="">
                             <i class="icon ion-android-checkmark-circle"></i>
                             Salvar alteraçoes 
