@@ -44,5 +44,7 @@ angular.module("app").controller('cadastroCtrl', function($scope,$rootScope,$loc
       };
 
     };
+
+    
        
 });

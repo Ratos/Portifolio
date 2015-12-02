@@ -1,4 +1,4 @@
-<html>
+<html ng-app="site">
 <head>
 	<title>Portfólio para artesãos</title>
 	<link type="text/css" rel="stylesheet" href="css/foundation.min.css">
@@ -20,11 +20,11 @@
 <body id="corpo">
 
 	<!-- Menu normal-->
-	<nav class="top-bar hide-for-small" data-topbar>
+	<nav id="cormenucima" class="top-bar hide-for-small" data-topbar>
 		<ul class="title-area">
 			<li class="name">
 				<h1>
-					<a href="index.html" id="corport">
+					<a href="index.html" id="corport" >
 						<span><strong>Portfólio para artesãos</strong></span>
 					</a>
 				</h1>
@@ -34,7 +34,7 @@
 		<section class="top-bar-section">
 			<ul class="right">
 				<li class="divider"></li>
-				<li class="has-form">			
+				<li id="cormenucima" class="has-form">			
 					<div class="row collapse">
 						<div class="large-8 small-9 columns"> 	
 							<input type="text" placeholder="Buscar" id="caixatextopesquisa"></input>
@@ -46,16 +46,13 @@
 					</div>				
 				</li>
 				<li class="divider"></li>
-				<li><a href="index.html"><span>Início</span></a></li>
+				<li><a id="cormenucima1" href="index.html"><span>Início</span></a></li>
 				<li class="divider"></li>
-				<li class="active"><a href="categoria.html"><span>Explorar</span></a></li>
+				<li><a id="cormenucima1" href="categoria.html"><span id="caixanome">Explorar</span></a></li>
 				
 			</ul>
 		</section>
 		
-		<section class="main-section">
-			
-		</section>
 
 	</nav>
 	
@@ -63,7 +60,7 @@
 	<!--Menu responsivo-->
 	<div class="off-canvas-wrap show-for-small" data-offcanvas>
 		<div class="inner-wrap">
-			<nav class="tab-bar">
+			<nav id="cormenucima" class="tab-bar">
 				<div class="left-small">
 					<a href="#idOfLeftMenu" role="button" aria-controls="idOfLeftMenu" aria-expanded="true" class="left-off-canvas-toggle menu-icon" ><span></span></a>
 				</div>
@@ -72,29 +69,28 @@
 					<a href="#idOfRightMenu" role="button" aria-controls="idOfRightMenu" aria-expanded="true" class="right-off-canvas-toggle menu-icon" ><span></span></a>
 				</div>
 			</nav>
-			<aside class="left-off-canvas-menu">
+			<aside id="fundorespon" class="left-off-canvas-menu">
 				<!-- whatever you want goes here -->
 				<ul class="off-canvas-list">
 					<li><label>Portfólio</label></li>
-					<li><a href="index.html">Início</a></li>
-					<li class="colororo"><a href="#">Explorar</a></li>
-					
+                    <li><a id="cormenucima1" href="index.html">Início</a></li>
+					<li><a id="cormenucima1" href="categoria.html"><span id="caixanome">Explorar</span></a></li>
 				</ul>
 			</aside>
-			<aside class="right-off-canvas-menu">
+			<aside id="fundorespon" class="right-off-canvas-menu">
 				<!-- whatever you want goes here -->
 				<ul class="off-canvas-list">
-					<li><label>Categorias</label></li>
-					<li><a href="#">Artesãos</a></li>
+					<li><label>Pesquisar por</label></li>
+					<li><a id="cormenucima1" href="artesao.html">Artesãos</a></li>
 					<li><label>Artesanatos</label></li>
-					<li><a href="#">Barro</a></li>
-					<li><a href="#">Biscuit</a></li>
-					<li><a href="#">Bordado</a></li>
-					<li><a href="#">Gesso</a></li>
-					<li><a href="#">Madeira</a></li>
-					<li><a href="#">Metal</a></li>
-					<li><a href="#">Porcelana</a></li>
-					<li><a href="#">Outros</a></li>
+					<li><a id="cormenucima1" href="#">Barro</a></li>
+					<li><a id="cormenucima1" href="#">Biscuit</a></li>
+					<li><a id="cormenucima1" href="#">Bordado</a></li>
+					<li><a id="cormenucima1" href="#">Gesso</a></li>
+					<li><a id="cormenucima1" href="#">Madeira</a></li>
+					<li><a id="cormenucima1" href="#">Metal</a></li>
+					<li><a id="cormenucima1" href="#">Porcelana</a></li>
+					<li><a id="cormenucima1" href="#">Outros</a></li>
 				</ul>
 			</aside>
 			<section class="main-section">
@@ -103,13 +99,13 @@
 				  <div class="row">             
 					<div class="large-9 push-3 columns panel radius" id="bordapeq">
 							
-						<ul class="small-block-grid-3">
-							<li><a href="artesao.html"><img src="img/1.jpg" style="border-radius: 25px;"></a><label class="nomeprodutopeq">Nome do produto</label><label class="nomeautorpeq">Autor do Produto</label></li>
-							<li><a href="artesao.html"><img src="img/art.jpg" style="border-radius: 25px;"></a><label class="nomeprodutopeq">Nome do produto</label><label class="nomeautorpeq">Autor do Produto</label></li>
-							<li><a href="artesao.html"><img src="img/Tulips.jpg" style="border-radius: 25px;"></a><label class="nomeprodutopeq">Nome do produto</label><label class="nomeautorpeq">Autor do Produto</label></li>
-							<li><a href="artesao.html"><img src="img/art.jpg" style="border-radius: 25px;"></a><label class="nomeprodutopeq">Nome do produto</label><label class="nomeautorpeq">Autor do Produto</label></li>
-							<li><a href="artesao.html"><img src="img/art.jpg" style="border-radius: 25px;"></a><label class="nomeprodutopeq">Nome do produto</label><label class="nomeautorpeq">Autor do Produto</label></li>
-							<li><a href="artesao.html"><img src="img/art.jpg" style="border-radius: 25px;"></a><label class="nomeprodutopeq">Nome do produto</label><label class="nomeautorpeq">Autor do Produto</label></li>
+						<ul class="small-block-grid-3" ng-repeat="artesanato in artesanatos">
+							<li><a href="artesao.html"><img src="img/1.jpg" style="border-radius: 25px;"></a><label class="nomeprodutopeq">{{artesanato.nome}}</label><label class="nomeautorpeq">{{artesao.nome}}</label></li>
+							<li><a href="artesao.html"><img src="img/art.jpg" style="border-radius: 25px;"></a><label class="nomeprodutopeq">{{artesanato.nome}}</label><label class="nomeautorpeq">{{artesao.nome}}</label></li>
+							<li><a href="artesao.html"><img src="img/Tulips.jpg" style="border-radius: 25px;"></a><label class="nomeprodutopeq">{{artesanato.nome}}</label><label class="nomeautorpeq">{{artesao.nome}}</label></li>
+							<li><a href="artesao.html"><img src="img/art.jpg" style="border-radius: 25px;"></a><label class="nomeprodutopeq">{{artesanato.nome}}</label><label class="nomeautorpeq">{{artesao.nome}}</label></li>
+							<li><a href="artesao.html"><img src="img/art.jpg" style="border-radius: 25px;"></a><label class="nomeprodutopeq">{{artesanato.nome}}</label><label class="nomeautorpeq">{{artesao.nome}}</label></li>
+							<li><a href="artesao.html"><img src="img/art.jpg" style="border-radius: 25px;"></a><label class="nomeprodutopeq">{{artesanato.nome}}</label><label class="nomeautorpeq">{{artesao.nome}}</label></li>
 						</ul>
 						
 						<div class="pagination-centered">
@@ -127,7 +123,7 @@
 				  </div>
 				  
 				</section>
-				<footer class="tab-bar show-for-small">
+				<footer id="corfooterpeq" class="tab-bar show-for-small">
 					<div id="fontsizefooter"  class="tab-bar-section">© Copyright Ratos SI. Todos os direitos reservados!</div>
 				</footer>
 			</section>
@@ -148,11 +144,11 @@
 			<div class="large-3 columns hide-for-small">
 				
 			  <ul class="side-nav">
-				<div class="large-12 columns panel" style="padding: 0; margin: 0; border: 2px solid; border-radius: 10px; border-bottom: none;">
-					<fieldset style="border: 2px solid #000; background-color: #F2F2F2; border-left: none; border-right: none; border-bottom: none;"><legend style="background-color: #F2F2F2">Artesãos</legend>
+				<div class="large-12 columns panel" style="padding: 0; margin: 0; border: 2px solid #999; border-radius: 10px; border-bottom: none;">
+					<fieldset style="border: 2px solid #999; background-color: #F2F2F2; border-left: none; border-right: none; border-bottom: none;"><legend style="background-color: #F2F2F2">Listar</legend>
 						<li><a href="artesao.html">Artesãos</a></li>
 					</fieldset>
-					<fieldset style="border: 2px solid #000; background-color: #F2F2F2; border-left: none; border-right: none; border-radius: 0 0 6px 6px;"><legend style="background-color: #F2F2F2">Artesanatos</legend>
+					<fieldset style="border: 2px solid #999; background-color: #F2F2F2; border-left: none; border-right: none; border-radius: 0 0 6px 6px;"><legend style="background-color: #F2F2F2">Artesanatos de</legend>
 						<li><a href="#">Barro</a></li>
 						<li><a href="#">Biscuit</a></li>
 						<li><a href="#">Bordado</a></li>
@@ -169,13 +165,13 @@
 		
 			<div class="large-9 columns panel radius" id="borda">
 					
-				<ul class="small-block-grid-3">
-					<li><a href="artesao.html"><img src="img/1.jpg" style="border-radius: 25px;"></a><label class="nomeproduto">Nome do produto</label><label class="nomeautor">Autor do Produto</label></li>
-					<li><a href="artesao.html"><img src="img/art.jpg" style="border-radius: 25px;"></a><label class="nomeproduto">Nome do produto</label><label class="nomeautor">Autor do Produto</label></li>
-					<li><a href="artesao.html"><img src="img/Tulips.jpg" style="border-radius: 25px;"></a><label class="nomeproduto">Nome do produto</label><label class="nomeautor">Autor do Produto</label></li>
-					<li><a href="artesao.html"><img src="img/art.jpg" style="border-radius: 25px;"></a><label class="nomeproduto">Nome do produto</label><label class="nomeautor">Autor do Produto</label></li>
-					<li><a href="artesao.html"><img src="img/art.jpg" style="border-radius: 25px;"></a><label class="nomeproduto">Nome do produto</label><label class="nomeautor">Autor do Produto</label></li>
-					<li><a href="artesao.html"><img src="img/art.jpg" style="border-radius: 25px;"></a><label class="nomeproduto">Nome do produto</label><label class="nomeautor">Autor do Produto</label></li>
+				<ul class="small-block-grid-3" ng-repeat="artesanato in artesanatos">
+							<li><a href="artesao.html"><img src="img/1.jpg" style="border-radius: 25px;"></a><label class="nomeproduto">{{artesanato.nome}}</label><label class="nomeautor">{{artesao.nome}}</label></li>
+							<li><a href="artesao.html"><img src="img/art.jpg" style="border-radius: 25px;"></a><label class="nomeproduto">{{artesanato.nome}}</label><label class="nomeautor">{{artesao.nome}}</label></li>
+							<li><a href="artesao.html"><img src="img/Tulips.jpg" style="border-radius: 25px;"></a><label class="nomeproduto">{{artesanato.nome}}</label><label class="nomeautor">{{artesao.nome}}</label></li>
+							<li><a href="artesao.html"><img src="img/art.jpg" style="border-radius: 25px;"></a><label class="nomeproduto">{{artesanato.nome}}</label><label class="nomeautor">{{artesao.nome}}</label></li>
+							<li><a href="artesao.html"><img src="img/art.jpg" style="border-radius: 25px;"></a><label class="nomeproduto">{{artesanato.nome}}</label><label class="nomeautor">{{artesao.nome}}</label></li>
+							<li><a href="artesao.html"><img src="img/art.jpg" style="border-radius: 25px;"></a><label class="nomeproduto">{{artesanato.nome}}</label><label class="nomeautor">{{artesao.nome}}</label></li>
 				</ul>
 				
 				<div class="pagination-centered">

@@ -58,6 +58,9 @@ public class Artesanato implements Serializable {
   
    @Column
    private String descricao;
+   
+   @Column
+   private String fotoArtesanato;
 
     public Integer getIdartesanato() {
         return idartesanato;
@@ -67,12 +70,12 @@ public class Artesanato implements Serializable {
         this.idartesanato = idartesanato;
     }
 
-    public String getIdartesao() {
+    public String getIdArtesao() {
         return idArtesao;
     }
 
-    public void setIdartesao(String idartesao) {
-        this.idArtesao = idartesao;
+    public void setIdArtesao(String idArtesao) {
+        this.idArtesao = idArtesao;
     }
 
     public String getNome() {
@@ -115,16 +118,25 @@ public class Artesanato implements Serializable {
         this.descricao = descricao;
     }
 
+    public String getFotoArtesanato() {
+        return fotoArtesanato;
+    }
+
+    public void setFotoArtesanato(String fotoArtesanato) {
+        this.fotoArtesanato = fotoArtesanato;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 97 * hash + Objects.hashCode(this.idartesanato);
-        hash = 97 * hash + Objects.hashCode(this.idArtesao);
-        hash = 97 * hash + Objects.hashCode(this.nome);
-        hash = 97 * hash + Objects.hashCode(this.categoria);
-        hash = 97 * hash + Objects.hashCode(this.loja);
-        hash = 97 * hash + Objects.hashCode(this.preco);
-        hash = 97 * hash + Objects.hashCode(this.descricao);
+        int hash = 7;
+        hash = 79 * hash + Objects.hashCode(this.idartesanato);
+        hash = 79 * hash + Objects.hashCode(this.idArtesao);
+        hash = 79 * hash + Objects.hashCode(this.nome);
+        hash = 79 * hash + Objects.hashCode(this.categoria);
+        hash = 79 * hash + Objects.hashCode(this.loja);
+        hash = 79 * hash + Objects.hashCode(this.preco);
+        hash = 79 * hash + Objects.hashCode(this.descricao);
+        hash = 79 * hash + Objects.hashCode(this.fotoArtesanato);
         return hash;
     }
 
@@ -158,9 +170,13 @@ public class Artesanato implements Serializable {
         if (!Objects.equals(this.descricao, other.descricao)) {
             return false;
         }
+        if (!Objects.equals(this.fotoArtesanato, other.fotoArtesanato)) {
+            return false;
+        }
         return true;
     }
 
+    
     
 
      

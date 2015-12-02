@@ -11,10 +11,14 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.observer.upload.UploadSizeLimit;
+import br.com.caelum.vraptor.observer.upload.UploadedFile;
 import br.com.caelum.vraptor.serialization.gson.WithoutRoot;
 import static br.com.caelum.vraptor.view.Results.json;
 import com.ratossi.portifolio.model.Artesanato;
 import com.ratossi.portifolio.model.Persistence.ArtesanatosDAOJPA;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 import javax.inject.Inject;
 
@@ -38,6 +42,15 @@ public class ArtesanatoController {
     @Post
     public void salvar(Artesanato artesanato){
         artesanatosDAOJPA.salvar(artesanato);
+        result.use(json()).from(artesanato).serialize();
+       
+    }
+    
+    @Post
+    @UploadSizeLimit(sizeLimit=50 * 1024 * 1024, fileSizeLimit=10 * 1024 * 1024)
+    public void ArtesanatoFoto(UploadedFile foto) throws IOException {
+        File fotoSalva = new File("C:\\Users\\Darlan\\Portifolio\\src\\main\\webapp\\WEB-INF\\upload", foto.getFileName());
+        foto.writeTo(fotoSalva);
     }
     
     /*

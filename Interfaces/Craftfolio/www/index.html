@@ -17,11 +17,13 @@
     <script src="lib/ionic/js/ionic.bundle.js"></script>
     <script type="text/javascript" src="js/module/angular-local-storage.min.js"></script>
     <script type="text/javascript" src="js/ng-cordova.min.js"></script>
+    
     <script src="cordova.js"></script>
     
     <script type="text/javascript" src="js/app.js"></script>    
     <script type="text/javascript" src="js/controllers/loginCtrl.js"></script>
     <script type="text/javascript" src="js/controllers/artesaoCtrl.js"></script>
+    <script type="text/javascript" src="js/controllers/editarartesaoCtrl.js"></script>
     <script type="text/javascript" src="js/controllers/cadastroCtrl.js"></script>
     <script type="text/javascript" src="js/controllers/artesanatoCtrl.js"></script>
     <script type="text/javascript" src="js/value/ConfigValue.js"></script>
@@ -155,7 +157,7 @@
                 <span class="input-label">Confirmar</span>
                 <input type="password" placeholder="Confirme sua senha" ng-model="artesao.confsenha">
             </label>
-            <button type="submit" class="button button-balanced button-block  icon-right ion-android-checkmark" ng-disabled="!artesao.nome || !artesao.senha || !artesao.email || artesao.senha != artesao.confsenha || !emailValide()">Cadastrar</button>
+            <button type="submit" class="button button-balanced button-block  icon-right ion-android-checkmark" ng-disabled="!artesao.nome || !artesao.senha || !artesao.email ||!emailValide() || artesao.confsenha !== artesao.senha">Cadastrar</button>
             <a href="#/login" class="button button-assertive button-block  icon-right ion-android-close">Cancelar</a>
             
         </form>
@@ -178,15 +180,15 @@
 			
 			<div class="item" id="bordacima">
 				<div class="item tabs tabs-icon-top tabs-striped" id="bordacima">
-					<a class="tab-item" ng-class="{ active: isSet(1) }" href ng-click="setTab(1)">
+					<a class="tab-item" ng-class="{ active: isSet(1) }"  ng-click="setTab(1)">
 						<i class="icon ion-home"></i>
 						Início
 					</a>
-					<a class="tab-item" ng-class="{ active: isSet(2) }" href ng-click="setTab(2)">
+					<a class="tab-item" ng-class="{ active: isSet(2) }"  ng-click="setTab(2)">
 						<i class="icon ion-star"></i>
 						Artesanatos
 					</a>
-					<a class="tab-item" ng-class="{ active: isSet(3) }" href ng-click="setTab(3)">
+					<a class="tab-item" ng-class="{ active: isSet(3) }"  ng-click="setTab(3)">
 						<i class="icon ion-gear-a"></i>
 						Configurações
 					</a>
@@ -257,7 +259,7 @@
 			<div ng-show="isSet(3)">
             <div class="list card">
 				<div class="item tabs tabs-secondary tabs-icon-left">
-                    <a class="tab-item" href="#/editarartesao">
+                    <a class="tab-item" ng-click="editArtesao()">
                       <i class="icon ion-edit"></i>
                       Editar Perfil
                     </a>
@@ -347,16 +349,12 @@
                
                 
                 <div class="item item-body">
-					<img ng-show="imgAvatar !== undefined" ng-src="{{imgAvatar}}" class="img-size">
-                    <img ng-show="imgAvatar === undefined" ng-src="img/avatar.png" class="img-size"><br>
-                    <span ng-show="imgAvatar === undefined">
+					         <img ng-show="imgAvatar !== undefined" ng-src="{{imgAvatar}}" class="img-size">
+                   <img ng-show="imgAvatar === undefined" ng-src="img/avatar.png" class="img-size"><br>
+                   <span ng-show="imgAvatar === undefined">
                         Escolha uma Imagem para seu Perfil
-                    </span >
-                    
-                     <a class="tab-item" ng-show="imgAvatar !== undefined" ng-click="upload()">
-                        Salvar Imagens Perfil
-                      <i class="icon ion-camera"></i>
-                     </a>
+                   </span >
+                
                 </div>
                 
                 <div class="item tabs tabs-secondary tabs-icon-left">
@@ -402,15 +400,7 @@
                     <span class="input-label">Telefone</span>
                     <input type="tel" placeholder="Telefone/Celular" ng-model="artesao.tel">
                 </label>
-
-                 <label class="item item-input item-stacked-label" name="Foto">
-                    <span class="input-label">Foto</span>
-                    <input type="file" 
-                           placeholder="Escolha uma foto " 
-                           ng-model="artesao.foto"
-                           name="foto"
-                           >
-                </label>
+              
 		         
 					<!-- AQUI TEM Q COLOCAR UMA FUNÇÃO NG CLICK OU MUDAR PARA BUTTON -->
         			<a  ng-disable="!artesao.nome || !artesao.email" ng-click="alteraArtesao(artesao)" class="item tabs tabs-secondary tabs-icon-left" >
@@ -426,7 +416,7 @@
             </form> 
 
             <div class="item tabs tabs-secondary tabs-icon-left">
-                    <a href="" ng-click="editArtesaoCan()"  class="tab-item">
+                    <a  href="#/initialpage"  class="tab-item">
                         <i class="icon ion-android-cancel"></i>
                         Cancelar Edição 
                     </a>

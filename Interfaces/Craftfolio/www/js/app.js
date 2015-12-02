@@ -17,7 +17,9 @@ angular.module('app', ['ionic','LocalStorageModule','ngCordova']).run(function($
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
-  });
+
+   
+  },false);
 
 }).config(function($stateProvider, $urlRouterProvider, localStorageServiceProvider,configUrl) {
 
@@ -58,7 +60,7 @@ angular.module('app', ['ionic','LocalStorageModule','ngCordova']).run(function($
 	.state('page6', {
       url: '/editarartesao',
       templateUrl: 'page6.html',
-      controller: 'artesaoCtrl'
+      controller: 'editarartesaoCtrl'
       
    })
    

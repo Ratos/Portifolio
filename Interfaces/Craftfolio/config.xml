@@ -4,8 +4,8 @@
   <description>
         An Ionic Framework and Cordova project.
     </description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">
-      Ionic Framework Team
+  <author email="ratos.si08@gmail.com" href="https://github.com/Ratos">
+      RatoSI
     </author>
   <content src="index.html"/>
   <access origin="content:///*" />

@@ -35,11 +35,17 @@ public class ArtesaoDAOJPA {
 
     }
     
-    public Artesao getArtesao(String idartesao){
-       EntityManager em = Facabrica.getGerenciador();
-       em.getTransaction().begin();
-       Query query = em.createNamedQuery("Artesao.findGetId").setParameter("idartesao", idartesao );
-       return (Artesao) query.getSingleResult();
+    public Artesao getArtesao(Integer idartesao){
+       try {
+        EntityManager em = Facabrica.getGerenciador();
+        em.getTransaction().begin();
+        Query query = em.createNamedQuery("Artesao.findGetId").setParameter("idartesao", idartesao);
+       
+        return (Artesao) query.getSingleResult();
+          
+      } catch (NoResultException | NonUniqueResultException exception) {
+          return null;
+      }
     }
     
    

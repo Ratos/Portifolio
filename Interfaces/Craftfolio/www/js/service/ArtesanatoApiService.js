@@ -7,8 +7,8 @@ angular.module("app").factory("artesanatoApi", function ($http, configUrl) {
 	urlRemoveArtesanato = "/Portifolio/artesanato/remover";
 	urlAlterarArtesanato = "/Portifolio/artesanato/alteraArtesanato";
 
-	var _saveArtesanato = function (artesanato) {
-		return $http.post(configUrl.baseUrl+urlSalvar, artesanato);
+	var _saveArtesanato = function (artesanato, foto) {
+		return $http.post(configUrl.baseUrl+urlSalvar, artesanato, foto);
 	};
 
 	var _listArtesanatos = function(){

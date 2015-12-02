@@ -1,5 +1,5 @@
 angular.module("app").constant("configUrl", {
-	baseUrl: "http://192.168.43.169:8080"
+	baseUrl: "http://192.168.1.2:8080"
 });
 	
 	

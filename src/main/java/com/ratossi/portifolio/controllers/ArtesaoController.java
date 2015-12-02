@@ -11,6 +11,8 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.observer.download.Download;
+import br.com.caelum.vraptor.observer.download.FileDownload;
 import br.com.caelum.vraptor.observer.upload.UploadSizeLimit;
 import br.com.caelum.vraptor.observer.upload.UploadedFile;
 import br.com.caelum.vraptor.serialization.gson.WithoutRoot;
@@ -19,6 +21,7 @@ import com.ratossi.portifolio.annotations.Public;
 import com.ratossi.portifolio.model.Artesao;
 import com.ratossi.portifolio.model.Persistence.ArtesaoDAOJPA;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 import javax.inject.Inject;
@@ -52,21 +55,22 @@ public class ArtesaoController{
     @Consumes(value = "application/json", options = WithoutRoot.class)
     @Post
     public void alterar(Artesao artesao) throws IOException {
-            artesaoDAOJPA.alterar(artesao);
+        artesaoDAOJPA.alterar(artesao);
     }
  
     @Post
     @UploadSizeLimit(sizeLimit=50 * 1024 * 1024, fileSizeLimit=10 * 1024 * 1024)
     public void atualizaFoto(UploadedFile foto) throws IOException {
-        File fotoSalva = new File("C:\\Users\\Darlan\\Portifolio\\src\\main\\webapp\\WEB-INF\\upload", "1"+foto.getFileName());
+        File fotoSalva = new File("C:\\Users\\Darlan\\Portifolio\\src\\main\\webapp\\WEB-INF\\upload", foto.getFileName());
         foto.writeTo(fotoSalva);
-    }    
+    }
+      
         
     @Consumes(value = "application/json", options = WithoutRoot.class)
     @Get
     public void getArtesao(String idartesao){
-    
-       Artesao art = artesaoDAOJPA.getArtesao(idartesao);
+       Integer value = Integer.parseInt(idartesao);
+       Artesao art = artesaoDAOJPA.getArtesao(value);
        result.use(json()).from(art).serialize();
         
     }
