@@ -52,7 +52,7 @@ public class ArtesanatoController {
         File fotoSalva = new File("C:\\Users\\Darlan\\Portifolio\\src\\main\\webapp\\WEB-INF\\upload", foto.getFileName());
         foto.writeTo(fotoSalva);
     }
-    
+  
     /*
       *Lista todos os Artesanato
     */

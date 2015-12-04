@@ -7,7 +7,7 @@ angular.module("app").controller('artesanatoCtrl', function($scope,$rootScope,lo
         *Função ListaArtesanatos: requer injeção da Factory ArtesanatoApi.
     */
 
-   
+    
 
      $scope.listaArtesanatos = function(){
 
@@ -20,7 +20,7 @@ angular.module("app").controller('artesanatoCtrl', function($scope,$rootScope,lo
 
       $scope.artesanatos = localStorageService.get('artesanatos');
 
-   };
+      };
     
    $scope.addArtesanato = function(artesanato){
    	$scope.artesanatoPersite = {};
