@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html ng-app="site">
 <head>
 	<meta charset="UTF-8">
@@ -6,6 +7,14 @@
 	<link type="text/css" rel="stylesheet" href="css/foundation.css">
 	<link type="text/css" rel="stylesheet" href="css/normalize.css">
 	<link type="text/css" rel="stylesheet" href="css/estilo.css">
+	<script src="js/angular.min.js"></script>
+
+	<script type="text/javascript" src="js/Controllers/siteCtrl.js"></script>
+	<script type="text/javascript" src="js/services/artesaoApiService.js"></script>
+	<script type="text/javascript" src="js/services/artesanatoApiService.js"></script>
+
+	<script type="text/javascript" src="js/value/configValue.js"></script>
+
 	<script src="js/foundation.min.js"></script>
 	<script src="js/vendor/modernizr.js"></script>
 	<script src="js/vendor/jquery.js"></script>
@@ -14,34 +23,8 @@
 	<!-- If you delete this meta tag World War Z will become a reality -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body id="corpo">
-	<!-- alternativo header-->
-	<!--<div class="row">
-        <div class="medium-8 columns">
-			<h1>Portifólio para artesãos</h1> 
-        </div>
-		
-		<div class="medium-4 columns">
-			<div class="row collapse" class="pesquisa" style="margin-top: 9%;">
-				<div class="small-8 medium-8 columns"> 	
-					<input type="text" placeholder="Buscar" style="border-radius: 20px 0 0 20px;"></input>
-				</div>
-				
-				<div class="small-4 medium-4 columns">
-					<input class="postfix button" type="button" value="Buscar" href="#" style="border-radius: 0 20px 20px 0;"></input>
-				</div>
-			</div>
-			
-		</div>
-		
-	</div>        
-	<div class="row">
-		<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs">
-			<li role="menuitem"><a href="index.html">Início</a></li>
-			<li role="menuitem" class="current"><a href="#">Artesão</a></li>
-		</nav>
-	</div>          -->
-	
+<body id="corpo" ng-controller="siteCtrl">
+	<span ng-init="artesoes()"></span>
 	<!-- Menu normal-->
 	<nav id="cormenucima" class="top-bar hide-for-small" data-topbar>
 		<ul class="title-area">
@@ -126,11 +109,11 @@
 							<h4>Clique nas imagens e elas expandirão</h4>
 							<br/>
 
-							<ul class="clearing-thumbs small-block-grid-4" data-clearing>
-								<li><a href="img/1.jpg"><img data-caption="Aqui ficará uma breve descrição sobre a obra, contanto de que foi feita, qual inspiração, etc..." src="img/1.jpg" style="border-radius: 25px;"></a></li>
-								<li><a href="img/art.jpg"><img data-caption="Aqui ficará uma breve descrição sobre a obra, contanto de que foi feita, qual inspiração, etc..." src="img/art.jpg" style="border-radius: 25px;"></a></li>
-								<li><a href="img/Tulips.jpg"><img data-caption="Aqui ficará uma breve descrição sobre a obra, contanto de que foi feita, qual inspiração, etc..." src="img/Tulips.jpg" style="border-radius: 25px;"></a></li>
-								<li><a href="img/art.jpg"><img data-caption="Aqui ficará uma breve descrição sobre a obra, contanto de que foi feita, qual inspiração, etc..." src="img/art.jpg" style="border-radius: 25px;"></a></li>
+							<ul class="clearing-thumbs small-block-grid-4" data-clearing ng-repeat="artesanato in artesanatos">
+								<li><a href="img/1.jpg"><img data-caption={{artesanato.descricao}} src="img/1.jpg" style="border-radius: 25px;"></a></li>
+								<li><a href="img/art.jpg"><img data-caption={{artesanato.descricao}} src="img/art.jpg" style="border-radius: 25px;"></a></li>
+								<li><a href="img/Tulips.jpg"><img data-caption={{artesanato.descricao}} src="img/Tulips.jpg" style="border-radius: 25px;"></a></li>
+								<li><a href="img/art.jpg"><img data-caption={{artesanato.descricao}} src="img/art.jpg" style="border-radius: 25px;"></a></li>
 							</ul>
 							
 							
@@ -177,15 +160,14 @@
 				<br/>
 
 				<ul class="clearing-thumbs small-block-grid-4" data-clearing ng-reapeta="artesanato in artesanatos">
-					<li><a href="img/1.jpg"><img data-caption="Aqui ficará uma breve descrição sobre a obra, contanto de que foi feita, qual inspiração, etc..." src="img/1.jpg" style="border-radius: 25px;"></a></li>
-					<li><a href="img/art.jpg"><img data-caption="Aqui ficará uma breve descrição sobre a obra, contanto de que foi feita, qual inspiração, etc..." src="img/art.jpg" style="border-radius: 25px;"></a></li>
-					<li><a href="img/Tulips.jpg"><img data-caption="Aqui ficará uma breve descrição sobre a obra, contanto de que foi feita, qual inspiração, etc..." src="img/Tulips.jpg" style="border-radius: 25px;"></a></li>
-					<li><a href="img/art.jpg"><img data-caption="Aqui ficará uma breve descrição sobre a obra, contanto de que foi feita, qual inspiração, etc..." src="img/art.jpg" style="border-radius: 25px;"></a></li>
+					<li><a href="img/1.jpg"><img data-caption={{artesanato.descricao}} src="img/1.jpg" style="border-radius: 25px;"></a></li>
+					<li><a href="img/art.jpg"><img data-caption={{artesanato.descricao}} src="img/art.jpg" style="border-radius: 25px;"></a></li>
+					<li><a href="img/Tulips.jpg"><img data-caption={{artesanato.descricao}} src="img/Tulips.jpg" style="border-radius: 25px;"></a></li>
+					<li><a href="img/art.jpg"><img data-caption={{artesanato.descricao}} src="img/art.jpg" style="border-radius: 25px;"></a></li>
 				</ul>
 				
 				
 			</div>
-			<div class="right"><a href="#">Ver mais...</a></div>
 		</div>
 		<br>
 		<br>

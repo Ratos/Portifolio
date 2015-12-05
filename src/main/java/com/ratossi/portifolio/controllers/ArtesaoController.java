@@ -61,7 +61,7 @@ public class ArtesaoController{
     @Post
     @UploadSizeLimit(sizeLimit=50 * 1024 * 1024, fileSizeLimit=10 * 1024 * 1024)
     public void atualizaFoto(UploadedFile foto) throws IOException {
-        File fotoSalva = new File("C:\\Users\\Darlan\\Portifolio\\src\\main\\webapp\\WEB-INF\\upload", foto.getFileName());
+        File fotoSalva = new File("C:\\Users\\Gabriel\\Portifolio\\src\\main\\webapp\\WEB-INF\\upload", foto.getFileName());
         foto.writeTo(fotoSalva);
     }
       

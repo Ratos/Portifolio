@@ -20,4 +20,5 @@ public interface ArtesanatosDAO {
     List<Artesanato> buscarTodos();
     List<Artesanato> buscar(String nome);
     List<Artesanato> buscarId(String idArtesao);
+    List<Artesanato> buscarCategoria(String categoria);
 }

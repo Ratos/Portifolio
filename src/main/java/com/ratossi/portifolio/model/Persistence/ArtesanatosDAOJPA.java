@@ -81,6 +81,15 @@ public class ArtesanatosDAOJPA implements ArtesanatosDAO{
         return query.getResultList();
     }
 
+    @Override
+    public List<Artesanato> buscarCategoria(String categoria) {
+         EntityManager em = Facabrica.getGerenciador();
+        em.getTransaction().begin();
+        Query query;
+        query = em.createNamedQuery("Artesanato.findCategoria").setParameter("categoria", categoria);
+        return query.getResultList();
+    }
+
    
     
 

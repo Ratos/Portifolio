@@ -30,7 +30,8 @@ import javax.persistence.NamedQuery;
     @NamedQuery(name = "Artesanato.findAll",query = "SELECT s FROM Artesanato s"),
     @NamedQuery(name = "Artesanato.findByName",query = "SELECT s FROM Artesanato s WHERE s.nome = :nome"),
     @NamedQuery(name = "Artesanato.findRemover",query = "DELETE FROM Artesanato s WHERE s.idartesanato = :idartesanato" ),
-    @NamedQuery(name = "Artesanato.findIdArtesao",query = "SELECT s FROM Artesanato s WHERE s.idArtesao = :idArtesao")
+    @NamedQuery(name = "Artesanato.findIdArtesao",query = "SELECT s FROM Artesanato s WHERE s.idArtesao = :idArtesao"),
+    @NamedQuery(name = "Artesanato.findCategoria", query = "SElECT s FROM Artesanato s WHERE s.categoria = :categoria")
     
 })
 
