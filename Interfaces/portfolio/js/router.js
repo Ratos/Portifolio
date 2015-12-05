@@ -1,5 +1,4 @@
-angular.module('site', ['ngRoute'])
-.config(function ($routeProvider, $locationProvider, config) {
+angular.module('site', ['ngRoute']).config(function ($routeProvider,configUrl) {
     $routeProvider
     .when('/home', {
         templateUrl: 'home.html',
