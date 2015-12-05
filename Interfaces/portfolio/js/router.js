@@ -1,19 +1,20 @@
 angular.module('site', ['ngRoute'])
 .config(function ($routeProvider, $locationProvider, config) {
     $routeProvider
-    .when('/', {
+    .when('/home', {
         templateUrl: 'home.html',
-        
+        controller: 'homeCtrl'
     })
     .when('/explorar', {
         templateUrl: 'categoria.html',
-        
+        controller: 'categoriaCtrl'
     })
     .when('/artesao', {
         templateUrl: 'artesao.html',
+        controller: 'artesaoCtrl'
     })
     .otherwise({
-      redirectTo: '/'
+      templateUrl: 'home.html'
     });
 
 });

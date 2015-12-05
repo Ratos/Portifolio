@@ -8,10 +8,13 @@
 	<link type="text/css" rel="stylesheet" href="css/estilo.css">
 	<script src="js/angular.min.js"></script>
 	<script type="text/javascript" src="js/router.js"></script>
+	<script type="text/javascript" src="js/Controllers/homeCtrl.js"></script>
 	<script type="text/javascript" src="js/Controllers/siteCtrl.js"></script>
 	<script type="text/javascript" src="js/services/artesaoApiService.js"></script>
 	<script type="text/javascript" src="js/services/artesanatoApiService.js"></script>
 	<script type="text/javascript" src="js/value/configValue.js"></script>
+
+	<script type="text/javascript" src="js/angular-route.js"></script>
 
 	<script src="js/foundation.min.js"></script>
 	<script src="js/vendor/modernizr.js"></script>
@@ -20,217 +23,13 @@
 	<script src="js/foundation/foundation.orbit.js"></script>
 	<script src="js/foundation/foundation.topbar.js"></script>
 	<script src="js/foundation/foundation.offcanvas.js"></script>
+	<script src="js/foundation/foundation.clearing.js"></script>
 	<!-- If you delete this meta tag World War Z will become a reality -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="UTF-8">
 	
 </head>
 <body  ng-controller="siteCtrl" id="corpo">
-	
-	<span ng-init="listAll()"></span>
-	<!-- Menu normal-->
-	<nav id="cormenucima" class="top-bar hide-for-small" data-topbar>
-		<ul class="title-area">
-			<li class="name">
-				<h1>
-					<a href="index.html" id="corport" >
-						<span><strong>Portfólio para artesãos</strong></span>
-					</a>
-				</h1>
-			</li>
-		</ul>
-		  
-		<section class="top-bar-section">
-			<ul class="right">
-				<li class="divider"></li>
-				<li id="cormenucima" class="has-form">			
-					<div class="row collapse">
-						<div class="large-8 small-9 columns"> 	
-							<input type="text" placeholder="Buscar" id="caixatextopesquisa"></input>
-						</div>
-						
-						<div class="large-4 small-3 columns">
-							<a id="butao" class="alert button expand" href="#">Buscar</a>
-						</div>
-					</div>				
-				</li>
-				<li class="divider"></li>
-				<li><a id="cormenucima1" href="#/"><span id="caixanome">Início</span></a></li>
-				<li class="divider"></li>
-				<li><a id="cormenucima1" href="#/explorar"><span>Explorar</span></a></li>
-				
-			</ul>
-		</section>
-		
-
-	</nav>
-	
-	
-	<!--Menu responsivo-->
-	<div class="off-canvas-wrap show-for-small" data-offcanvas>
-		<div class="inner-wrap">
-			<nav id="cormenucima" class="tab-bar">
-				<div class="left-small">
-					<a href="#idOfLeftMenu" role="button" aria-controls="idOfLeftMenu" aria-expanded="true" class="left-off-canvas-toggle menu-icon" ><span></span></a>
-				</div>
-			</nav>
-			
-			<aside id="fundorespon" class="left-off-canvas-menu">
-				<!-- whatever you want goes here -->
-				<ul class="off-canvas-list">
-					<li><label>Portfólio</label></li>
-                    <li><a id="cormenucima1" href="inicio.html"><span id="caixanome">Início</span></a></li>
-					<li><a id="cormenucima1" href="categoria.html">Explorar</a></li>
-				</ul>
-			</aside>
-			
-			<section class="main-section">
-				<div id="conteudo">
-	
-				<br/>
-					
-				<div class="row">
-            <div class="small-12 small-centered columns">
-                <ul class="example-orbit" data-orbit>
-                  <li>
-                    <img src="img/1.jpg" alt="slide 1" />
-                    <div class="orbit-caption">
-                      Imagem 1
-                    </div>
-                  </li>
-                  <li class="active">
-                    <img src="img/art.jpg" alt="slide 2" />
-                    <div class="orbit-caption">
-                      Imagem 2
-                    </div>
-                  </li>
-                  <li>
-                    <img src="img/Tulips.jpg" alt="slide 3" />
-                    <div class="orbit-caption">
-                      Imagem 3
-                    </div>
-                  </li>
-                </ul>
-            </div>
-                    
-        </div>
-				  
-
-				  <div class="row">
-					<hr>
-					<div class="large-12 columns">
-					  <h4>Algumas obras aleatórias!</h4>
-					  <p>Clique na imagem e ela expandirá</p>
-
-					  <ul class="clearing-thumbs small-block-grid-3" data-clearing>
-							<li><a href="img/1.jpg"><img data-caption={{artesanato.descricao}} src="img/1.jpg" style="border-radius: 25px;"></a></li>
-							<li><a href="img/art.jpg"><img data-caption={{artesanato.descricao}} src="img/art.jpg" style="border-radius: 25px;"></a></li>
-							<li><a href="img/Tulips.jpg"><img data-caption={{artesanato.descricao}} src="img/Tulips.jpg" style="border-radius: 25px;"></a></li>
-					  </ul>
-					</div>
-					
-				  </div>
-
-				  <div class="row">
-					<div class="large-12 columns">
-					  <hr>
-					  <h4>Contate-nos</h4>
-					  <div class="large-4 columns">
-						<strong>Email:</strong> <i>ratossi@hotmail.com</i>
-					  </div>
-					  <div class="large-4 columns">
-						<strong>Phone:</strong> <i>(88) 3571-5508</i>
-					  </div>
-					</div>
-				  </div>
-				<br>
-				
-				<br>
-				</div>
-				
-				<footer id="corfooterpeq" class="tab-bar show-for-small">
-					<div id="fontsizefooter"  class="tab-bar-section">© Copyright Ratos SI. Todos os direitos reservados!</div>
-				</footer>
-			</section>
-			
-			<a class="exit-of-canvas"></a>
-			
-		</div>
-	</div>
-	
-	<!--só para dividir-->
-	<section id="conteudo" class="hide-for-small">
-	
-		<br/>
-
-        <div class="row" id="estilofundobordacima">
-            <br>
-            <div class="small-8 small-centered columns">
-                <ul class="example-orbit" data-orbit>
-                  <li>
-                    <img src="img/olaseja.jpg" alt="slide 1" />
-                    <div class="orbit-caption">
-                      Imagem 1
-                    </div>
-                  </li>
-                  <li class="active">
-                    <img src="img/art.jpg" alt="slide 2" />
-                    <div class="orbit-caption">
-                      Imagem 2
-                    </div>
-                  </li>
-                  <li>
-                    <img src="img/Tulips.jpg" alt="slide 3" />
-                    <div class="orbit-caption">
-                      Imagem 3
-                    </div>
-                  </li>
-                </ul>
-            </div>
-        </div>
-		  <div class="row" id="estilofundo">
-			<div class="large-12 columns">
-			  <h4>Algumas aleatórias!</h4>
-			  <p>Clique na imagem e ela expandirá</p>
-
-			  <ul class="clearing-thumbs small-block-grid-3" data-clearing ng-repeat="artesanato in artesanatos">
-					<li><a href="http://192.168.0.105:8080/Portifolio/artesanato/foto?foto=201FotoArtesanato.jpg"><img data-caption={{artesanato.descricao}} src="http://192.168.0.105:8080/Portifolio/artesanato/foto?foto=201FotoArtesanato.jpg" style="border-radius: 25px;"></a></li>
-			  </ul>
-			</div>
-			
-		  </div>
-
-		  <div class="row" id="estilofundobordabaixo">
-			<div class="large-12 columns">
-			  <h4>Contate-nos</h4>
-			  <div class="large-4 columns">
-				<strong>Email:</strong> <i>ratossi@hotmail.com</i>
-			  </div>
-			  <div class="large-4 columns">
-				<strong>Phone:</strong> <i>(88) 3571-5508</i>
-			  </div>
-			</div>
-              <div class="row"><p style="color:#eee; margin:0 0 0 30px;">Projeto da faculdade</p></div>
-		  </div>
-		<br>
-		
-		<br>
-	</section>
-	<footer class="tab-bar hide-for-small" id="posicao">
-		
-		<div id="fontsizefootergrande" class="left tab-bar-section">© Copyright Ratos SI. Todos os direitos reservados!</div>
-	</footer>
-	  
-		<script src="js/vendor/jquery.js"></script>
-		<script src="js/foundation/foundation.js"></script>
-		<script src="js/foundation/foundation.orbit.js"></script>
-		<script src="js/foundation/foundation.clearing.js"></script>
-		<script src="js/foundation/foundation.offcanvas.js"></script>
-		  <!-- Other JS plugins can be included here -->
-
-		<script>
-			$(document).foundation();
-		</script>
-	
+	<div ng-view></div>
 </body>
 </html>
