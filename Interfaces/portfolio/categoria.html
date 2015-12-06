@@ -6,7 +6,7 @@
 		<ul class="title-area">
 			<li class="name">
 				<h1>
-					<a href="index.html" id="corport" >
+					<a href="#/" id="corport" >
 						<span><strong>Portfólio para artesãos</strong></span>
 					</a>
 				</h1>
@@ -28,9 +28,9 @@
 					</div>				
 				</li>
 				<li class="divider"></li>
-				<li><a id="cormenucima1" href="index.html"><span>Início</span></a></li>
+				<li><a id="cormenucima1" href="#/"><span>Início</span></a></li>
 				<li class="divider"></li>
-				<li><a id="cormenucima1" href="categoria.html"><span id="caixanome">Explorar</span></a></li>
+				<li><a id="cormenucima1" href="#/explorar"><span id="caixanome">Explorar</span></a></li>
 				
 			</ul>
 		</section>
@@ -55,8 +55,8 @@
 				<!-- whatever you want goes here -->
 				<ul class="off-canvas-list">
 					<li><label>Portfólio</label></li>
-                    <li><a id="cormenucima1" href="index.html">Início</a></li>
-					<li><a id="cormenucima1" href="categoria.html"><span id="caixanome">Explorar</span></a></li>
+                    <li><a id="cormenucima1" href="#/">Início</a></li>
+					<li><a id="cormenucima1" href="#/explorar"><span id="caixanome">Explorar</span></a></li>
 				</ul>
 			</aside>
 			<aside id="fundorespon" class="right-off-canvas-menu">
@@ -151,11 +151,13 @@
 					
 				<ul class="small-block-grid-3" ng-repeat="artesao in artesoes">
 							<li>
+							<button ng-click="carregarArtesao(artesao)">	
 								<a>
 									<img src="img/1.jpg" style="border-radius: 25px;">
 									
 									<label class="nomeautor">{{artesao.nome}}</label>
 								</a>
+							</button>	
 							</li>
 				</ul>
 				
