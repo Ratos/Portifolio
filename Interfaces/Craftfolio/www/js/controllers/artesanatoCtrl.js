@@ -1,8 +1,8 @@
-angular.module("app").controller('artesanatoCtrl', function($scope,$rootScope,localStorageService,$location,artesanatoApi,$cordovaCamera){ 
+angular.module("app").controller('artesanatoCtrl', function($scope,$rootScope,localStorageService,$location,artesanatoApi,$cordovaCamera,configUrl){ 
     
 	 $scope.artesao = localStorageService.get('artesao');
     
-
+   
    /*
         *Função ListaArtesanatos: requer injeção da Factory ArtesanatoApi.
     */
@@ -122,7 +122,7 @@ angular.module("app").controller('artesanatoCtrl', function($scope,$rootScope,lo
 
       var options = new FileUploadOptions();
       options.fileKey = "foto";
-      options.fileName = $scope.art.idartesanato+"FotoArtesanato.jpg";
+      options.fileName = $scope.art.idartesanato+"FotoArtesanato";
       options.mimeType = "image/jpeg";
       options.httpMethod = "POST";
 
@@ -133,7 +133,7 @@ angular.module("app").controller('artesanatoCtrl', function($scope,$rootScope,lo
       options.params = params;
 
       var ft = new FileTransfer();
-      ft.upload(filePath, encodeURI("http://192.168.1.2:8080/Portifolio/artesanato/ArtesanatoFoto"), win, fail, options);
+      ft.upload(filePath, encodeURI(configUrl.baseUrl+"/Portifolio/artesanato/ArtesanatoFoto"), win, fail, options);
 
 
  }

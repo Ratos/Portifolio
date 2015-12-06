@@ -173,8 +173,8 @@
       <div>
 		<div class="list-card">
             <div class="item item-avatar" id="coisaartesao">
-                <img ng-show="imgAvatar !== undefined" ng-src="{{imgAvatar}}" style="width: 60px; float:left; margin: 0 0 0 -40px;">
-                <img ng-show="imgAvatar === undefined" ng-src="img/avatar.png" style="width: 60px; float:left; margin: 0 0 0 -40px;">
+                <img ng-show="Avatar !== undefined" ng-src="{{Avatar}}" style="width: 60px; float:left; margin: 0 0 0 -40px;">
+                <img ng-show="Avatar === undefined" ng-src="img/avatar.png" style="width: 60px; float:left; margin: 0 0 0 -40px;">
                 <h2 style="color:#fff; margin: 20px 0 0 30px;">{{artesao.nome}}</h2>
             </div>
 			
@@ -224,14 +224,16 @@
     		</div>
 			<div ng-show="isSet(2)">
             <div class="list card">
+            
 				<ul class="example-animate-container">
 					<li class="animate-repeat" ng-repeat="artesanato in artesanatos">
 						<div class="item item-avatar">
-							
-              <img src="">
+						
+              <img ng-src="{{imgUrl+artesanato.fotoArtesanato}}">
 
 							<h3>{{artesanato.nome}}</h3>
-							
+
+							 
 						</div>
             
                         <div class="item tabs tabs-secondary tabs-icon-left">

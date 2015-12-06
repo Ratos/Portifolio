@@ -1,6 +1,6 @@
 angular.module('site', ['ngRoute']).config(function ($routeProvider,configUrl) {
     $routeProvider
-    .when('/home', {
+    .when('/', {
         templateUrl: 'home.html',
         controller: 'homeCtrl'
     })

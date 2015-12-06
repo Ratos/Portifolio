@@ -25,13 +25,13 @@ angular.module("app").controller('editarartesaoCtrl', function($scope,$location,
       
     
     var options = {
-      quality: 50,
+      quality: 80,
       destinationType: Camera.DestinationType.DATA_URL,
       sourceType: Camera.PictureSourceType.CAMERA,
       allowEdit:false,
       encodingType: Camera.EncodingType.JPEG,
-      targetWidth: 300,
-      targetHeight: 300,
+      targetWidth: 800,
+      targetHeight: 800,
       popoverOptions: CameraPopoverOptions,
       saveToPhotoAlbum: true,
       correctOrientation:true
@@ -67,7 +67,7 @@ angular.module("app").controller('editarartesaoCtrl', function($scope,$location,
 
       var options = new FileUploadOptions();
       options.fileKey = "foto";
-      options.fileName = $scope.artesao.idArtesao+"FotoPerfil.jpg";
+      options.fileName = $scope.artesao.idArtesao+"FotoPerfil";
       options.mimeType = "image/jpeg";
       options.httpMethod = "POST";
 
@@ -78,7 +78,7 @@ angular.module("app").controller('editarartesaoCtrl', function($scope,$location,
       options.params = params;
 
       var ft = new FileTransfer();
-      ft.upload(filePath, encodeURI("http://192.168.1.2:8080/Portifolio/artesao/atualizaFoto"), win, fail, options);
+      ft.upload(filePath, encodeURI(configUrl.baseUrl+"/Portifolio/artesao/atualizaFoto"), win, fail, options);
 
 
  }

@@ -1,7 +1,15 @@
 angular.module("app").controller('artesaoCtrl', function($scope,$location,$rootScope,localStorageService,artesanatoApi,artesaoApi,configUrl,$cordovaCamera,$cordovaFileTransfer,$cordovaFile){ 
     
   $scope.artesao =  localStorageService.get('artesao');
+  $scope.imgUrl = configUrl.urlImg ;
 
+  if($scope.artesao.imgPerfil != null){
+    $scope.Avatar = $scope.imgUrl+$scope.artesao.imgPerfil; 
+  }else{
+    $scope.Avatar = undefined;
+  }
+
+  console.log($scope.imgUrl);
 
     $scope.teste = function(foto){
       console.log("ok!");

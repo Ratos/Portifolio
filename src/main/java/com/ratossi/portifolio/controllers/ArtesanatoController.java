@@ -11,20 +11,18 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.observer.download.Download;
-import br.com.caelum.vraptor.observer.download.DownloadBuilder;
-import br.com.caelum.vraptor.observer.download.FileDownload;
 import br.com.caelum.vraptor.observer.upload.UploadSizeLimit;
 import br.com.caelum.vraptor.observer.upload.UploadedFile;
 import br.com.caelum.vraptor.serialization.gson.WithoutRoot;
 import static br.com.caelum.vraptor.view.Results.json;
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import com.ratossi.portifolio.model.Artesanato;
 import com.ratossi.portifolio.model.Persistence.ArtesanatosDAOJPA;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
+import java.util.Map;
 import javax.inject.Inject;
 
 /**
@@ -51,22 +49,20 @@ public class ArtesanatoController {
        
     }
     
+   
     @Post
     @UploadSizeLimit(sizeLimit=50 * 1024 * 1024, fileSizeLimit=10 * 1024 * 1024)
     public void ArtesanatoFoto(UploadedFile foto) throws IOException {
-        File fotoSalva = new File("C:\\Users\\Gabriel\\Portifolio\\src\\main\\webapp\\WEB-INF\\upload", foto.getFileName());
-        foto.writeTo(fotoSalva);
-    }
-    
-    @Get
-    public Download foto(String foto) throws FileNotFoundException {
-        File file = new File("C:\\Users\\Gabriel\\Portifolio\\src\\main\\webapp\\WEB-INF\\upload\\"+foto);
-        String contentType = "image/jpeg";
-        String filename = foto;
-     
-        return new FileDownload(file, contentType, filename);
 
+        File fotoSalva = new File("C:\\Users\\Darlan\\Portifolio\\src\\main\\webapp\\WEB-INF\\upload", foto.getFileName()+".jpg");
+       
+        foto.writeTo(fotoSalva);
+         Cloudinary cloudinary = new Cloudinary();
+         Map params = ObjectUtils.asMap("cloud_name", "ratosi","api_key", "778298424217943","api_secret", "PCFm5ilPLraMP3aKS3lbqQDT9IU", "public_id", foto.getFileName());
+         Map uploadResult = cloudinary.uploader().upload(fotoSalva,params);
+     
     }
+  
     /*
       *Lista todos os Artesanato
     */

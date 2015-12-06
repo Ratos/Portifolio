@@ -1,4 +1,4 @@
-angular.module('site',[]).controller('artesaoCtrl', function($scope,artesaoApi,artesanatoApi){
+angular.module('site').controller('artesaoCtrl', function($scope,artesaoApi,artesanatoApi){
 	
 	$scope.listAll = function(){
 

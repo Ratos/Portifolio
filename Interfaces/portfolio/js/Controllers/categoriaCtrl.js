@@ -1,4 +1,4 @@
-angular.module('site',[]).controller('categoriaCtrl', function($scope,artesaoApi,artesanatoApi){
+angular.module('site').controller('categoriaCtrl', function($scope,artesaoApi,artesanatoApi){
 	
 	$scope.listAll = function(){
 
@@ -16,6 +16,6 @@ angular.module('site',[]).controller('categoriaCtrl', function($scope,artesaoApi
 
 	$scope.carregarArtesao = function(artesao){
 		$scope.artesao = artesao;
-		//$location.url('/artesao');
+		$location.url('/artesao');
 	};
 });
