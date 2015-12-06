@@ -1,4 +1,4 @@
-angular.module('site').controller('categoriaCtrl', function($scope,artesaoApi,artesanatoApi,$location,$rootScope){
+angular.module('site').controller('categoriaCtrl', function($scope,artesaoApi,artesanatoApi,$location,$rootScope, configUrl){
 	
 	$scope.listAll = function(){
 
@@ -18,4 +18,13 @@ angular.module('site').controller('categoriaCtrl', function($scope,artesaoApi,ar
 		$rootScope.artesao = artesao;
 		$location.url('/artesao');
 	};
+
+	$scope.buscafiltro = function(categoria){
+		artesanatoApi.getArtesanatosCategoria(categoria).success(function(data,status){
+			$rootScope.artesanatos = data.list;
+			$location.url('/explorarArt');
+		});
+	};
+
+	$scope.imgUrl = configUrl.urlImg;
 });

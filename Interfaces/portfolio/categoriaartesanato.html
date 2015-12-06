@@ -197,13 +197,13 @@
 		
 			<div class="large-9 columns panel radius" id="borda">
 					
-				<ul class="small-block-grid-3" ng-repeat="artesao in artesoes">
+				<ul class="small-block-grid-3" ng-repeat="artesanato in artesanatos">
 							<li>
 							
 								<a ng-click="carregarArtesao(artesao)">
-									<img src="{{imgUrl+artesao.imgPerfil}}" style="border-radius: 25px;">
+									<img src="{{imgUrl+artesanato.fotoArtesanato}}" style="border-radius: 25px;">
 									
-									<label class="nomeautor">{{artesao.nome}}</label>
+									<label class="nomeproduto">{{artesanato.nome}}</label>
 								</a>
 							
 							</li>

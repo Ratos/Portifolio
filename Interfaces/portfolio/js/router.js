@@ -8,6 +8,10 @@ angular.module('site', ['ngRoute']).config(function ($routeProvider,configUrl) {
         templateUrl: 'categoria.html',
         controller: 'categoriaCtrl'
     })
+    .when('/explorarArt', {
+        templateUrl: 'categoriaartesanato.html',
+        controller: 'categoriaArtCtrl'
+    })
     .when('/artesao', {
         templateUrl: 'artesao.html',
         controller: 'artesaoCtrl'
