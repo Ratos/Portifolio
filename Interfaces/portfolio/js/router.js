@@ -16,6 +16,10 @@ angular.module('site', ['ngRoute']).config(function ($routeProvider,configUrl) {
         templateUrl: 'artesao.html',
         controller: 'artesaoCtrl'
     })
+    .when('/artesanato',{
+        templateUrl: 'artesanato.html',
+        controller: 'artesanatoCtrl'
+    })
     .otherwise({
       templateUrl: 'home.html'
     });

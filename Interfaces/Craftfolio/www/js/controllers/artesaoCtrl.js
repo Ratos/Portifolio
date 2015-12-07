@@ -82,6 +82,7 @@ angular.module("app").controller('artesaoCtrl', function($scope,$location,$rootS
   $scope.cadastroArtesanato = function(){
        $scope.artesanato = null; 
        $rootScope.artesanato = null;
+        $rootScope.imgURI = null;
        $location.url('/cadastrarartesanato');
     };
  

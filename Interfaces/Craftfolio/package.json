@@ -1,7 +1,7 @@
 {
-  "name": "portfolioapp",
+  "name": "craftfolio",
   "version": "1.1.1",
-  "description": "PortfolioApp: An Ionic project",
+  "description": "craftfolio: An Ionic project",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^2.0.4",
@@ -20,9 +20,7 @@
     "cordova-plugin-whitelist",
     "cordova-plugin-splashscreen",
     "cordova-plugin-statusbar",
-    "ionic-plugin-keyboard",
-    "org.apache.cordova.file-transfer",
-    "org.apache.cordova.file"
+    "ionic-plugin-keyboard"
   ],
   "cordovaPlatforms": [
     "android"

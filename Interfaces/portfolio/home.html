@@ -92,8 +92,7 @@
 				  <div class="row">
 					<hr>
 					<div class="large-12 columns">
-					  <h4>Algumas obras aleatórias!</h4>
-					  <p>Clique na imagem e ela expandirá</p>
+					  
 
 					  <ul class="clearing-thumbs small-block-grid-3" data-clearing>
 							<li><a href="{{artesanato.fotoArtesanato}}"><img data-caption={{artesanato.descricao}} src="img/1.jpg" style="border-radius: 25px;"></a></li>
@@ -162,10 +161,13 @@
 		  <div class="row" id="estilofundo">
 			<div class="large-12 columns">
 			  <h4>Algumas aleatórias!</h4>
-			  <p>Clique na imagem e ela expandirá</p>
+			 
 
 			  <ul class="clearing-thumbs small-block-grid-3" data-clearing ng-repeat="artesanato in artesanatos">
-					<li><a href=""><img data-caption={{artesanato.descricao}} src="" style="border-radius: 25px;"></a></li>
+					<li>
+						<img  ng-src="{{imgUrl+artesanato.fotoArtesanato}}" style="border-radius: 25px;"><br>
+							<strong><a ng-click="carregarArtesanato(artesanato)"><i>{{artesanato.nome}}</i></a>	</strong> <br>
+					</li>
 			  </ul>
 			</div>
 			

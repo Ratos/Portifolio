@@ -1,5 +1,5 @@
 
-	<span ng-init="listAll()"></span>
+	<span ng-init="getidArt()"></span>
 	<!-- Menu normal-->
 	<nav id="cormenucima" class="top-bar hide-for-small" data-topbar>
 		<ul class="title-area">
@@ -114,37 +114,26 @@
 			<br>
 			<div class="large-8 columns">
                 <br><br>
-		         <h2><i>{{artesao.nome}}</i><br></h2>
-				 <strong>Contato:</strong> <i>{{artesao.tel}}</i><br>
-				 <strong>Endereço: </strong> <i>{{artesao.endereco}}</i><br>
+			  
+			 
+                 <h2><i>{{artesanato.nome}}</i><br></h2>
+				 <strong>Categoria:</strong> <i>{{artesanato.categoria}}</i><br>
+				 <strong>Descrição: </strong> <p><i>{{artesanato.descricao}}</i></p><br>
+				 <strong>Loja: </strong> <i>{{artesanato.loja}}</i><br>
+				 <strong>Artesao: </strong> <a ng-click="carregarArtesao(artesao)"><i>{{artesao.nome}}</i></a><br>
+				 <strong>Contato: </strong><i>{{artesao.tel}}</i><br>
+
 							
 				
 			
 			</div>
 			<div class="large-4 columns">
-			  <img ng-src="{{imgUrl+avatar}}" style="border-radius: 50%;">
+			  <img ng-src="{{imgUrl+artesanato.fotoArtesanato}}" style="border-radius: 50%;">
 			</div>
             <div class="row" style="color:#eee; margin:0 0 0 30px;">.</div>
 		  </div>
 
-		  <div class="row" id="estilofundobordabaixo">
-			<div class="large-12 columns">
-				<h3>Artesanatos</h3>
-				<br/>
-
-				<ul class="clearing-thumbs small-block-grid-4 row medium-unstack" data-clearing ng-repeat="artesanato in artesanatos">
-					<li class="columns">
-							
-							<img  ng-src="{{imgUrl+artesanato.fotoArtesanato}}" style="border-radius: 25px;"><br>
-							<strong><a ng-click="carregarArtesanato(artesanato)"><i>{{artesanato.nome}}</i></a>	</strong> <br>
-							 <strong>Categoria:</strong> <i>{{artesanato.categoria}}</i><br>
-							 <strong>Descrição: </strong> <p><i>{{artesanato.descricao}}</i></p><br>
-						
-					</li>
-				</ul>
-		
-				
-			</div>
+		  
 		</div>
 		<br>
 		<br>

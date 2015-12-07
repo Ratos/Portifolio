@@ -107,6 +107,7 @@
 				  </div>
 				  
 				</section>
+				
 				<footer id="corfooterpeq" class="tab-bar show-for-small">
 					<div id="fontsizefooter"  class="tab-bar-section">© Copyright Ratos SI. Todos os direitos reservados!</div>
 				</footer>
@@ -201,7 +202,7 @@
 							<li>
 							
 								<a ng-click="carregarArtesao(artesao)">
-									<img src="{{imgUrl+artesao.imgPerfil}}" style="border-radius: 25px;">
+									<img ng-src="{{imgUrl+artesao.imgPerfil}}" style="border-radius: 25px;">
 									
 									<label class="nomeautor">{{artesao.nome}}</label>
 								</a>

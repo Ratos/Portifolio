@@ -1,6 +1,6 @@
 angular.module('site').controller('categoriaArtCtrl', function($scope,artesaoApi,artesanatoApi,$location,$rootScope,configUrl){
 
-	
+	$scope.imgUrl = configUrl.urlImg;
 
 	$scope.listAll = function(){
 
@@ -11,10 +11,17 @@ angular.module('site').controller('categoriaArtCtrl', function($scope,artesaoApi
 
 	};
 
-$scope.artesanatos = $rootScope.artesanatos;
+	$scope.artesanatos = $rootScope.artesanatos;
 
-	$scope.carregarArtesao = function(artesao){
-		$scope.artesao = artesao;
-		$location.url('/artesao');
+	$scope.carregarArtesanato = function(artesanato){
+		$rootScope.artesanato = artesanato;
+		$location.url('/artesanato');
+	};
+
+	$scope.buscafiltro = function(categoria){
+		artesanatoApi.getArtesanatosCategoria(categoria).success(function(data,status){
+			$rootScope.artesanatos = data.list;
+			$location.url('/explorarArt');
+		});
 	};
 });

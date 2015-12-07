@@ -13,6 +13,7 @@ angular.module("app").controller('editarartesaoCtrl', function($scope,$location,
         
            // $scope.testFileUpload();      
             $scope.upload($rootScope.imgAvatar);
+            
             $location.url('/initialpage');
 
         }).error(function(data,status){

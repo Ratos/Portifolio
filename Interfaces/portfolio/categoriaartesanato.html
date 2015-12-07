@@ -83,7 +83,7 @@
 							
 						<ul class="small-block-grid-3" ng-repeat="artesao in artesoes">
 							<li>
-								<img src="img/1.jpg" style="border-radius: 25px;">
+								<img src="{{imgUrl+artesanato.fotoArtesanato}}" style="border-radius: 25px;">
 
 								<label class="nomeprodutopeq">{{artesanato.nome}}</label>
 								<label class="nomeautorpeq">{{artesao.nome}}</label>
@@ -200,8 +200,8 @@
 				<ul class="small-block-grid-3" ng-repeat="artesanato in artesanatos">
 							<li>
 							
-								<a ng-click="carregarArtesao(artesao)">
-									<img src="{{imgUrl+artesanato.fotoArtesanato}}" style="border-radius: 25px;">
+								<a ng-click="carregarArtesanato(artesanato)">
+									<img src="{{imgUrl+artesanato.fotoArtesanato}}" style="border-radius: 25px;"><br>
 									
 									<label class="nomeproduto">{{artesanato.nome}}</label>
 								</a>
